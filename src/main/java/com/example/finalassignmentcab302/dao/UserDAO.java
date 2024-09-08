@@ -23,7 +23,8 @@ public class UserDAO {
                             + "firstName VARCHAR NOT NULL, "
                             + "lastName VARCHAR NOT NULL, "
                             + "userName VARCHAR UNIQUE NOT NULL, "
-                            + "password VARCHAR NOT NULL"
+                            + "password VARCHAR NOT NULL, "
+                            + "email VARCHAR NOT NULL"
                             + ")"
             );
         } catch (SQLException ex) {
@@ -34,12 +35,13 @@ public class UserDAO {
     public void insert(User user) {
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
-                    "INSERT INTO users (firstName, lastName, userName, password) VALUES (?, ?, ?, ?)"
+                    "INSERT INTO users (firstName, lastName, userName, password, email) VALUES (?, ?, ?, ?, ?)"
             );
             insertAccount.setString(1, user.getFirstName());
             insertAccount.setString(2, user.getLastName());
             insertAccount.setString(3, user.getUserName());
             insertAccount.setString(4, user.getPassword());
+            insertAccount.setString(5, user.getEmail());
             insertAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -49,14 +51,15 @@ public class UserDAO {
     public void update(User user) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
-                    "UPDATE users SET firstName = ?, lastName = ?, userName = ?, password = ? WHERE id = ?"
+                    "UPDATE users SET firstName = ?, lastName = ?, userName = ?, password = ?, email = ? WHERE id = ?"
             );
             // note change where id = to username and password for forget password
             updateAccount.setString(1, user.getFirstName());
             updateAccount.setString(2, user.getLastName());
             updateAccount.setString(3, user.getUserName());
             updateAccount.setString(4, user.getPassword());
-            updateAccount.setInt(5, user.getId());
+            updateAccount.setString(5, user.getEmail());
+            updateAccount.setInt(6, user.getId());
             updateAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -85,7 +88,8 @@ public class UserDAO {
                                 rs.getString("firstName"),
                                 rs.getString("lastName"),
                                 rs.getString("userName"),
-                                rs.getString("password")
+                                rs.getString("password"),
+                                rs.getString("email")
                         )
                 );
             }
@@ -95,7 +99,7 @@ public class UserDAO {
         return allUsers;
     }
 
-    public User getById(int id) {
+    public User getByLogin(int id) {
         try {
             PreparedStatement getUser = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
             getUser.setInt(1, id);
@@ -106,7 +110,8 @@ public class UserDAO {
                         rs.getString("firstName"),
                         rs.getString("lastName"),
                         rs.getString("userName"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("email")
                 );
             }
         } catch (SQLException ex) {

@@ -1,0 +1,133 @@
+package com.example.finalassignmentcab302.dao;
+
+import com.example.finalassignmentcab302.DatabaseConnection;
+import com.example.finalassignmentcab302.Tables.Organisation;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+// DAO for organisation main table
+
+public class OrganisationDAO {
+    private Connection connection;
+
+    public OrganisationDAO() {
+        connection = DatabaseConnection.getInstance();
+    }
+
+    public void createTable() {
+        try {
+            Statement createTable = connection.createStatement();
+            createTable.execute(
+                    "CREATE TABLE IF NOT EXISTS organisations ("
+                            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            + "name VARCHAR NOT NULL, "
+                            + "description VARCHAR NOT NULL, "
+                            + "imgPath VARCHAR NOT NULL, "
+                            + "email VARCHAR NOT NULL, "
+                            + "groupSupported VARCHAR NOT NULL"
+                            + ")"
+            );
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public void insert(Organisation organisation) {
+        try {
+            PreparedStatement insertOrganisation = connection.prepareStatement(
+                    "INSERT INTO users (name, description, imgPath, email, groupSupported) VALUES (?, ?, ?, ?, ?)"
+            );
+            insertOrganisation.setString(1, organisation.getName());
+            insertOrganisation.setString(2, organisation.getDescription());
+            insertOrganisation.setString(3, organisation.getImgPath());
+            insertOrganisation.setString(4, organisation.getEmail());
+            insertOrganisation.setString(5, organisation.getGroupSupported());
+            insertOrganisation.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public void update(Organisation organisation) {
+        try {
+            PreparedStatement updateOrganisation = connection.prepareStatement(
+                    "UPDATE users SET name = ?, description = ?, imgPath = ?, email = ?, groupSupported = ? " +
+                            "WHERE id = ?"
+            );
+            // note change where id = to username and password for forget password
+            updateOrganisation.setString(1, organisation.getName());
+            updateOrganisation.setString(2, organisation.getDescription());
+            updateOrganisation.setString(3, organisation.getImgPath());
+            updateOrganisation.setString(4, organisation.getEmail());
+            updateOrganisation.setString(5, organisation.getGroupSupported());
+            updateOrganisation.setInt(6, organisation.getId());
+            updateOrganisation.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public void delete(int id) {
+        try {
+            PreparedStatement deleteOrganisation = connection.prepareStatement("DELETE FROM organisations WHERE id = ?");
+            deleteOrganisation.setInt(1, id);
+            deleteOrganisation.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+
+    public List<Organisation> getAll() {
+        List<Organisation> allUsers = new ArrayList<>();
+        try{
+            Statement getAll = connection.createStatement();
+            ResultSet rs = getAll.executeQuery("SELECT * FROM organisations");
+            while (rs.next()){
+                allUsers.add(
+                        new Organisation(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getString("description"),
+                                rs.getString("imgPath"),
+                                rs.getString("email"),
+                                rs.getString("groupSupported")
+                        )
+                );
+            }
+        }catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return allUsers;
+    }
+
+    public Organisation getByLogin(int id) {
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement("SELECT * FROM organisations WHERE id = ?");
+            getOrganisation.setInt(1, id);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                return new Organisation(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getString("imgPath"),
+                        rs.getString("email"),
+                        rs.getString("groupSupported")
+                );
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null;
+    }
+
+    public void close() {
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+}

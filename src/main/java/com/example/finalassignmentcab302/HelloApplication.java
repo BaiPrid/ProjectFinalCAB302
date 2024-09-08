@@ -1,5 +1,7 @@
 package com.example.finalassignmentcab302;
 import java.sql.Connection;
+
+import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 import com.example.finalassignmentcab302.dao.*;
 
 import javafx.application.Application;
@@ -20,13 +22,18 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-
+        //creates tables for each neccesary class by creating a connection to API and creating instance of each object
         launch();
         Connection connection = DatabaseConnection.getInstance();
         UserDAO userDAO = new UserDAO();
         userDAO.createTable();
+        OrganisationDAO organisationDao = new OrganisationDAO();
+        organisationDao.createTable();
+        OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
+        organisationAnswersDAO.createTable();
 
         userDAO.close();
+        organisationDao.close();
     }
 }
 

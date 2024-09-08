@@ -8,20 +8,23 @@ public class User {
     private String lastName;
     private String userName;
     private String password;
+    private String email;
 
-    public User(int id, String firstName, String lastName, String userName, String password){
+    public User(int id, String firstName, String lastName, String userName, String password, String email){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
+        this.email = email;
     }
 
-    public User(String firstName, String lastName, String userName, String password){
+    public User(String firstName, String lastName, String userName, String password, String email){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
+        this.email = email;
     }
 
     public int getId(){
@@ -39,6 +42,9 @@ public class User {
     public String getPassword(){
         return password;
     }
+    public String getEmail(){
+        return email;
+    }
 
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -52,6 +58,9 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
+    public void setEmail(String email){
+        this.email = email;
+    }
 
     @Override
     public String toString() {
@@ -60,6 +69,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
                 ", password=" + password +
                 '}';
     }
