@@ -31,7 +31,13 @@ public class HelloApplication extends Application {
         organisationDao.createTable();
         OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
         organisationAnswersDAO.createTable();
+        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+        userAnswersDAO.createTable();
+        OrderDAO orderDAO = new OrderDAO();
+        orderDAO.createTable();
 
+        orderDAO.close();
+        organisationAnswersDAO.close();
         userDAO.close();
         organisationDao.close();
     }
