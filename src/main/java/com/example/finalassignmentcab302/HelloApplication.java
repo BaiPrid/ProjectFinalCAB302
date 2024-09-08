@@ -1,4 +1,6 @@
 package com.example.finalassignmentcab302;
+import java.sql.Connection;
+import com.example.finalassignmentcab302.dao.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +20,13 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
+        Connection connection = DatabaseConnection.getInstance();
+        UserDAO userDAO = new UserDAO();
+        userDAO.createTable();
+
+        userDAO.close();
     }
 }
 
