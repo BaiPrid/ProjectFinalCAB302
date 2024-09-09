@@ -22,7 +22,7 @@ public class OrganisationAnswersDAO {
             Statement createTable = connection.createStatement();
             createTable.execute(
                     "CREATE TABLE IF NOT EXISTS organisationAnswersTable ("
-                            + "organisationId INTEGER PRIMARY KEY, "
+                            + "organisationId INTEGER, "
                             + "category VARCHAR, "
                             + "size VARCHAR, "
                             + "donationOptions VARCHAR, "

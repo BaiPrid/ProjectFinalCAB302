@@ -23,7 +23,7 @@ public class UserAnswersDAO {
             Statement createTable = connection.createStatement();
             createTable.execute(
                     "CREATE TABLE IF NOT EXISTS userAnswersTable ("
-                            + "userId INTEGER PRIMARY KEY, "
+                            + "userId INTEGER, "
                             + "category VARCHAR, "
                             + "size VARCHAR, "
                             + "donationOptions VARCHAR, "
