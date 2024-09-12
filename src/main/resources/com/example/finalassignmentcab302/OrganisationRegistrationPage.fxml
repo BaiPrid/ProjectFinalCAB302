@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.collections.FXCollections?>
+
+
+<?import java.lang.String?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.OrganisationRegistrationController"
+            fitToWidth="true" fitToHeight="true">
+    <VBox spacing="20.0">
+        <padding>
+            <Insets bottom="20.0" left="20" right="20"/>
+        </padding>
+        <!--TASKBAR -->
+        <HBox spacing="50.0" alignment="CENTER">
+            <Button text="Home"/>
+
+            <Button text="Account" fx:id="Account"/>
+            <Button text="Favourites" fx:id="Favourites"/>
+            <Button text="Login Page" fx:id="Login_Page"/>
+            <Button text="Roulette" fx:id="Roulette"/>
+
+        </HBox>
+
+
+        <HBox alignment="CENTER" spacing="30.0">
+
+            <!--Left side forms -->
+            <VBox maxWidth="430.00" HBox.hgrow="ALWAYS">
+                <HBox spacing="75">
+                    <VBox>
+                    <Label text="Name of Organisation"/>
+                    <TextField promptText="Enter Name" fx:id="OrganisationName"/>
+                    <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                    <VBox>
+                    <Label text="Group Supported"/>
+                    <TextField promptText="Enter Group Supported" fx:id="SupportedGroup" />
+                    <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                </HBox>
+                <Label text="Description of Organisation"/>
+                <TextArea promptText="Describe your Organisation Here"  maxHeight="110" fx:id="OrganisationDescription"/>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+
+                <Label text="Select Default Donation Amounts in dollars"/>
+                <HBox spacing="30.0">
+                    <VBox>
+                    <CheckBox fx:id="five"/>
+                        <Label text="5"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="ten"/>
+                        <Label text="10"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="fifteen"/>
+                        <Label text="15"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="twenty"/>
+                        <Label text="20"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="fifty"/>
+                        <Label text="50"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="hundred"/>
+                        <Label text="100"/>
+                    </VBox>
+                    <VBox>
+                    <CheckBox fx:id="twohundred"/>
+                        <Label text="200"/>
+                    </VBox>
+
+                </HBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <HBox spacing="75">
+                    <VBox>
+                <Label text="Username for Organisation"/>
+                <TextField promptText="Enter Organisation Username" fx:id="OrganisationUsername"/>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                    <VBox>
+                <Label text="Password for Organisation"/>
+                <TextField promptText="Enter Organisation Password" fx:id="OrganisationPassword"/>
+                    </VBox>
+                </HBox>
+
+
+                <Label text="Select Image to go With your Organisation"/>
+                <Button text="Select an Image" onAction="#openImageFile" layoutX="10" layoutY="10" minWidth="300" fx:id="ImageSelect"/>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            </VBox>
+
+            <!--Right side forms -->
+            <VBox maxWidth="430.00" HBox.hgrow="ALWAYS" >
+                <padding>
+                    <Insets  left="20" />
+                </padding>
+                <Label text="Select Category of Group Supported"/>
+                <ComboBox minWidth="300" fx:id="CategorySupportedGroup">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Animals"/>
+                            <String fx:value="Orphans"/>
+                            <String fx:value="Environmental"/>
+                            <String fx:value="Cancer Patients"/>
+                            <String fx:value="Local Schools"/>
+                            <String fx:value="Poor Countries"/>
+                            <String fx:value="Homeless"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Category of Organisation"/>
+                    <ComboBox minWidth="300" fx:id="CategoryOfOrganisation">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Not-For-Profit"/>
+                                <String fx:value="For-Profit"/>
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Size of Organisation"/>
+                <ComboBox minWidth="300" fx:id="SizeOfOrganisation">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Local - 5-50 people "/>
+                            <String fx:value="Small - 50-500 people"/>
+                            <String fx:value="Medium - 500-2000 people"/>
+                            <String fx:value="Large - 2000-10000 people"/>
+                            <String fx:value="National - 10000-50000 people"/>
+                            <String fx:value="Global - Over 50000 people"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Charitable Processes of Organisation"/>
+                <HBox spacing="20.0">
+                    <CheckBox text="Monetary Donation" fx:id="monetaryDonationCheckBox"/>
+                    <CheckBox text="Volunteer Work" fx:id="volunteerWorkCheckBox"/>
+                </HBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                <HBox spacing="20.0">
+                    <CheckBox text="Payed Employees" fx:id="payedEmployeesCheckBox"/>
+                    <CheckBox text="Hired 3rd Party Corporations" fx:id="hiredCorporationsCheckBox"/>
+                </HBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Taxable Category of Organisation"/>
+                <HBox spacing="50.0">
+                <!-- RadioButton 1 -->
+                <RadioButton text="Tax Deductible" fx:id="radioButton1"/>
+
+                <!-- RadioButton 2 -->
+                <RadioButton text="Not Tax Deductible" fx:id="radioButton2"/>
+                </HBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Donor Control of Donation"/>
+                <HBox spacing="15.0">
+                    <!-- RadioButton 1 -->
+                    <RadioButton text="Donor Specifies Usage" fx:id="radioButton3"/>
+
+                    <!-- RadioButton 2 -->
+                    <RadioButton text="Donor Doesn't specify Usage" fx:id="radioButton4"/>
+                </HBox>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            </VBox>
+        </HBox>
+
+        <HBox alignment="CENTER">
+            <Button fx:id="SubmitRegistration" text="Register Organisation"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
