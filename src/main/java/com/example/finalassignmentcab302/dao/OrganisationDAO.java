@@ -26,7 +26,9 @@ public class OrganisationDAO {
                             + "description VARCHAR NOT NULL, "
                             + "imgPath VARCHAR NOT NULL, "
                             + "email VARCHAR NOT NULL, "
-                            + "groupSupported VARCHAR NOT NULL"
+                            + "groupSupported VARCHAR NOT NULL, "
+                            + "userName VARCHAR NOT NULL, "
+                            + "passWord VARCHAR NOT NULL"
                             + ")"
             );
         } catch (SQLException ex) {
@@ -37,13 +39,15 @@ public class OrganisationDAO {
     public void insert(Organisation organisation) {
         try {
             PreparedStatement insertOrganisation = connection.prepareStatement(
-                    "INSERT INTO users (name, description, imgPath, email, groupSupported) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO users (name, description, imgPath, email, groupSupported, userName, passWord) VALUES (?, ?, ?, ?, ?, ?, ?)"
             );
             insertOrganisation.setString(1, organisation.getName());
             insertOrganisation.setString(2, organisation.getDescription());
             insertOrganisation.setString(3, organisation.getImgPath());
             insertOrganisation.setString(4, organisation.getEmail());
             insertOrganisation.setString(5, organisation.getGroupSupported());
+            insertOrganisation.setString(6, organisation.getUserName());
+            insertOrganisation.setString(7, organisation.getPassWord());
             insertOrganisation.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -53,7 +57,7 @@ public class OrganisationDAO {
     public void update(Organisation organisation) {
         try {
             PreparedStatement updateOrganisation = connection.prepareStatement(
-                    "UPDATE users SET name = ?, description = ?, imgPath = ?, email = ?, groupSupported = ? " +
+                    "UPDATE users SET name = ?, description = ?, imgPath = ?, email = ?, groupSupported = ?, userName = ?, passWord = ? " +
                             "WHERE id = ?"
             );
             // note change where id = to username and password for forget password
@@ -62,7 +66,9 @@ public class OrganisationDAO {
             updateOrganisation.setString(3, organisation.getImgPath());
             updateOrganisation.setString(4, organisation.getEmail());
             updateOrganisation.setString(5, organisation.getGroupSupported());
-            updateOrganisation.setInt(6, organisation.getId());
+            updateOrganisation.setString(6, organisation.getUserName());
+            updateOrganisation.setString(7, organisation.getPassWord());
+            updateOrganisation.setInt(8, organisation.getId());
             updateOrganisation.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -92,7 +98,9 @@ public class OrganisationDAO {
                                 rs.getString("description"),
                                 rs.getString("imgPath"),
                                 rs.getString("email"),
-                                rs.getString("groupSupported")
+                                rs.getString("groupSupported"),
+                                rs.getString("userName"),
+                                rs.getString("passWord")
                         )
                 );
             }
@@ -114,7 +122,9 @@ public class OrganisationDAO {
                         rs.getString("description"),
                         rs.getString("imgPath"),
                         rs.getString("email"),
-                        rs.getString("groupSupported")
+                        rs.getString("groupSupported"),
+                        rs.getString("userName"),
+                        rs.getString("passWord")
                 );
             }
         } catch (SQLException ex) {

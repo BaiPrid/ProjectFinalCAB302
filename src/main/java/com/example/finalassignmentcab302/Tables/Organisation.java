@@ -9,22 +9,28 @@ public class Organisation {
     private String imgPath;
     private String email;
     private String groupSupported;
+    private String userName;
+    private String passWord;
 
-    public Organisation(int id, String name, String groupSupported, String description, String imgPath, String email){
+    public Organisation(int id, String name, String groupSupported, String description, String imgPath, String email, String userName, String passWord){
         this.id = id;
         this.name = name;
         this.groupSupported = groupSupported;
         this.description = description;
         this.imgPath = imgPath;
         this.email = email;
+        this.userName = userName;
+        this.passWord = passWord;
     }
 
-    public Organisation(String name, String groupSupported, String description, String imgPath, String email){
+    public Organisation(String name, String groupSupported, String description, String imgPath, String email, String userName, String passWord){
         this.name = name;
         this.groupSupported = groupSupported;
         this.description = description;
         this.imgPath = imgPath;
         this.email = email;
+        this.userName = userName;
+        this.passWord = passWord;
     }
 
     public int getId(){
@@ -45,6 +51,12 @@ public class Organisation {
     public String getEmail(){
         return email;
     }
+    public String getUserName(){
+        return userName;
+    }
+    public String getPassWord(){
+        return passWord;
+    }
 
 
 
@@ -62,6 +74,12 @@ public class Organisation {
     }
     public void setEmail(String email){
         this.email = email;
+    }
+    public void setUserName(String userName){
+        this.userName = userName;
+    }
+    public void setPassWord(String passWord){
+        this.passWord = passWord;
     }
 
 
