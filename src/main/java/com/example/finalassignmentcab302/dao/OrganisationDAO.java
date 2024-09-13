@@ -39,7 +39,7 @@ public class OrganisationDAO {
     public void insert(Organisation organisation) {
         try {
             PreparedStatement insertOrganisation = connection.prepareStatement(
-                    "INSERT INTO users (name, description, imgPath, email, groupSupported, userName, passWord) VALUES (?, ?, ?, ?, ?, ?, ?)"
+                    "INSERT INTO organisations (name, description, imgPath, email, groupSupported, userName, passWord) VALUES (?, ?, ?, ?, ?, ?, ?)"
             );
             insertOrganisation.setString(1, organisation.getName());
             insertOrganisation.setString(2, organisation.getDescription());
@@ -86,12 +86,12 @@ public class OrganisationDAO {
     }
 
     public List<Organisation> getAll() {
-        List<Organisation> allUsers = new ArrayList<>();
+        List<Organisation> allOrganisation = new ArrayList<>();
         try{
             Statement getAll = connection.createStatement();
             ResultSet rs = getAll.executeQuery("SELECT * FROM organisations");
             while (rs.next()){
-                allUsers.add(
+                allOrganisation.add(
                         new Organisation(
                                 rs.getInt("id"),
                                 rs.getString("name"),
@@ -107,7 +107,7 @@ public class OrganisationDAO {
         }catch (SQLException ex) {
             System.err.println(ex);
         }
-        return allUsers;
+        return allOrganisation;
     }
 
     public Organisation getByLogin(int id) {

@@ -53,6 +53,13 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
     }
 
+    public void switchToLoginPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
+
 
 }
 

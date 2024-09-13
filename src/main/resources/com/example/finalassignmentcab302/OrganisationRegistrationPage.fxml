@@ -51,38 +51,8 @@
                 <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
 
 
-                <Label text="Select Default Donation Amounts in dollars"/>
-                <HBox spacing="30.0">
-                    <VBox>
-                    <CheckBox fx:id="five"/>
-                        <Label text="5"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="ten"/>
-                        <Label text="10"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="fifteen"/>
-                        <Label text="15"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="twenty"/>
-                        <Label text="20"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="fifty"/>
-                        <Label text="50"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="hundred"/>
-                        <Label text="100"/>
-                    </VBox>
-                    <VBox>
-                    <CheckBox fx:id="twohundred"/>
-                        <Label text="200"/>
-                    </VBox>
-
-                </HBox>
+                <Label text="Organisation Email"/>
+                <TextField promptText="Enter Email" fx:id="OrganisationEmail"/>
                 <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
 
                 <HBox spacing="75">
@@ -159,8 +129,8 @@
                     <CheckBox text="Monetary Donation" fx:id="monetaryDonationCheckBox"/>
                     <CheckBox text="Volunteer Work" fx:id="volunteerWorkCheckBox"/>
                 </HBox>
-                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
-                <HBox spacing="20.0">
+                <Pane minHeight="5"/> <!-- Spacer Pane for custom spacing -->
+                <HBox spacing="30.0">
                     <CheckBox text="Payed Employees" fx:id="payedEmployeesCheckBox"/>
                     <CheckBox text="Hired 3rd Party Corporations" fx:id="hiredCorporationsCheckBox"/>
                 </HBox>
@@ -185,11 +155,43 @@
                     <RadioButton text="Donor Doesn't specify Usage" fx:id="radioButton4"/>
                 </HBox>
                 <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+                <Label text="Select Default Donation Amounts in dollars"/>
+                <HBox spacing="30.0">
+                <VBox>
+                    <CheckBox fx:id="five"/>
+                    <Label text="5"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="ten"/>
+                    <Label text="10"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="fifteen"/>
+                    <Label text="15"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="twenty"/>
+                    <Label text="20"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="fifty"/>
+                    <Label text="50"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="hundred"/>
+                    <Label text="100"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="twohundred"/>
+                    <Label text="200"/>
+                </VBox>
+                </HBox>
             </VBox>
         </HBox>
 
         <HBox alignment="CENTER">
-            <Button fx:id="SubmitRegistration" text="Register Organisation"/>
+            <Button fx:id="SubmitRegistration" text="Register Organisation" onAction="#handleAccountButtonAction"/>
         </HBox>
     </VBox>
 </ScrollPane>

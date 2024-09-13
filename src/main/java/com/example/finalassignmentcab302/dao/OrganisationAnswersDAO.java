@@ -21,15 +21,15 @@ public class OrganisationAnswersDAO {
         try {
             Statement createTable = connection.createStatement();
             createTable.execute(
-                    "CREATE TABLE IF NOT EXISTS organisationAnswersTable ("
-                            + "organisationId INTEGER, "
-                            + "category VARCHAR, "
-                            + "size VARCHAR, "
-                            + "donationOptions VARCHAR, "
-                            + "taxableCategory VARCHAR, "
-                            + "donorSpecifies BOOLEAN, "
-                            + "FOREIGN KEY (organisationId) REFERENCES organisations(id)"
-                            + ")"
+                    "CREATE TABLE IF NOT EXISTS organisationAnswersTable (" +
+                            "organisationId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                            "category VARCHAR, " +
+                            "size VARCHAR, " +
+                            "donationOptions VARCHAR, " +
+                            "taxableCategory VARCHAR, " +
+                            "donorSpecifies BOOLEAN, " +
+                            "FOREIGN KEY (organisationId) REFERENCES organisations(id)" +
+                            ")"
             );
         } catch (SQLException ex) {
             System.err.println(ex);
