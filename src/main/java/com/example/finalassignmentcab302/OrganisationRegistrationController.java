@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 
 import java.io.File;
+import java.io.IOException;
 
 public class OrganisationRegistrationController {
 
@@ -128,5 +129,13 @@ public class OrganisationRegistrationController {
         radioButton3.setToggleGroup(group2);
         radioButton4.setToggleGroup(group2);
 
+    }
+
+
+    @FXML
+    private void handleOpenCharities() throws IOException {
+        Stage stage = (Stage) Account.getScene().getWindow(); // Get the current stage
+        HelloApplication app = new HelloApplication();
+        app.switchToCharitiesPage(stage); // Switch to the new page
     }
 }

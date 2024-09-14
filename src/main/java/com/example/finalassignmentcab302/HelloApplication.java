@@ -53,6 +53,14 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
     }
 
+    // Method to switch to the new page
+    public void switchToCharitiesPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
+
 
 }
 
