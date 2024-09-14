@@ -15,7 +15,7 @@
             fitToWidth="true" fitToHeight="true">
     <VBox spacing="20.0">
         <padding>
-            <Insets bottom="20.0" left="20" right="20"/>
+            <Insets bottom="20.0" left="50" right="50"/>
         </padding>
         <!--TITLE -->
         <HBox alignment="CENTER">
@@ -23,12 +23,28 @@
             minHeight="50.0"/>
         </HBox>
 
-
+        <!-- CHARITY 1 -->
         <VBox spacing="20.0">
-            <Label fx:id="lblCharity1"
-                   minHeight="50.0"/>
+            <Label fx:id="lblCharity1"/>
             <Text fx:id="txtCharity1"/>
+            <Button fx:id="btnCharity1" text="Take me there!"/>
         </VBox>
+
+        <!-- CHARITY 2 -->
+        <VBox spacing="20.0">
+            <Label fx:id="lblCharity2"/>
+            <Text fx:id="txtCharity2"/>
+            <Button fx:id="btnCharity2" text="Take me there!"/>
+        </VBox>
+
+        <!-- CHARITY 3 -->
+        <VBox spacing="20.0">
+            <Label fx:id="lblCharity3"/>
+            <Text fx:id="txtCharity3"/>
+            <Button fx:id="btnCharity3" text="Take me there!"/>
+        </VBox>
+
+        <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
 
     </VBox>
 
