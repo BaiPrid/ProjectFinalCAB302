@@ -35,6 +35,13 @@ public class UserAnswers {
         this.userAns3 = userAns3;
     }
 
+    public UserAnswers(int userID, String userAns1, String userAns2, String userAns3){
+        this.userId = userID;
+        this.userAns1 = userAns1;
+        this.userAns2 = userAns2;
+        this.userAns3 = userAns3;
+    }
+
     public int getUserId(){
         return userId;
     }

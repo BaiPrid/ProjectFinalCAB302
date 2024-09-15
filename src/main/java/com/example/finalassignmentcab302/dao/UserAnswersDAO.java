@@ -23,7 +23,7 @@ public class UserAnswersDAO {
             Statement createTable = connection.createStatement();
             createTable.execute(
                     "CREATE TABLE IF NOT EXISTS userAnswersTable ("
-                            + "userId INTEGER, "
+                            + "userId INTEGER PRIMARY KEY AUTOINCREMENT, "
                             + "category VARCHAR, "
                             + "size VARCHAR, "
                             + "donationOptions VARCHAR, "
@@ -44,7 +44,7 @@ public class UserAnswersDAO {
         try {
             PreparedStatement insertUserAnswers = connection.prepareStatement(
                     "INSERT INTO  userAnswersTable(category, size, donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, userAns3) " +
-                            "VALUES (?, ?, ?, ?, ?)"
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             );
             insertUserAnswers.setString(1, userAnswers.getCategory());
             insertUserAnswers.setString(2, userAnswers.getSize());
@@ -81,6 +81,25 @@ public class UserAnswersDAO {
             System.err.println(ex);
         }
     }
+    ///////////////////////////// NEW SECTION ////////////////////////////////////////
+    public void updateAnswersOnly(UserAnswers userAnswers) {
+        try {
+            PreparedStatement updateUserAnswers = connection.prepareStatement(
+                    "UPDATE userAnswersTable SET  userAns1 = ?, userAns2 = ?, userAns3 = ?" +
+                            "WHERE userId = ?"
+            );
+            // note change where id = to username and password for forget password
+
+            updateUserAnswers.setString(1, userAnswers.getUserAns1());
+            updateUserAnswers.setString(2, userAnswers.getUserAns2());
+            updateUserAnswers.setString(3, userAnswers.getUserAns3());
+            updateUserAnswers.setInt(4, userAnswers.getUserId());
+            updateUserAnswers.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
+    ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
     public void delete(int userId) {
         try {

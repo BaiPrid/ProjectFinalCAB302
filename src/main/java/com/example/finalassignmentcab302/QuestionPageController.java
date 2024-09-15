@@ -1,6 +1,9 @@
 package com.example.finalassignmentcab302;
 
+import com.example.finalassignmentcab302.Tables.User;
+import com.example.finalassignmentcab302.Tables.UserAnswers;
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
+import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +14,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.finalassignmentcab302.DatabaseConnection;
-
+import com.example.finalassignmentcab302.CustomQuery;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,7 +76,36 @@ public class QuestionPageController {
         }
 
         System.out.println(questionVal);
+        /*
+        public void runCustomSQLQuery() {
+            CustomQuery customQuery = new CustomQuery();
+            String sql = "";
+            customQuery.executeQuery(sql);  // Now this will correctly refer to the method in CustomQuery
+        }
+
+         */
         //Answers will be uploaded to database here too with an sql query
+
+        /* MAKING NEW USER ENTRY
+        User user = new User("organisationName", "organisationName", "organisationName", "organisationName", "organisationName");
+        UserDAO userdao = new UserDAO();
+        userdao.insert(user);
+        */
+
+        /* MAKING NEW USER ANSWERS ENTRY
+        boolean tempvar = true;
+        //(category, size, donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, userAns3
+        UserAnswers userAnswers = new UserAnswers("test2", "test3","test4", "test5", tempvar, "ans1", "ans2", "ans3");
+        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+        userAnswersDAO.insert(userAnswers);
+        */
+
+
+        UserAnswers userAnswers = new UserAnswers(1, "update1", "update2", "update3");
+        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+        userAnswersDAO.updateAnswersOnly(userAnswers);
+
+
 
         questionIncrement++;
 

@@ -5,18 +5,17 @@ import java.sql.Statement;
 
 public class CustomQuery {
 
-    public void ExecuteQuery(String sql){
+    public void executeQuery(String sql){
         Connection connection = DatabaseConnection.getInstance();
 
         try {
             Statement statement = connection.createStatement();
             statement.execute(sql);
             System.out.println("SQL EXECUTED");
-        }
-        catch (SQLException exception) {
+        } catch (SQLException exception) {
             System.err.println("SQL NOT EXECUTED");
         }
-
-
     }
+
 }
+
