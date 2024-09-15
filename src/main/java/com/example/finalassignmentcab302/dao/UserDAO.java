@@ -24,6 +24,8 @@ public class UserDAO {
                             + "lastName VARCHAR NOT NULL, "
                             + "userName VARCHAR UNIQUE NOT NULL, "
                             + "password VARCHAR NOT NULL, "
+                            + "phoneNumber VARCHAR NOT NULL, "
+                            + "economicClass VARCHAR NOT NULL, "
                             + "email VARCHAR NOT NULL"
                             + ")"
             );
@@ -35,13 +37,15 @@ public class UserDAO {
     public void insert(User user) {
         try {
             PreparedStatement insertAccount = connection.prepareStatement(
-                    "INSERT INTO users (firstName, lastName, userName, password, email) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO users (firstName, lastName, userName, password, phoneNumber, economicClass, email) VALUES (?, ?, ?, ?, ?, ?, ?)"
             );
             insertAccount.setString(1, user.getFirstName());
             insertAccount.setString(2, user.getLastName());
             insertAccount.setString(3, user.getUserName());
             insertAccount.setString(4, user.getPassword());
-            insertAccount.setString(5, user.getEmail());
+            insertAccount.setString(5, user.getPhoneNumber());
+            insertAccount.setString(6, user.getEconomicClass());
+            insertAccount.setString(7, user.getEmail());
             insertAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -51,15 +55,17 @@ public class UserDAO {
     public void update(User user) {
         try {
             PreparedStatement updateAccount = connection.prepareStatement(
-                    "UPDATE users SET firstName = ?, lastName = ?, userName = ?, password = ?, email = ? WHERE id = ?"
+                    "UPDATE users SET firstName = ?, lastName = ?, userName = ?, password = ?, phoneNumber = ?, economicClass = ?, email = ? WHERE id = ?"
             );
             // note change where id = to username and password for forget password
             updateAccount.setString(1, user.getFirstName());
             updateAccount.setString(2, user.getLastName());
             updateAccount.setString(3, user.getUserName());
             updateAccount.setString(4, user.getPassword());
-            updateAccount.setString(5, user.getEmail());
-            updateAccount.setInt(6, user.getId());
+            updateAccount.setString(5, user.getPhoneNumber());
+            updateAccount.setString(6, user.getEconomicClass());
+            updateAccount.setString(7, user.getEmail());
+            updateAccount.setInt(8, user.getId());
             updateAccount.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -89,6 +95,8 @@ public class UserDAO {
                                 rs.getString("lastName"),
                                 rs.getString("userName"),
                                 rs.getString("password"),
+                                rs.getString("economicClass"),
+                                rs.getString("phoneNumber"),
                                 rs.getString("email")
                         )
                 );
@@ -111,6 +119,8 @@ public class UserDAO {
                         rs.getString("lastName"),
                         rs.getString("userName"),
                         rs.getString("password"),
+                        rs.getString("economicClass"),
+                        rs.getString("phoneNumber"),
                         rs.getString("email")
                 );
             }

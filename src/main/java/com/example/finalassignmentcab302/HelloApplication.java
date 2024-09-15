@@ -1,7 +1,6 @@
 package com.example.finalassignmentcab302;
 import java.sql.Connection;
 
-import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 import com.example.finalassignmentcab302.dao.*;
 
 import javafx.application.Application;
@@ -45,6 +44,12 @@ public class HelloApplication extends Application {
         organisationDao.close();
     }
 
+
+
+
+
+
+
     // Method to switch to the new page
     public void switchToOrganisationRegistrationPage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
@@ -55,6 +60,13 @@ public class HelloApplication extends Application {
 
     public void switchToLoginPage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
+
+    public void switchToUserRegistrationPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
         stage.setScene(scene);

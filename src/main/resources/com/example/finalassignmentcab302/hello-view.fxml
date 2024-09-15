@@ -6,7 +6,7 @@
 
 <?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.finalassignmentcab302.HelloController">
+      fx:controller="com.example.finalassignmentcab302.Controllers.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
@@ -14,6 +14,7 @@
     <Label fx:id="welcomeText"/>
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
     <Button fx:id="" text= "Hello!" />
-    <Button fx:id="navigateButton" text="Navigate" onAction="#handleOpenOrganisationRegistration"/>
+    <Button fx:id="navigateButton" text="RegisterOrganisation" onAction="#handleOpenOrganisationRegistration"/>
+    <Button fx:id="registerButton" text="register User" onAction="#handleOpenUserRegistration"/>
 
 </VBox>

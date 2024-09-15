@@ -9,22 +9,29 @@ public class User {
     private String userName;
     private String password;
     private String email;
+    private String phoneNumber;
+    private String economicClass;
 
-    public User(int id, String firstName, String lastName, String userName, String password, String email){
+
+    public User(int id, String firstName, String lastName, String userName, String password, String email, String phoneNumber, String economicClass){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.economicClass = economicClass;
     }
 
-    public User(String firstName, String lastName, String userName, String password, String email){
+    public User(String firstName, String lastName, String userName, String password, String email, String phoneNumber, String economicClass){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.economicClass = economicClass;
     }
 
     public int getId(){
@@ -45,6 +52,14 @@ public class User {
     public String getEmail(){
         return email;
     }
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    public String getEconomicClass(){
+        return economicClass;
+    }
+
 
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -61,6 +76,12 @@ public class User {
     public void setEmail(String email){
         this.email = email;
     }
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+    public void setEconomicClass(String economicClass){
+        this.economicClass = economicClass;
+    }
 
     @Override
     public String toString() {
@@ -70,6 +91,8 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", economicClass='" + economicClass + '\'' +
                 ", password=" + password +
                 '}';
     }

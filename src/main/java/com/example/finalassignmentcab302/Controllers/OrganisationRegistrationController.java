@@ -1,14 +1,13 @@
-package com.example.finalassignmentcab302;
+package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
+import com.example.finalassignmentcab302.Tables.User;
 import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
-import javafx.collections.FXCollections;
+import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -164,7 +163,30 @@ public class OrganisationRegistrationController {
     }
 
     @FXML
-    private void handleAccountButtonAction() throws IOException {
+    private void handleOrganisationButtonAction() throws IOException {
+
+
+        if (OrganisationName.getText().isEmpty() ||
+                SupportedGroup.getText().isEmpty() ||
+                OrganisationDescription.getText().isEmpty() ||
+                OrganisationUsername.getText().isEmpty() ||
+                OrganisationPassword.getText().isEmpty() ||
+                OrganisationEmail.getText().isEmpty() ||
+                CategorySupportedGroup.getValue() == null ||
+                CategoryOfOrganisation.getValue() == null ||
+                SizeOfOrganisation.getValue() == null ||
+                group.getSelectedToggle() == null ||
+                group2.getSelectedToggle() == null) {
+
+            // If any field is empty, show an alert
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Form Incomplete");
+            alert.setHeaderText("Please fill in all required fields.");
+            alert.setContentText("Ensure all fields are filled before submitting.");
+            alert.showAndWait();
+            return; // Prevent form submission
+        }
+
         // Read text fields
         String organisationName = OrganisationName.getText();
         String supportedGroup = SupportedGroup.getText();
@@ -213,6 +235,10 @@ public class OrganisationRegistrationController {
         organisationDAO.insert(organisation);
         handleLoginPage();
 
+
+
+
+
         dao.close();
         organisationDAO.close();
 
@@ -226,6 +252,8 @@ public class OrganisationRegistrationController {
         HelloApplication app = new HelloApplication();
         app.switchToLoginPage(stage); // Switch to the new page
     }
+
+
 
 
 

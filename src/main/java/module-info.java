@@ -11,4 +11,6 @@ module com.example.finalassignmentcab302 {
     opens com.example.finalassignmentcab302.dao to javafx.fxml;
     exports com.example.finalassignmentcab302.Tables;
     opens com.example.finalassignmentcab302.Tables to javafx.fxml;
+    exports com.example.finalassignmentcab302.Controllers;
+    opens com.example.finalassignmentcab302.Controllers to javafx.fxml;
 }

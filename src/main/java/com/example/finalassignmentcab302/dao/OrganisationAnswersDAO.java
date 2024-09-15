@@ -1,7 +1,6 @@
 package com.example.finalassignmentcab302.dao;
 // DAO for organisation answers from create org page questions table
 import com.example.finalassignmentcab302.DatabaseConnection;
-import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 
 import java.sql.*;

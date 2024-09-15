@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.Controllers.UserRegistrationController"
+            fitToWidth="true" fitToHeight="true">
+    <VBox spacing="30.0">
+        <padding>
+            <Insets bottom="20.0" left="50" right="50"/>
+        </padding>
+        <!--TASKBAR -->
+        <HBox spacing="50.0" alignment="CENTER">
+            <Button text="Home"/>
+
+            <Button text="Account" fx:id="Account"/>
+            <Button text="Favourites" fx:id="Favourites"/>
+            <Button text="Login Page" fx:id="Login_Page"/>
+            <Button text="Roulette" fx:id="Roulette"/>
+        </HBox>
+
+        <VBox alignment="CENTER">
+            <Label text="User Registration"/>
+        </VBox>
+
+            <VBox>
+                <HBox alignment="CENTER" spacing="100">
+                    <VBox>
+                        <Label text="First Name"/>
+                        <TextField promptText="Enter Your First Name" minWidth="200" fx:id="FirstName"/>
+                        <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                    <VBox>
+                        <Label text="Last Name"/>
+                        <TextField promptText="Enter Your Last Name" minWidth="200" fx:id="LastName"/>
+                        <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                </HBox>
+
+                <VBox>
+                <HBox alignment="CENTER" spacing="100">
+                    <VBox>
+                <Label text="User Name"/>
+                <TextField promptText="Enter Your User Name" minWidth="200" fx:id="UserName"/>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+
+                    <VBox>
+                <Label text="Password"/>
+                <TextField promptText="Enter Your Password" minWidth="200" fx:id="PassWord"/>
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                    </VBox>
+                </HBox>
+                </VBox>
+
+                <VBox>
+                    <HBox alignment="CENTER" spacing="100">
+                        <VBox>
+                            <Label text="Email"/>
+                            <TextField promptText="Enter Your Email" minWidth="200" fx:id="Email"/>
+                            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                        </VBox>
+
+                        <VBox>
+                            <Label text="Phone Number"/>
+                            <TextField promptText="Enter Your Phone Number" minWidth="200" fx:id="PhoneNumber"/>
+                            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+                <VBox alignment="CENTER">
+                        <Label text="Select Your Economic Class"/>
+                        <ComboBox minWidth="300" fx:id="EconomicClass">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Lower Class $0 - $30,000"/>
+                                    <String fx:value="Lower Middle Class $30,000 - $60,000"/>
+                                    <String fx:value="Middle Class $60,000 - $100,000"/>
+                                    <String fx:value="Lower High Class $100,000 - $150, 000"/>
+                                    <String fx:value="High Class $150,000 - $200,000"/>
+                                    <String fx:value="High Baller $200,000 +"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                </VBox>
+            </VBox>
+
+
+
+        <HBox alignment="CENTER">
+            <Button  text="Register User" minWidth="300" fx:id="SubmitUserRegistration" onAction="#handleUserButtonAction"/>
+        </HBox>
+
+
+    </VBox>
+</ScrollPane>
