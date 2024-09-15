@@ -1,17 +1,25 @@
 package com.example.finalassignmentcab302;
 
+import com.example.finalassignmentcab302.dao.UserAnswersDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import com.example.finalassignmentcab302.DatabaseConnection;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class QuestionPageController {
 
     private int questionIncrement = 0;
+    private int questionVal = 0;
 
     List<Question> questions = StaticQuestionList.getQuestions();
 
@@ -57,12 +65,14 @@ public class QuestionPageController {
     private void onNextButtonClick() {
 
         if (radButton1.isSelected()){
-            int answer = 1;
+            questionVal = 1;
+
         }
         else if (radButton2.isSelected()){
-            int answer =2;
+            questionVal = 2;
         }
 
+        System.out.println(questionVal);
         //Answers will be uploaded to database here too with an sql query
 
         questionIncrement++;
