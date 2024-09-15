@@ -239,8 +239,7 @@ public class OrganisationRegistrationController {
 
 
 
-        dao.close();
-        organisationDAO.close();
+
 
 
 

@@ -116,7 +116,7 @@ public class UserRegistrationController {
         userdao.insert(newuser);
         handleLoginPage();
 
-        userdao.close();
+
     }
 
     @FXML
