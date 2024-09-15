@@ -236,14 +236,6 @@ public class OrganisationRegistrationController {
         handleLoginPage();
 
 
-
-
-
-        dao.close();
-        organisationDAO.close();
-
-
-
     }
 
     @FXML
