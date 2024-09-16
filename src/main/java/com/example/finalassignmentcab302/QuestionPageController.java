@@ -76,6 +76,7 @@ public class QuestionPageController {
     @FXML
     private void onNextButtonClick() {
 
+        //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
         if (radButton1.isSelected()){
             questionVal = 1;
 
@@ -84,7 +85,7 @@ public class QuestionPageController {
             questionVal = 2;
         }
 
-        System.out.println(questionVal);
+        System.out.println(CurrentUserGLOBAL.currentUser);
         /*
         public void runCustomSQLQuery() {
             CustomQuery customQuery = new CustomQuery();
@@ -101,7 +102,7 @@ public class QuestionPageController {
         userdao.insert(user);
         */
 
-        /* MAKING NEW USER ANSWERS ENTRY
+        /* //MAKING NEW USER ANSWERS ENTRY
         boolean tempvar = true;
         //(category, size, donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, userAns3
         UserAnswers userAnswers = new UserAnswers("test2", "test3","test4", "test5", tempvar, "ans1", "ans2", "ans3");
@@ -110,7 +111,7 @@ public class QuestionPageController {
         */
 
 
-        UserAnswers userAnswers = new UserAnswers(1, "update1", "update2", "update3");
+        UserAnswers userAnswers = new UserAnswers(1, "Please", "God", "Work");
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
         userAnswersDAO.updateAnswersOnly(userAnswers);
 
@@ -122,6 +123,7 @@ public class QuestionPageController {
             displayQuestion(questions.get(questionIncrement));
         }
         else{
+            //PUT THE USER ANSWERS HERE
             questionField.setText("There are no more questions. In a later build this will route to next page");
         }
     }
