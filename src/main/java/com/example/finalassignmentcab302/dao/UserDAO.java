@@ -107,6 +107,7 @@ public class UserDAO {
         return allUsers;
     }
 
+
     public User getByLogin(int id) {
         try {
             PreparedStatement getUser = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
