@@ -59,8 +59,6 @@
 
     <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
 
-    //Global object: current users ID will be held
-
 
 
 </VBox>
