@@ -1,6 +1,10 @@
 package com.example.finalassignmentcab302;
 
+import com.example.finalassignmentcab302.DatabaseConnection;
 import com.example.finalassignmentcab302.Tables.Organisation;
+import com.example.finalassignmentcab302.dao.OrganisationDAO;
+import com.example.finalassignmentcab302.dao.UserAnswersDAO;
+
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -9,12 +13,17 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 import java.io.IOException;
+import java.sql.Array;
+import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharitiesPageController {
 
     private Stage primaryStage; // Add a Stage field
 
+    @FXML
+    private Label lblHeader;
 
     @FXML
     private Label lblCharity1;
@@ -40,37 +49,82 @@ public class CharitiesPageController {
     @FXML
     private Button btnLogout;
 
-    // Method to accept and display Organisations
-    public void displayOrganisations(List<Organisation> organisations) {
-        if (organisations.size() >= 1) {
-            Organisation org1 = organisations.get(0);
-            lblCharity1.setText(org1.getName());
-            txtCharity1.setText(org1.getDescription());
-        }
-
-        if (organisations.size() >= 2) {
-            Organisation org2 = organisations.get(1);
-            lblCharity2.setText(org2.getName());
-            txtCharity2.setText(org2.getDescription());
-        }
-
-        if (organisations.size() >= 3) {
-            Organisation org3 = organisations.get(2);
-            lblCharity3.setText(org3.getName());
-            txtCharity3.setText(org3.getDescription());
-        }
+    //Test if user is logged in
+    /*
+    if (!userLogin) {
+        lblHeader.setText("Please login to continue");
     }
+    else {
+        userID = userLogin;
+    }
+
+    private OrganisationDAO organisationDAO;
+    private UserAnswersDAO userAnswersDAO;
+
+    public void OrganisationMatchingService() {
+        Connection connection = DatabaseConnection.getInstance();
+        this.organisationDAO = new OrganisationDAO();
+        this.userAnswersDAO = new UserAnswersDAO();
+    }
+
+    public List<Organisation> getMatchingOrganisations(int userID) {
+        UserAnswers userAnswers = getUserAnswersByID(userID);
+
+        List<Organisation> allOrganisations = organisationDAO.getAll();
+
+        List<Organisation> matchingOrganisations = new ArrayList<>();
+
+        for (Organisation organisation : allOrganisations) {
+            if (isOrganisationMatching(userAnswers, organisation)) {
+                matchingOrganisations.add(organisation);
+            }
+        }
+
+        return matchingOrganisations;
+    }
+
+    private UserAnswers getUserAnswersByID(int userID) {
+        return userAnswersDAO.getUserAnswersByID(userID);
+    }
+
+    private boolean isOrganisationMatching(UserAnswers userAnswers, Organisation organisation) {
+        return userAnswers.getCategory().equalsIgnoreCase(organisation.getGroupSupported()) &&
+                userAnswers.getSize().equalsIgnoreCase(organisation.getGroupSupported()) &&
+                userAnswers.getDonationOptions().equalsIgnoreCase(organisation.getGroupSupported()) &&
+                userAnswers.getTaxableCategory().equalsIgnoreCase(organisation.getGroupSupported());
+    }
+
+     */
 
     @FXML
     private void initialize() {
-        lblCharity1.setText("Charity 1 Name.");
-        txtCharity1.setText("Charity 1 description! Very very long.");
 
-        lblCharity2.setText("Charity 2 Name.");
-        txtCharity2.setText("Charity 2 description! Very very long.");
+        if (true) {
+            lblCharity1.setText("");
+            txtCharity1.setText("");
+        }
+        else {
+            lblCharity1.setText("Missing Charity.");
+            txtCharity1.setText("Please wait for more charities to be added!.");
+        }
 
-        lblCharity3.setText("Charity 3 Name.");
-        txtCharity3.setText("Charity 3 description! Very very long.");
+        if (true) {
+            lblCharity2.setText("");
+            txtCharity2.setText("");
+        }
+        else {
+            lblCharity2.setText("Missing Charity.");
+            txtCharity2.setText("Please wait for more charities to be added!.");
+        }
+
+        if (true) {
+            lblCharity3.setText("");
+            txtCharity3.setText("");
+        }
+        else {
+            lblCharity3.setText("Missing Charity.");
+            txtCharity3.setText("Please wait for more charities to be added!.");
+        }
     }
 
     @FXML

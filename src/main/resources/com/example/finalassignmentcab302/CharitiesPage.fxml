@@ -19,7 +19,7 @@
         </padding>
         <!--TITLE -->
         <HBox alignment="CENTER">
-            <Label text="Your Top 3 Charities!"
+            <Label fx:id="lblHeader"
             minHeight="50.0"/>
         </HBox>
 
