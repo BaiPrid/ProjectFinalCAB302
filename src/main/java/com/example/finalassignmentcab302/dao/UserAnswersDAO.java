@@ -83,15 +83,15 @@ public class UserAnswersDAO {
         }
     }
 
-    public List<OrganisationAnswers> getAll() {
-        List<OrganisationAnswers> alluserAnswers = new ArrayList<>();
+    public List<UserAnswers> getAll() {
+        List<UserAnswers> alluserAnswers = new ArrayList<>();
         try{
             Statement getAll = connection.createStatement();
-            ResultSet rs = getAll.executeQuery("SELECT * FROM organisationAnswersTable");
+            ResultSet rs = getAll.executeQuery("SELECT * FROM userAnswersTable");
             while (rs.next()){
                 alluserAnswers.add(
-                        new OrganisationAnswers(
-                                rs.getInt("organisationId"),
+                        new UserAnswers(
+                                rs.getInt("userId"),
                                 rs.getString("category"),
                                 rs.getString("size"),
                                 rs.getString("donationOptions"),
@@ -105,6 +105,17 @@ public class UserAnswersDAO {
         }
         return alluserAnswers;
     }
+
+    /*
+    public UserAnswers getUserAnswersByID(int userId) {
+        UserAnswers userAnswers = null;
+        try {
+            Statement getAnswers = connection.createStatement();
+            ResultSet rs = getAnswers.executeQuery("SELECT ")
+        }
+    }
+
+     */
 
 
     public void close() {
