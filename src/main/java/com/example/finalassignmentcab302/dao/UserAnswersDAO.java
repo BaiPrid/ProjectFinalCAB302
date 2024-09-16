@@ -101,8 +101,6 @@ public class UserAnswersDAO {
     ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
 
-
-
     public void delete(int userId) {
         try {
             PreparedStatement deleteOrganisationAnswers = connection.prepareStatement("DELETE FROM userAnswersTable WHERE id = ?");
@@ -112,6 +110,7 @@ public class UserAnswersDAO {
             System.err.println(ex);
         }
     }
+
 
     public List<UserAnswers> getAll() {
         List<UserAnswers> alluserAnswers = new ArrayList<>();
@@ -137,6 +136,71 @@ public class UserAnswersDAO {
             System.err.println(ex);
         }
         return alluserAnswers;
+    }
+
+
+    public List<OrganisationAnswers> getMatchingOrganisations(UserAnswers userAnswers) {
+        List<OrganisationAnswers> matchingOrganisations = new ArrayList<>();
+
+        try {
+            PreparedStatement matchingOrgStmt = connection.prepareStatement(
+                    "SELECT * FROM organisationAnswersTable WHERE category = ? AND size = ? AND donationOptions = ?"
+            );
+
+            matchingOrgStmt.setString(1, userAnswers.getCategory()); // matching on category (animal/human)
+            matchingOrgStmt.setString(2, userAnswers.getSize()); // matching on size
+            matchingOrgStmt.setString(3, userAnswers.getDonationOptions()); // matching on donationOptions (non-profit/profit)
+
+            ResultSet rs = matchingOrgStmt.executeQuery();
+
+            while (rs.next()) {
+                matchingOrganisations.add(
+                        new OrganisationAnswers(
+                                rs.getInt("organisationId"),
+                                rs.getString("category"),
+                                rs.getString("size"),
+                                rs.getString("donationOptions"),
+                                rs.getString("taxableCategory"),
+                                rs.getBoolean("donorSpecifies")
+                        )
+                );
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+
+        return matchingOrganisations;
+    }
+
+
+    public UserAnswers getUserAnswers(int userId) {
+        UserAnswers userAnswers = null;
+
+        try {
+            PreparedStatement getUserAnswersStmt = connection.prepareStatement(
+                    "SELECT * FROM userAnswersTable WHERE userId = ?"
+            );
+            getUserAnswersStmt.setInt(1, userId);
+            ResultSet rs = getUserAnswersStmt.executeQuery();
+
+            if (rs.next()) {
+                userAnswers = new UserAnswers(
+                        rs.getInt("userId"),
+                        rs.getString("category"),
+                        rs.getString("size"),
+                        rs.getString("donationOptions"),
+                        rs.getString("taxableCategory"),
+                        rs.getBoolean("donorSpecifies"),
+                        rs.getString("userAns1"),
+                        rs.getString("userAns2"),
+                        rs.getString("userAns3")
+                );
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+
+        return userAnswers;
     }
 
 

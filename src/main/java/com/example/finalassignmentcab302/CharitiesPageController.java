@@ -8,6 +8,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.finalassignmentcab302.dao.UserAnswersDAO;
+import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
+import com.example.finalassignmentcab302.Tables.UserAnswers;
+import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 
 public class CharitiesPageController {
 
@@ -40,15 +47,74 @@ public class CharitiesPageController {
 
     @FXML
     private void initialize() {
-        lblCharity1.setText("Charity 1 Name.");
-        txtCharity1.setText("Charity 1 description! Very very long.");
+        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+        OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
 
-        lblCharity2.setText("Charity 2 Name.");
-        txtCharity2.setText("Charity 2 description! Very very long.");
+        // Assuming you have the current user's ID somehow (e.g., from session or login)
+        int userId = 1; // Replace with actual user ID
+        UserAnswers userAnswers = userAnswersDAO.getUserAnswers(userId);
 
-        lblCharity3.setText("Charity 3 Name.");
-        txtCharity3.setText("Charity 3 description! Very very long.");
+        if (userAnswers != null) {
+            // Get matching organizations based on user answers
+            List<OrganisationAnswers> matchingOrganisations = userAnswersDAO.getMatchingOrganisations(userAnswers);
+
+            // Check if there are any matching organizations
+            if (matchingOrganisations.size() > 0) {
+                lblCharity1.setText(matchingOrganisations.get(0).getCategory());
+                txtCharity1.setText(generateDescription(matchingOrganisations.get(0)));
+            } else {
+                lblCharity1.setText("Missing Charity!");
+                txtCharity1.setText("Please wait for more charities to be added!");
+            }
+
+            if (matchingOrganisations.size() > 1) {
+                lblCharity2.setText(matchingOrganisations.get(1).getCategory());
+                txtCharity2.setText(generateDescription(matchingOrganisations.get(1)));
+            } else {
+                lblCharity2.setText("Missing Charity!");
+                txtCharity2.setText("Please wait for more charities to be added!");
+            }
+
+            if (matchingOrganisations.size() > 2) {
+                lblCharity3.setText(matchingOrganisations.get(2).getCategory());
+                txtCharity3.setText(generateDescription(matchingOrganisations.get(2)));
+            } else {
+                lblCharity3.setText("Missing Charity!");
+                txtCharity3.setText("Please wait for more charities to be added!");
+            }
+        } else {
+            lblCharity1.setText("No user answers found!");
+            txtCharity1.setText("Please provide answers to match charities.");
+            lblCharity2.setText("");
+            txtCharity2.setText("");
+            lblCharity3.setText("");
+            txtCharity3.setText("");
+        }
+
+        // Close DAO connections if needed
+        userAnswersDAO.close();
+        organisationAnswersDAO.close();
     }
+
+
+    private String generateDescription(OrganisationAnswers organisation) {
+        StringBuilder description = new StringBuilder();
+
+        description.append("Category: ").append(organisation.getCategory()).append("\n");
+        description.append("Size: ").append(organisation.getSize()).append("\n");
+        description.append("Donation Options: ").append(organisation.getDonationOptions()).append("\n");
+        description.append("Taxable Category: ").append(organisation.getTaxableCategory()).append("\n");
+
+        if (organisation.getDonorSpecifies()) {
+            description.append("Donor can specify how donations are used.");
+        } else {
+            description.append("Donor cannot specify how donations are used.");
+        }
+
+        return description.toString();
+    }
+
+
 
     @FXML
     private void handleOpenHome() throws IOException {
