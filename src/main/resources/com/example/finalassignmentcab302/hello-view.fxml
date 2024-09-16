@@ -20,7 +20,7 @@
         <Button text="Member Registration" fx:id="registerButton" onAction="#handleOpenUserRegistration"/>
         <Button text="Questionnaire" fx:id="questNav" onAction="#handleSwitchToQuestionPage"/>
         <Button text="Organisation Registration" fx:id="navigateButton" onAction="#handleOpenOrganisationRegistration"/>
-        <Button text="Roulette" fx:id="Roulette"/>
+        <Button text="Home" fx:id="HomeP" onAction="#handleOpenHomePage"/>
 
     </HBox>
 
