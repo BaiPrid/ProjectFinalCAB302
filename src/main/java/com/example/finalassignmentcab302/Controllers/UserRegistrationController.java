@@ -8,6 +8,8 @@ import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -118,11 +120,11 @@ public class UserRegistrationController {
 
     }
 
-    @FXML
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
-        HelloApplication app = new HelloApplication();
-        app.switchToLoginPage(stage); // Switch to the new page
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
 }
