@@ -106,6 +106,27 @@ public class UserDAO {
         }
         return allUsers;
     }
+    public boolean login(String username, String password) {
+
+
+        try {
+            PreparedStatement logincheck = connection.prepareStatement("SELECT * FROM users WHERE userName = ? AND password = ?");
+            logincheck.setString(1, username);  // Bind the username
+            logincheck.setString(2, password);  // Bind the password
+
+            ResultSet rs = logincheck.executeQuery();
+
+            if (rs.next()) {
+                // User found with matching username and password
+                return true;  // Login successful
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();  // Handle SQL exceptions
+        }
+
+        return false;  // Login failed (user not found or SQL error)
+    }
 
     public User getByLogin(int id) {
         try {

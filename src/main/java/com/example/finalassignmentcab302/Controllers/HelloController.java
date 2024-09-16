@@ -2,6 +2,7 @@ package com.example.finalassignmentcab302.Controllers;
 
 
 import com.example.finalassignmentcab302.HelloApplication;
+import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -88,13 +89,21 @@ public class HelloController
     protected void handleMemberLogin() {
         String username = memberUsername.getText();
         String password = memberPassword.getText();
+        UserDAO userDAO = new UserDAO();
 
-        // Add your login logic here
-        if (username.equals("member") && password.equals("password")) {
-            welcomeText.setText("Welcome, Member!");
-        } else {
-            welcomeText.setText("Invalid Member Credentials");
+        boolean login = userDAO.login(username, password);
+
+        if ( login == true)
+        {
+            welcomeText.setText("SUCCESS!");
         }
+        else
+        {
+            welcomeText.setText("Invalid Member Credentials");
+
+        }
+
+
     }
 
     @FXML
