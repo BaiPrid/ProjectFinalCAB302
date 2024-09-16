@@ -4,11 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
