@@ -28,6 +28,7 @@ public class QuestionPageController {
 
     private int questionIncrement = 0;
     private int questionVal = 0;
+    List<Integer> answerList = new ArrayList<>();
 
     List<Question> questions = StaticQuestionList.getQuestions();
 
@@ -78,14 +79,16 @@ public class QuestionPageController {
 
         //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
         if (radButton1.isSelected()){
-            questionVal = 1;
+            questionVal = 1 + questionIncrement * 2;
 
         }
         else if (radButton2.isSelected()){
-            questionVal = 2;
+            questionVal = 2 + questionIncrement * 2;
         }
 
-        System.out.println(CurrentUserGLOBAL.currentUser);
+        answerList.add(questionVal);
+
+        //System.out.println(CurrentUserGLOBAL.currentUser);
         /*
         public void runCustomSQLQuery() {
             CustomQuery customQuery = new CustomQuery();
@@ -110,11 +113,11 @@ public class QuestionPageController {
         userAnswersDAO.insert(userAnswers);
         */
 
-
+        /*
         UserAnswers userAnswers = new UserAnswers(1, "Please", "God", "Work");
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
         userAnswersDAO.updateAnswersOnly(userAnswers);
-
+        */
 
 
         questionIncrement++;
@@ -123,6 +126,9 @@ public class QuestionPageController {
             displayQuestion(questions.get(questionIncrement));
         }
         else{
+            UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList.get(0)), String.valueOf(answerList.get(1)), String.valueOf(answerList.get(2)));
+            UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+            userAnswersDAO.updateAnswersOnly(userAnswers);
             //PUT THE USER ANSWERS HERE
             questionField.setText("There are no more questions. In a later build this will route to next page");
         }
