@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    public static final int WIDTH = 900;
+    public static final int HEIGHT = 500;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -54,9 +57,24 @@ public class HelloApplication extends Application {
     public void switchToOrganisationRegistrationPage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
         Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        Scene scene = new Scene(root, 900, 500);
         stage.setScene(scene);
     }
+    /* //THIS IS OLD AND DOESN'T WORK
+    public void switchToQuestionPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("QuestionPageController.fxml"));
+        System.out.println("THIS GET'S ACTIVATED IN APP1");
+        Parent root = fxmlLoader2.load();
+        System.out.println("THIS GET'S ACTIVATED IN APP2");
+        Scene scene2 = new Scene(root, 900, 500);
+        System.out.println("THIS GET'S ACTIVATED IN APP3");
+        stage.setScene(scene2);
+    }
+
+     */
+
+
+
 
     public void switchToLoginPage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));

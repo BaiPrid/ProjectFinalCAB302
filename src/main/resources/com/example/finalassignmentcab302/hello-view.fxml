@@ -13,6 +13,8 @@
 
     <Label fx:id="welcomeText"/>
     <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Button fx:id="questNav" text= "QuestionZone" onAction="#handleSwitchToQuestionPage" />
+    <Button fx:id="navigateButton" text="Navigate" onAction="#handleOpenOrganisationRegistration"/> //kept two but don't know which one to keep - Bailey
     <Button fx:id="" text= "Hello!" />
     <Button fx:id="navigateButton" text="RegisterOrganisation" onAction="#handleOpenOrganisationRegistration"/>
     <Button fx:id="registerButton" text="register User" onAction="#handleOpenUserRegistration"/>
