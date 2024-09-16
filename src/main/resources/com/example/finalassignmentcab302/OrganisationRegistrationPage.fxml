@@ -18,11 +18,11 @@
         </padding>
         <!--TASKBAR -->
         <HBox spacing="50.0" alignment="CENTER">
-            <Button text="Home"/>
 
-            <Button text="Account" fx:id="Account" />
+            <Button text="Home" fx:id="Home" onAction="#handleHomePage"/>
+            <Button text="Charities" fx:id="Charities" onAction="#handleCharitiesPage"/>
             <Button text="Favourites" fx:id="Favourites"/>
-            <Button text="Login Page" fx:id="Login_Page"/>
+            <Button text="Login Page" fx:id="Login_Page" onAction="#handleLoginPage"/>
             <Button text="Roulette" fx:id="Roulette"/>
 
         </HBox>

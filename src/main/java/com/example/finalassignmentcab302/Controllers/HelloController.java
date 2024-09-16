@@ -35,6 +35,9 @@ public class HelloController
     @FXML
     private Button questNav;
 
+    @FXML
+    private Button Roulette;
+
 
     @FXML
     protected void handleOpenOrganisationRegistration() throws IOException {

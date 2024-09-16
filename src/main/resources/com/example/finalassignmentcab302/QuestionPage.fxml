@@ -58,6 +58,6 @@ following questions truthfully"
             prefWidth="400"
     />
 
-    <Button fx:id="btnDone" text="Done!" onAction="#onDoneButtonClick"/>
+    <Button fx:id="btnDone" text="Done!" onAction="#handleCharitiesPage"/>
 
 </VBox>

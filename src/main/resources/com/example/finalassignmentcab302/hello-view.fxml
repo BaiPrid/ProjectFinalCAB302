@@ -16,10 +16,9 @@
     </padding>
     <!--TASKBAR -->
     <HBox spacing="50.0" alignment="CENTER">
-        <Button text="Home"/>
 
         <Button text="Member Registration" fx:id="registerButton" onAction="#handleOpenUserRegistration"/>
-        <Button text="Questionaire" fx:id="questNav" onAction="#handleSwitchToQuestionPage"/>
+        <Button text="Questionnaire" fx:id="questNav" onAction="#handleSwitchToQuestionPage"/>
         <Button text="Organisation Registration" fx:id="navigateButton" onAction="#handleOpenOrganisationRegistration"/>
         <Button text="Roulette" fx:id="Roulette"/>
 

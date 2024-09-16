@@ -66,7 +66,7 @@ public class QuestionPageController {
     }
 
     @FXML
-    private void onDoneButtonClick() throws IOException {
+    private void handleCharitiesPage() throws IOException {
         Stage stage = (Stage) btnDone.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
