@@ -31,13 +31,15 @@ public class UserRegistrationController {
 
     //Task Bar Buttons
     @FXML
-    private Button Account;
+    private Button Charities;
     @FXML
     private Button Favourites;
     @FXML
     private Button Login_Page;
     @FXML
     private Button Roulette;
+    @FXML
+    private Button Home;
 
 
     @FXML
@@ -122,6 +124,22 @@ public class UserRegistrationController {
 
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void handleCharitiesPage() throws IOException {
+        Stage stage = (Stage) Charities.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void handleHomePage() throws IOException {
+        Stage stage = (Stage) Home.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
