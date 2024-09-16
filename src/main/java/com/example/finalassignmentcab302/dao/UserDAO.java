@@ -128,6 +128,7 @@ public class UserDAO {
         return false;  // Login failed (user not found or SQL error)
     }
 
+
     public User getByLogin(int id) {
         try {
             PreparedStatement getUser = connection.prepareStatement("SELECT * FROM users WHERE id = ?");

@@ -113,20 +113,23 @@ public class UserAnswersDAO {
         }
     }
 
-    public List<OrganisationAnswers> getAll() {
-        List<OrganisationAnswers> alluserAnswers = new ArrayList<>();
+    public List<UserAnswers> getAll() {
+        List<UserAnswers> alluserAnswers = new ArrayList<>();
         try{
             Statement getAll = connection.createStatement();
-            ResultSet rs = getAll.executeQuery("SELECT * FROM organisationAnswersTable");
+            ResultSet rs = getAll.executeQuery("SELECT * FROM userAnswersTable");
             while (rs.next()){
                 alluserAnswers.add(
-                        new OrganisationAnswers(
-                                rs.getInt("organisationId"),
+                        new UserAnswers(
+                                rs.getInt("userId"),
                                 rs.getString("category"),
                                 rs.getString("size"),
                                 rs.getString("donationOptions"),
                                 rs.getString("taxableCategory"),
-                                rs.getBoolean("donorSpecifies")
+                                rs.getBoolean("donorSpecifies"),
+                                rs.getString("userAns1"),
+                                rs.getString("userAns2"),
+                                rs.getString("userAns3")
                         )
                 );
             }
