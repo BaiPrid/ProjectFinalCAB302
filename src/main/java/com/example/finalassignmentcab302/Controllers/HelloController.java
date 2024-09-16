@@ -110,6 +110,16 @@ public class HelloController
         }
     }
 
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private void handleOpenHome() throws IOException {
+        Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
+        HelloApplication app = new HelloApplication();
+        app.start(stage); // Switch to the new page
+    }
+
    /* @FXML
     private TextField memberUsername;
 
@@ -169,20 +179,7 @@ public class HelloController
         welcomeText.setText("Button 3 clicked");
     }*/
 
-    //Task Bar Buttons
-    @FXML
-    private Button Memrego;
 
-
-
-    @FXML
-    private Button Quest;
-
-
-    @FXML
-    private Button Orgrego;
-    @FXML
-    private Button Roulette;
 
 
 
