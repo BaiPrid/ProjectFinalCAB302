@@ -47,8 +47,6 @@ public class Order {
         return billingAddress;
     }
 
-    public void setBillingAddress(String billingAddress){
-        this.billingAddress = billingAddress;
-    }
+
 
 }
