@@ -58,7 +58,6 @@ following questions truthfully"
             prefWidth="400"
     />
 
+    <Button fx:id="btnDone" text="Done!" onAction="#onDoneButtonClick"/>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
 </VBox>

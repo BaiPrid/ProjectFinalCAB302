@@ -5,16 +5,21 @@ import com.example.finalassignmentcab302.Tables.UserAnswers;
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.finalassignmentcab302.DatabaseConnection;
 import com.example.finalassignmentcab302.CustomQuery;
+import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,7 +32,7 @@ public class QuestionPageController {
     List<Question> questions = StaticQuestionList.getQuestions();
 
     @FXML
-    private Label welcomeText;
+    private Button btnDone;
 
     @FXML
     private Button nextButton;
@@ -60,9 +65,13 @@ public class QuestionPageController {
     }
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void onDoneButtonClick() throws IOException {
+        Stage stage = (Stage) btnDone.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
+
 
     @FXML
     private void onNextButtonClick() {
@@ -123,6 +132,5 @@ public class QuestionPageController {
         nextButton.setDisable(!accepted);
 
     }
-
 
 }
