@@ -20,7 +20,7 @@
         <HBox spacing="50.0" alignment="CENTER">
             <Button text="Home"/>
 
-            <Button text="Account" fx:id="Account" onAction="#handleOpenCharities"/>
+            <Button text="Account" fx:id="Account" />
             <Button text="Favourites" fx:id="Favourites"/>
             <Button text="Login Page" fx:id="Login_Page"/>
             <Button text="Roulette" fx:id="Roulette"/>

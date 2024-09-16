@@ -4,6 +4,7 @@ module com.example.finalassignmentcab302 {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires org.junit.jupiter.api;
 
     opens com.example.finalassignmentcab302 to javafx.fxml;
     exports com.example.finalassignmentcab302;
@@ -13,4 +14,5 @@ module com.example.finalassignmentcab302 {
     opens com.example.finalassignmentcab302.Tables to javafx.fxml;
     exports com.example.finalassignmentcab302.Controllers;
     opens com.example.finalassignmentcab302.Controllers to javafx.fxml;
+
 }

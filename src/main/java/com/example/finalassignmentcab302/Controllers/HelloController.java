@@ -34,18 +34,21 @@ public class HelloController
     @FXML
     private Button questNav;
 
+
     @FXML
-    private void handleOpenOrganisationRegistration() throws IOException {
-        Stage stage = (Stage) navigateButton.getScene().getWindow(); // Get the current stage
-        HelloApplication app = new HelloApplication();
-        app.switchToOrganisationRegistrationPage(stage); // Switch to the new page
+    protected void handleOpenOrganisationRegistration() throws IOException {
+        Stage stage = (Stage) questNav.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
     @FXML
-    private void handleOpenUserRegistration() throws IOException {
-        Stage stage = (Stage) registerButton.getScene().getWindow(); // Get the current stage
-        HelloApplication app = new HelloApplication();
-        app.switchToUserRegistrationPage(stage); // Switch to the new page
+    protected void handleOpenUserRegistration() throws IOException {
+        Stage stage = (Stage) questNav.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
     /* //THIS IS OLD AND DOESN'T WORK
