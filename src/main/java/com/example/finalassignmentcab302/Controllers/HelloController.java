@@ -36,13 +36,21 @@ public class HelloController
     private Button questNav;
 
     @FXML
-    private Button Roulette;
+    private Button HomeP;
 
 
     @FXML
     protected void handleOpenOrganisationRegistration() throws IOException {
         Stage stage = (Stage) questNav.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    protected void handleOpenHomePage() throws IOException {
+        Stage stage = (Stage) HomeP.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }

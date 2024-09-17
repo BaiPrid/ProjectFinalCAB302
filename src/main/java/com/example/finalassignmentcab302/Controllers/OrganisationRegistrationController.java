@@ -130,7 +130,7 @@ public class OrganisationRegistrationController {
 
             try {
 
-                File imageFolder = new File("C:\\Users\\User\\OneDrive\\Desktop\\ProjectFinalCAB302\\src\\main\\resources\\images");
+                File imageFolder = new File("C:\\Users\\toxic\\IdeaProjects\\ProjectFinalCAB302\\src\\main\\resources\\images");
 
 
                 File imageFile = new File(imageFolder, file.getName());
