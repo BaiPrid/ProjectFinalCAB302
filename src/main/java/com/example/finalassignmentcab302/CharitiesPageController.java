@@ -88,9 +88,7 @@ public class CharitiesPageController {
             txtCharity3.setText("");
         }
 
-        // Close DAO connections if needed
-        userAnswersDAO.close();
-        organisationAnswersDAO.close();
+
     }
 
 
