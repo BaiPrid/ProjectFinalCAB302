@@ -1,0 +1,39 @@
+package com.example.finalassignmentcab302.Controllers;
+
+import com.example.finalassignmentcab302.HelloApplication;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class LandingPageController {
+
+    @FXML
+    private Button btnUserLogin;
+
+    @FXML
+    private Button btnOrgLogin;
+
+    @FXML
+    private void handleUserLoginPage() throws IOException {
+        Stage stage = (Stage) btnUserLogin.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    private void handleOrgLoginPage() throws IOException {
+        Stage stage = (Stage) btnOrgLogin.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+
+}
