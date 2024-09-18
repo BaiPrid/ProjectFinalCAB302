@@ -124,7 +124,7 @@ public class UserRegistrationController {
 
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
@@ -140,7 +140,7 @@ public class UserRegistrationController {
     @FXML
     private void handleHomePage() throws IOException {
         Stage stage = (Stage) Home.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }

@@ -19,12 +19,64 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LandingPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 500);
-        stage.setTitle("Home Page!");
+        stage.setTitle("Pandolla$!");
         stage.setScene(scene);
         stage.show();
     }
 
 
+    // Method to switch to the new page
+    public void switchToOrgLogin(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrgLogin.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500);
+        stage.setScene(scene);
+    }
+
+
+
+    // Method to switch to the new page
+    public void switchToOrganisationRegistrationPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500);
+        stage.setScene(scene);
+    }
+
+    // Method to switch to the new page
+    public void switchToLoginPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
+
+
+
+
+    /*// Method to switch to the Organisation page
+    public void switchToLoginPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrgLogin.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    } */
+
+    // Method to switch to the new page
+    public void switchToUserRegistrationPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
+
+    // Method to switch to the new page
+    public void switchToCharitiesPage(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
+        stage.setScene(scene);
+    }
 
     public static void main(String[] args) {
         //creates tables for each neccesary class by creating a connection to API and creating instance of each object
@@ -45,57 +97,6 @@ public class HelloApplication extends Application {
         organisationAnswersDAO.close();
         userDAO.close();
         organisationDao.close();
-    }
-
-
-
-
-
-
-
-    // Method to switch to the new page
-    public void switchToOrganisationRegistrationPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500);
-        stage.setScene(scene);
-    }
-    /* //THIS IS OLD AND DOESN'T WORK
-    public void switchToQuestionPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader2 = new FXMLLoader(HelloApplication.class.getResource("QuestionPageController.fxml"));
-        System.out.println("THIS GET'S ACTIVATED IN APP1");
-        Parent root = fxmlLoader2.load();
-        System.out.println("THIS GET'S ACTIVATED IN APP2");
-        Scene scene2 = new Scene(root, 900, 500);
-        System.out.println("THIS GET'S ACTIVATED IN APP3");
-        stage.setScene(scene2);
-    }
-
-     */
-
-
-
-
-    public void switchToLoginPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-        stage.setScene(scene);
-    }
-
-    public void switchToUserRegistrationPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-        stage.setScene(scene);
-    }
-
-    // Method to switch to the new page
-    public void switchToCharitiesPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-        stage.setScene(scene);
     }
 
 

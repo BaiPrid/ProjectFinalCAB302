@@ -130,7 +130,7 @@ public class OrganisationRegistrationController {
 
             try {
 
-                File imageFolder = new File("C:\\Users\\toxic\\IdeaProjects\\ProjectFinalCAB302\\src\\main\\resources\\images");
+                File imageFolder = new File("C:\\Users\\marcu\\IdeaProjects\\ProjectFinalCAB302\\src\\main\\resources\\images");
 
 
                 File imageFile = new File(imageFolder, file.getName());
@@ -248,7 +248,7 @@ public class OrganisationRegistrationController {
     @FXML
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitRegistration.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
@@ -256,7 +256,7 @@ public class OrganisationRegistrationController {
     @FXML
     private void handleHomePage() throws IOException {
         Stage stage = (Stage) Home.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }

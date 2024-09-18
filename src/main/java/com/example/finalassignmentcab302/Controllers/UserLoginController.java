@@ -13,13 +13,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 
-public class HelloController
+public class UserLoginController
 {
+
+
     @FXML
     private Label welcomeText;
 
-    @FXML
-    private Button testbutton;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -27,34 +27,16 @@ public class HelloController
     }
 
     @FXML
-    private Button navigateButton; // Reference to the button in FXML
-
-    @FXML
-    private Button registerButton; // Reference to the button in FXML
-
-    @FXML
     private Button questNav;
 
     @FXML
-    private Button HomeP;
-
-
-    @FXML
-    protected void handleOpenOrganisationRegistration() throws IOException {
-        Stage stage = (Stage) questNav.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
+    private TextField memberUsername;
 
     @FXML
-    protected void handleOpenHomePage() throws IOException {
-        Stage stage = (Stage) HomeP.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
+    private PasswordField memberPassword;
 
+
+// Registration Button for User Login Page Links to login page
     @FXML
     protected void handleOpenUserRegistration() throws IOException {
         Stage stage = (Stage) questNav.getScene().getWindow();
@@ -62,37 +44,6 @@ public class HelloController
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
-
-    /* //THIS IS OLD AND DOESN'T WORK
-    @FXML
-    private void handleSwitchToQuestionPage() throws IOException {
-        Stage stage2 = (Stage) questNav.getScene().getWindow(); // Get the current stage
-        System.out.println("THIS GET'S ACTIVATED IN CONT1");
-        HelloApplication app2 = new HelloApplication();
-        System.out.println("THIS GET'S ACTIVATED IN CONT2");
-        app2.switchToQuestionPage(stage2); // Switch to the new page
-    }
-
-     */
-
-    @FXML
-    protected void handleSwitchToQuestionPage() throws IOException {
-        Stage stage = (Stage) questNav.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-    @FXML
-    private TextField memberUsername;
-
-    @FXML
-    private PasswordField memberPassword;
-
-    @FXML
-    private TextField orgUsername;
-
-    @FXML
-    private PasswordField orgPassword;
 
 
 
@@ -117,18 +68,7 @@ public class HelloController
 
     }
 
-    @FXML
-    protected void handleOrgLogin() {
-        String username = orgUsername.getText();
-        String password = orgPassword.getText();
 
-        // Add your login logic here
-        if (username.equals("org") && password.equals("password")) {
-            welcomeText.setText("Welcome, Organization!");
-        } else {
-            welcomeText.setText("Invalid Organization Credentials");
-        }
-    }
 
     @FXML
     private Button btnLogout;
