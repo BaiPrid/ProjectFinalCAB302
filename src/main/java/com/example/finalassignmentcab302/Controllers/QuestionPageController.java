@@ -60,7 +60,7 @@ public class QuestionPageController {
 
     @FXML
     private void handleCharitiesPage() throws IOException {
-        Stage stage = (Stage) btnDone.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) nextButton.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
@@ -68,7 +68,7 @@ public class QuestionPageController {
 
 
     @FXML
-    private void onNextButtonClick() {
+    private void onNextButtonClick() throws IOException {
 
         //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
         if (radButton1.isSelected()){
@@ -123,9 +123,12 @@ public class QuestionPageController {
             UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
             userAnswersDAO.updateAnswersOnly(userAnswers);
             //PUT THE USER ANSWERS HERE
-            questionField.setText("There are no more questions. In a later build this will route to next page");
+            //questionField.setText("There are no more questions. In a later build this will route to next page");
+            handleCharitiesPage();
         }
     }
+
+
 
     @FXML
     private void activateNextButton(){
