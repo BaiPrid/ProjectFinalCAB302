@@ -19,6 +19,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LandingPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 500);
+
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+
         stage.setTitle("Pandolla$!");
         stage.setScene(scene);
         stage.show();

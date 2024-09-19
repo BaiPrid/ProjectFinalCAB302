@@ -1,0 +1,24 @@
+/* Select all buttons and set the background color to red
+and the text color to white */
+.button {
+    -fx-background-color: #8367C7;
+    -fx-text-fill: white;
+}
+
+/* Set color of button when mouse hovers over it */
+.button:hover {
+    -fx-background-color: #5603AD;
+}
+
+/* Set the root's color to lightblue
+.root {
+    -fx-background-color: #C2F8CB;
+} */
+
+.label {
+    -fx-text-fill: white;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #C2F8CB;
+}
