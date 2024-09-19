@@ -52,7 +52,7 @@ public class CharitiesPageController {
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
         OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        int userId = CurrentUserGLOBAL.currentUser; // Replace with actual user ID
+        int userId = 2; // Replace with actual user ID
         List<String> userAnswers = userAnswersDAO.getUserAnswers(userId);
 
         if (userAnswers != null) {
@@ -69,13 +69,13 @@ public class CharitiesPageController {
 
             int secondOrgId = sortedMatches.get(1).getKey();
             String[] nameDescription2 = generateNameDescription(secondOrgId, sortedMatches.get(1).getValue(), 3);
-            lblCharity1.setText(nameDescription2[0]);
-            txtCharity1.setText(nameDescription2[1]);
+            lblCharity2.setText(nameDescription2[0]);
+            txtCharity2.setText(nameDescription2[1]);
 
             int thirdOrgId = sortedMatches.get(2).getKey();
             String[] nameDescription3 = generateNameDescription(thirdOrgId, sortedMatches.get(2).getValue(), 3);
-            lblCharity1.setText(nameDescription3[0]);
-            txtCharity1.setText(nameDescription3[1]);
+            lblCharity3.setText(nameDescription3[0]);
+            txtCharity3.setText(nameDescription3[1]);
 
 
         } else {

@@ -223,8 +223,7 @@ public class OrganisationRegistrationController {
 
 
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
-        //OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
-        OrganisationAnswers organisationAnswers = new OrganisationAnswers("TempAns", "TempAns", "TempAns", selectedRadioGroup1, selectedRadioGroup2);
+        OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
         dao.insert(organisationAnswers);
         OrganisationDAO organisationDAO = new OrganisationDAO();
