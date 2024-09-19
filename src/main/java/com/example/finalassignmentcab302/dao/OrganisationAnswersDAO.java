@@ -5,7 +5,9 @@ import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // DAO for organisation main table
 
@@ -82,12 +84,12 @@ public class OrganisationAnswersDAO {
     }
 
     public List<OrganisationAnswers> getAll() {
-        List<OrganisationAnswers> allorganisationAnswers = new ArrayList<>();
+        List<OrganisationAnswers> allOrgAnswers = new ArrayList<>();
         try{
             Statement getAll = connection.createStatement();
             ResultSet rs = getAll.executeQuery("SELECT * FROM organisationAnswersTable");
             while (rs.next()){
-                allorganisationAnswers.add(
+                allOrgAnswers.add(
                         new OrganisationAnswers(
                                 rs.getInt("organisationId"),
                                 rs.getString("category"),
@@ -101,7 +103,34 @@ public class OrganisationAnswersDAO {
         }catch (SQLException ex) {
             System.err.println(ex);
         }
-        return allorganisationAnswers;
+        return allOrgAnswers;
+    }
+
+    public Map<Integer, String[]> getOrgAnswers() {
+        Map<Integer, String[]> allOrganisationAnswers = new HashMap<>();
+        int orgId = 1; // For testing purposes, will change once we introduce the orgId into orgAnswersTable
+
+        try {
+            PreparedStatement getOrgAnswersStmt = connection.prepareStatement(
+                    "SELECT category, size, donationOptions FROM organisationAnswersTable"
+            );
+            ResultSet rs = getOrgAnswersStmt.executeQuery();
+
+            while (rs.next() && orgId <= 6) {
+                //int orgId = rs.getInt("organisationId");
+                String[] orgDetails = new String[3];
+                orgDetails[0] = rs.getString("category");
+                orgDetails[1] = rs.getString("size");
+                orgDetails[2] = rs.getString("donationOptions");
+
+                allOrganisationAnswers.put(orgId, orgDetails);
+                orgId++;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+
+        return allOrganisationAnswers;
     }
 
 

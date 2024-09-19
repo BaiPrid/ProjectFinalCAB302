@@ -1,12 +1,15 @@
 package com.example.finalassignmentcab302.dao;
 // DAO for organisation answers from create org page questions table
 import com.example.finalassignmentcab302.DatabaseConnection;
+import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 import com.example.finalassignmentcab302.Tables.UserAnswers;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // DAO for organisation main table
 
@@ -139,68 +142,49 @@ public class UserAnswersDAO {
     }
 
 
-    public List<OrganisationAnswers> getMatchingOrganisations(UserAnswers userAnswers) {
-        List<OrganisationAnswers> matchingOrganisations = new ArrayList<>();
+    public Map<Integer, Integer> getMatchingOrganisations(List<String> userAnswers) {
+        OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
+        Map<Integer, String[]> organisationAnswers = organisationAnswersDAO.getOrgAnswers();
 
-        try {
-            PreparedStatement matchingOrgStmt = connection.prepareStatement(
-                    "SELECT * FROM organisationAnswersTable WHERE category = ? AND size = ? AND donationOptions = ?"
-            );
+        Map<Integer, Integer> matchingOrganisations = new HashMap<>();
 
-            matchingOrgStmt.setString(1, userAnswers.getCategory()); // matching on category (animal/human)
-            matchingOrgStmt.setString(2, userAnswers.getSize()); // matching on size
-            matchingOrgStmt.setString(3, userAnswers.getDonationOptions()); // matching on donationOptions (non-profit/profit)
+        for (Map.Entry<Integer, String[]> entry : organisationAnswers.entrySet()) {
+            int matches = 0;
+            String[] orgAnswers = entry.getValue();
 
-            ResultSet rs = matchingOrgStmt.executeQuery();
-
-            while (rs.next()) {
-                matchingOrganisations.add(
-                        new OrganisationAnswers(
-                                rs.getInt("organisationId"),
-                                rs.getString("category"),
-                                rs.getString("size"),
-                                rs.getString("donationOptions"),
-                                rs.getString("taxableCategory"),
-                                rs.getBoolean("donorSpecifies")
-                        )
-                );
+            for (int i = 0; i < orgAnswers.length && i < userAnswers.size(); i++) {
+                if (orgAnswers[i].equals(userAnswers.get(i))) {
+                    matches++;
+                }
             }
-        } catch (SQLException ex) {
-            System.err.println(ex);
+
+            matchingOrganisations.put(entry.getKey(), matches);
         }
 
         return matchingOrganisations;
     }
 
 
-    public UserAnswers getUserAnswers(int userId) {
-        UserAnswers userAnswers = null;
+    public List<String> getUserAnswers(int userId) {
+        List<String> userAnswersList = new ArrayList<>();
 
         try {
             PreparedStatement getUserAnswersStmt = connection.prepareStatement(
-                    "SELECT * FROM userAnswersTable WHERE userId = ?"
+                    "SELECT userAns1, userAns2, userAns3 FROM userAnswersTable WHERE userId = ?"
             );
             getUserAnswersStmt.setInt(1, userId);
             ResultSet rs = getUserAnswersStmt.executeQuery();
 
             if (rs.next()) {
-                userAnswers = new UserAnswers(
-                        rs.getInt("userId"),
-                        rs.getString("category"),
-                        rs.getString("size"),
-                        rs.getString("donationOptions"),
-                        rs.getString("taxableCategory"),
-                        rs.getBoolean("donorSpecifies"),
-                        rs.getString("userAns1"),
-                        rs.getString("userAns2"),
-                        rs.getString("userAns3")
-                );
+                userAnswersList.add(rs.getString("userAns1"));
+                userAnswersList.add(rs.getString("userAns2"));
+                userAnswersList.add(rs.getString("userAns3"));
             }
         } catch (SQLException ex) {
             System.err.println(ex);
         }
 
-        return userAnswers;
+        return userAnswersList;
     }
 
 

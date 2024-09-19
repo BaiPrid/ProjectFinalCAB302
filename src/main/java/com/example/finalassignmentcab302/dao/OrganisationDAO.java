@@ -133,6 +133,40 @@ public class OrganisationDAO {
         return null;
     }
 
+
+    public String getDescription(int id) {
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement(
+                    "SELECT description FROM organisations WHERE id = ?"
+            );
+            getOrganisation.setInt(1, id);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                return rs.getString("description");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null; // Return null if no description is found or if an exception occurs
+    }
+
+    public String getName(int id) {
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement(
+                    "SELECT name FROM organisations WHERE id = ?"
+            );
+            getOrganisation.setInt(1, id);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null; // Return null if no description is found or if an exception occurs
+    }
+
+
     public void close() {
         try {
             connection.close();

@@ -107,7 +107,6 @@ public class UserRegistrationController {
         // Read combo boxes
         String economicClass = EconomicClass.getValue();
 
-
         User newuser = new User(firstName, lastName, userName, password, email, phoneNumber, economicClass);
         UserDAO userdao = new UserDAO();
         userdao.insert(newuser);

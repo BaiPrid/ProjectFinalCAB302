@@ -1,6 +1,9 @@
 package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
+import com.example.finalassignmentcab302.Tables.Organisation;
+import com.example.finalassignmentcab302.dao.OrganisationDAO;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -8,6 +11,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
@@ -46,40 +50,34 @@ public class CharitiesPageController {
     @FXML
     private void initialize() {
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
+        OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        // Assuming you have the current user's ID somehow (e.g., from session or login)
-        int userId = 1; // Replace with actual user ID
-        UserAnswers userAnswers = userAnswersDAO.getUserAnswers(userId);
+        int userId = CurrentUserGLOBAL.currentUser; // Replace with actual user ID
+        List<String> userAnswers = userAnswersDAO.getUserAnswers(userId);
 
         if (userAnswers != null) {
             // Get matching organizations based on user answers
-            List<OrganisationAnswers> matchingOrganisations = userAnswersDAO.getMatchingOrganisations(userAnswers);
+            Map<Integer, Integer> matchingOrganisations = userAnswersDAO.getMatchingOrganisations(userAnswers);
+
+            List<Map.Entry<Integer, Integer>> sortedMatches = matchingOrganisations.entrySet().stream().sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())).toList();
 
             // Check if there are any matching organizations
-            if (matchingOrganisations.size() > 0) {
-                lblCharity1.setText(matchingOrganisations.get(0).getCategory());
-                txtCharity1.setText(generateDescription(matchingOrganisations.get(0)));
-            } else {
-                lblCharity1.setText("Missing Charity!");
-                txtCharity1.setText("Please wait for more charities to be added!");
-            }
+            int firstOrgId = sortedMatches.get(0).getKey();
+            String[] nameDescription1 = generateNameDescription(firstOrgId, sortedMatches.get(0).getValue(), 3);
+            lblCharity1.setText(nameDescription1[0]);
+            txtCharity1.setText(nameDescription1[1]);
 
-            if (matchingOrganisations.size() > 1) {
-                lblCharity2.setText(matchingOrganisations.get(1).getCategory());
-                txtCharity2.setText(generateDescription(matchingOrganisations.get(1)));
-            } else {
-                lblCharity2.setText("Missing Charity!");
-                txtCharity2.setText("Please wait for more charities to be added!");
-            }
+            int secondOrgId = sortedMatches.get(1).getKey();
+            String[] nameDescription2 = generateNameDescription(secondOrgId, sortedMatches.get(1).getValue(), 3);
+            lblCharity1.setText(nameDescription2[0]);
+            txtCharity1.setText(nameDescription2[1]);
 
-            if (matchingOrganisations.size() > 2) {
-                lblCharity3.setText(matchingOrganisations.get(2).getCategory());
-                txtCharity3.setText(generateDescription(matchingOrganisations.get(2)));
-            } else {
-                lblCharity3.setText("Missing Charity!");
-                txtCharity3.setText("Please wait for more charities to be added!");
-            }
+            int thirdOrgId = sortedMatches.get(2).getKey();
+            String[] nameDescription3 = generateNameDescription(thirdOrgId, sortedMatches.get(2).getValue(), 3);
+            lblCharity1.setText(nameDescription3[0]);
+            txtCharity1.setText(nameDescription3[1]);
+
+
         } else {
             lblCharity1.setText("No user answers found!");
             txtCharity1.setText("Please provide answers to match charities.");
@@ -88,26 +86,20 @@ public class CharitiesPageController {
             lblCharity3.setText("");
             txtCharity3.setText("");
         }
-
-
     }
 
 
-    private String generateDescription(OrganisationAnswers organisation) {
-        StringBuilder description = new StringBuilder();
+    private String[] generateNameDescription(int orgId, int matches, int totalQuestions) {
+        OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        description.append("Category: ").append(organisation.getCategory()).append("\n");
-        description.append("Size: ").append(organisation.getSize()).append("\n");
-        description.append("Donation Options: ").append(organisation.getDonationOptions()).append("\n");
-        description.append("Taxable Category: ").append(organisation.getTaxableCategory()).append("\n");
+        String description = organisationDAO.getDescription(orgId);
+        String name = organisationDAO.getName(orgId);
 
-        if (organisation.getDonorSpecifies()) {
-            description.append("Donor can specify how donations are used.");
-        } else {
-            description.append("Donor cannot specify how donations are used.");
-        }
+        double percentageMatch = ((double) matches / totalQuestions) * 100;
 
-        return description.toString();
+        String[] result = {name, description + "\nPercentage match: " + String.format("%.2f", percentageMatch) + "%"};
+
+        return result;
     }
 
 
