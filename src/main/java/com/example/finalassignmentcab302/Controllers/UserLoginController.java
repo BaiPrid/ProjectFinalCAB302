@@ -38,6 +38,9 @@ public class UserLoginController
     @FXML
     private PasswordField memberPassword;
 
+    @FXML
+    private Button loginSend;
+
 
 // Registration Button for User Login Page Links to login page
     @FXML
@@ -51,7 +54,7 @@ public class UserLoginController
 
 
     @FXML
-    protected void handleMemberLogin() {
+    protected void handleMemberLogin() throws IOException {
         String username = memberUsername.getText();
         String password = memberPassword.getText();
         UserDAO userDAO = new UserDAO();
@@ -64,7 +67,8 @@ public class UserLoginController
             //////////////////////////////////NEW SECTION///////////////////////////////////
             UserDAO currentUserDAO = new UserDAO();
             CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(username, password);
-            System.out.println(CurrentUserGLOBAL.currentUser);
+            //System.out.println(CurrentUserGLOBAL.currentUser); <---- For testing
+            loginSend();
         }
         else
         {
@@ -73,6 +77,14 @@ public class UserLoginController
         }
 
 
+    }
+
+    @FXML
+    protected void loginSend() throws IOException {
+        Stage stage = (Stage) loginSend.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
 
