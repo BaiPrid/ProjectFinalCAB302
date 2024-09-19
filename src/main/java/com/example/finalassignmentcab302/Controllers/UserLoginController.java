@@ -1,6 +1,7 @@
 package com.example.finalassignmentcab302.Controllers;
 
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
@@ -11,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.io.Console;
 import java.io.IOException;
 
 public class UserLoginController
@@ -58,6 +61,10 @@ public class UserLoginController
         if ( login == true)
         {
             welcomeText.setText("SUCCESS!");
+            //////////////////////////////////NEW SECTION///////////////////////////////////
+            UserDAO currentUserDAO = new UserDAO();
+            CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(username, password);
+            System.out.println(CurrentUserGLOBAL.currentUser);
         }
         else
         {
