@@ -1,9 +1,8 @@
-package com.example.finalassignmentcab302;
+package com.example.finalassignmentcab302.Controllers;
 
-import com.example.finalassignmentcab302.Tables.User;
+import com.example.finalassignmentcab302.*;
 import com.example.finalassignmentcab302.Tables.UserAnswers;
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
-import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,16 +12,10 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.finalassignmentcab302.DatabaseConnection;
-import com.example.finalassignmentcab302.CustomQuery;
-import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.stage.Stage;
 
 public class QuestionPageController {
 
@@ -67,7 +60,7 @@ public class QuestionPageController {
 
     @FXML
     private void handleCharitiesPage() throws IOException {
-        Stage stage = (Stage) btnDone.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) nextButton.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
@@ -75,7 +68,7 @@ public class QuestionPageController {
 
 
     @FXML
-    private void onNextButtonClick() {
+    private void onNextButtonClick() throws IOException {
 
         //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
         if (radButton1.isSelected()){
@@ -130,9 +123,12 @@ public class QuestionPageController {
             UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
             userAnswersDAO.updateAnswersOnly(userAnswers);
             //PUT THE USER ANSWERS HERE
-            questionField.setText("There are no more questions. In a later build this will route to next page");
+            //questionField.setText("There are no more questions. In a later build this will route to next page");
+            handleCharitiesPage();
         }
     }
+
+
 
     @FXML
     private void activateNextButton(){

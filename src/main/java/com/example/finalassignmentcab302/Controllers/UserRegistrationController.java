@@ -1,11 +1,14 @@
 package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 import com.example.finalassignmentcab302.Tables.User;
+import com.example.finalassignmentcab302.Tables.UserAnswers;
 import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
+import com.example.finalassignmentcab302.dao.UserAnswersDAO;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -118,8 +121,27 @@ public class UserRegistrationController {
         User newuser = new User(firstName, lastName, userName, password, email, phoneNumber, economicClass);
         UserDAO userdao = new UserDAO();
         userdao.insert(newuser);
-        handleLoginPage();
+        //////////////NEW SECTION/////////////
+        //This retrieves the user id before sending them to the questions page
+        //handleLoginPage(); <--- Old
+        //User currentUser = new User(userName, password);
+        UserDAO currentUserDAO = new UserDAO();
+        CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(userName, password);
+        //System.out.println(CurrentUserGLOBAL.currentUser); <--- for testing
 
+        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+        UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true, "TempAns", "TempAns", "TempAns");
+        userAnswersDAO.insert(userAnswers);
+
+        handleQuestionPage();
+
+    }
+
+    private void handleQuestionPage() throws IOException {
+        Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
     private void handleLoginPage() throws IOException {

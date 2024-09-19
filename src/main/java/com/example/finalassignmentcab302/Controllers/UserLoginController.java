@@ -1,6 +1,7 @@
 package com.example.finalassignmentcab302.Controllers;
 
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
+import java.io.Console;
 import java.io.IOException;
 
 public class UserLoginController
@@ -31,6 +34,9 @@ public class UserLoginController
     @FXML
     private PasswordField memberPassword;
 
+    @FXML
+    private Button loginSend;
+
 
 // Registration Button for User Login Page Links to login page
     @FXML
@@ -46,7 +52,7 @@ public class UserLoginController
 
 
     @FXML
-    protected void handleMemberLogin() {
+    protected void handleMemberLogin() throws IOException {
         String username = memberUsername.getText();
         String password = memberPassword.getText();
         UserDAO userDAO = new UserDAO();
@@ -56,6 +62,11 @@ public class UserLoginController
         if ( login == true)
         {
             welcomeText.setText("SUCCESS!");
+            //////////////////////////////////NEW SECTION///////////////////////////////////
+            UserDAO currentUserDAO = new UserDAO();
+            CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(username, password);
+            //System.out.println(CurrentUserGLOBAL.currentUser); <---- For testing
+            loginSend();
         }
         else
         {
@@ -64,6 +75,14 @@ public class UserLoginController
         }
 
 
+    }
+
+    @FXML
+    protected void loginSend() throws IOException {
+        Stage stage = (Stage) loginSend.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
 

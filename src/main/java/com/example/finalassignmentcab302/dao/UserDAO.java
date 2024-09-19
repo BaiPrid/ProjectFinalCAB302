@@ -106,6 +106,33 @@ public class UserDAO {
         }
         return allUsers;
     }
+
+    ////////////////////////NEW SECTION////////////////////////////
+    //This gets the user id based on username and password
+    public int getUserID(String username, String password) {
+
+        int userID = -1;
+        try {
+            PreparedStatement getUserID = connection.prepareStatement("SELECT id FROM users WHERE userName = ? AND password = ?");
+            getUserID.setString(1, username);
+            getUserID.setString(2, password);
+
+            ResultSet rs = getUserID.executeQuery();
+
+            if (rs.next()){
+
+                 userID = rs.getInt("id");
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();  // Handle SQL exceptions
+        }
+
+        return userID;
+    }
+    //////////////////////////////////////////////////////////////////////////////////
     public boolean login(String username, String password) {
 
 

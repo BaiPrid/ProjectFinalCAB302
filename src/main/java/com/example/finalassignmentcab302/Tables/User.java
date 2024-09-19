@@ -34,6 +34,14 @@ public class User {
         this.economicClass = economicClass;
     }
 
+    ////////////////////NEW SECTION////////////////////
+    //User constructor for just username and password
+    public User(String username, String password){
+        this.userName = username;
+        this.password = password;
+    }
+    ///////////////////////////////////////////////////
+
     public int getId(){
         return id;
     }
