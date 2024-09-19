@@ -118,8 +118,18 @@ public class UserRegistrationController {
         User newuser = new User(firstName, lastName, userName, password, email, phoneNumber, economicClass);
         UserDAO userdao = new UserDAO();
         userdao.insert(newuser);
-        handleLoginPage();
+        //////////////NEW SECTION/////////////
+        //This retrieves the user id before sending them to the questions page
+        //handleLoginPage(); <--- Old
+        handleQuestionPage();
 
+    }
+
+    private void handleQuestionPage() throws IOException {
+        Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
     private void handleLoginPage() throws IOException {

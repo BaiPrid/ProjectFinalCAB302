@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <ScrollPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.finalassignmentcab302.CharitiesPageController"
+            fx:controller="com.example.finalassignmentcab302.Controllers.CharitiesPageController"
             fitToWidth="true" fitToHeight="true">
     <VBox spacing="20.0">
         <padding>

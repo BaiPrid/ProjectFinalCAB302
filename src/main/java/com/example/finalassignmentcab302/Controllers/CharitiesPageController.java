@@ -1,5 +1,6 @@
-package com.example.finalassignmentcab302;
+package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.HelloApplication;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;

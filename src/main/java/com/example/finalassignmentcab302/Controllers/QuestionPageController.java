@@ -1,9 +1,8 @@
-package com.example.finalassignmentcab302;
+package com.example.finalassignmentcab302.Controllers;
 
-import com.example.finalassignmentcab302.Tables.User;
+import com.example.finalassignmentcab302.*;
 import com.example.finalassignmentcab302.Tables.UserAnswers;
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
-import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,16 +12,10 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-import com.example.finalassignmentcab302.DatabaseConnection;
-import com.example.finalassignmentcab302.CustomQuery;
-import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.stage.Stage;
 
 public class QuestionPageController {
 
