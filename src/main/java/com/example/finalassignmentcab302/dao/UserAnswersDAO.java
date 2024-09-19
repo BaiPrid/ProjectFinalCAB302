@@ -165,6 +165,7 @@ public class UserAnswersDAO {
     }
 
 
+    // For current implementation, gets the user answers from the table
     public List<String> getUserAnswers(int userId) {
         List<String> userAnswersList = new ArrayList<>();
 
