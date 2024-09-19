@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,6 +17,10 @@ import java.io.IOException;
 
 public class OrgloginController
 {
+    @FXML
+    public Text txtTitle;
+    @FXML
+    public Text txtQuote;
     @FXML
     private Label welcomeText;
     @FXML
@@ -38,6 +43,8 @@ public class OrgloginController
         Stage stage = (Stage) questNav.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
 

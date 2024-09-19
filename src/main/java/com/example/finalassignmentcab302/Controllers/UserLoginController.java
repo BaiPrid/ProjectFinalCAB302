@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,22 +17,17 @@ import java.io.IOException;
 public class UserLoginController
 {
 
-
+    @FXML
+    public Text txtQuote;
+    @FXML
+    public Text txtTitle;
     @FXML
     private Label welcomeText;
 
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
     @FXML
     private Button questNav;
-
     @FXML
     private TextField memberUsername;
-
     @FXML
     private PasswordField memberPassword;
 
@@ -42,6 +38,8 @@ public class UserLoginController
         Stage stage = (Stage) questNav.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
 

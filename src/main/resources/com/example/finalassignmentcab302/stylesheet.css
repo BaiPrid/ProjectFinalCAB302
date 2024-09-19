@@ -15,10 +15,25 @@ and the text color to white */
     -fx-background-color: #C2F8CB;
 } */
 
-.label {
+/*.label {
     -fx-text-fill: white;
+}*/
+
+#txtQuote {
+    -fx-font: 45px Tahoma;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
 }
 
+#txtTitle {
+    -fx-font-size: 20px;
+    -fx-alignment: center;
+    }
+
 .scroll-pane > .viewport {
+    -fx-background-color: #C2F8CB;
+}
+
+.vbox {
     -fx-background-color: #C2F8CB;
 }
