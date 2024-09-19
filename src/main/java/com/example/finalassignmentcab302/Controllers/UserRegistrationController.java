@@ -1,5 +1,6 @@
 package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
@@ -121,6 +122,11 @@ public class UserRegistrationController {
         //////////////NEW SECTION/////////////
         //This retrieves the user id before sending them to the questions page
         //handleLoginPage(); <--- Old
+        //User currentUser = new User(userName, password);
+        UserDAO currentUserDAO = new UserDAO();
+        CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(userName, password);
+        //System.out.println(CurrentUserGLOBAL.currentUser); <--- for testing
+
         handleQuestionPage();
 
     }
