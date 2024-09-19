@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -30,20 +31,10 @@ public class OrganisationRegistrationController {
     private String imagePath;
 
 
-    //Task Bar Buttons
-    @FXML
-    private Button Charities;
-    @FXML
-    private Button Favourites;
-    @FXML
-    private Button Login_Page;
-    @FXML
-    private Button Roulette;
-    @FXML
-    private Button Home;
-
     //left side form buttons
     //first 3 text entry areas
+    @FXML
+    private Text txtTitle;
     @FXML
     private TextField OrganisationName;
     @FXML
@@ -252,24 +243,6 @@ public class OrganisationRegistrationController {
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         stage.setScene(scene);
     }
-
-    @FXML
-    private void handleHomePage() throws IOException {
-        Stage stage = (Stage) Home.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    private void handleCharitiesPage() throws IOException {
-        Stage stage = (Stage) Charities.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-
 
 
 

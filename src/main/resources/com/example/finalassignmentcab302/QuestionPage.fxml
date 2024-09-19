@@ -12,52 +12,50 @@
 <?import javafx.scene.layout.Region?>
 
 <?import javafx.scene.layout.Pane?>
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.finalassignmentcab302.Controllers.QuestionPageController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-    <Label text = "We'd like to find out about some of your interests! Please answer the
-following questions truthfully"
-           wrapText="true" style="-fx-font-size: 20px; -fx-alignment: center;" alignment="CENTER" />
 
-    <padding>
-        <Insets top="100.0"/>
-    </padding>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.text.Text?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.Controllers.QuestionPageController"
+            fitToWidth="true" fitToHeight="true">
 
-    <Region prefHeight="50"/>
+    <VBox alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
+        <Label text="We'd like to find out about some of your interests! Please answer the following questions truthfully."
+              maxWidth="600" textAlignment="CENTER" wrapText="true"
+              fx:id="txtText"/>
 
-    <Label fx:id="questionField"
+        <Region prefHeight="50"/>
 
-           text = "This is temporary question text that will change (hopefully) "
-           style="-fx-font-size: 15; -fx-font-weight: bold;"
+        <Label fx:id="questionField"
+               text = "This is temporary question text that will change (hopefully) "
+        />
 
-    />
+        <HBox VBox.vgrow="ALWAYS" spacing="20.0" alignment="CENTER">
 
-    <HBox VBox.vgrow="ALWAYS" spacing="20.0" alignment="CENTER">
+            <fx:define>
+                <ToggleGroup fx:id="answerGroup" />
+            </fx:define>
 
-        <fx:define>
-            <ToggleGroup fx:id="answerGroup" />
-        </fx:define>
+            <RadioButton fx:id="radButton1" text="SampleAnswer1" toggleGroup="$answerGroup"
+                         onAction = "#activateNextButton" style="-fx-font-size: 20; -fx-text-fill: #F0FFF1;">
+            </RadioButton>
 
-        <RadioButton fx:id="radButton1" text="SampleAnswer1" toggleGroup="$answerGroup"
-                     onAction = "#activateNextButton" style="-fx-font-size: 20;">
-        </RadioButton>
+            <RadioButton fx:id="radButton2" text="SampleAnswer2" toggleGroup="$answerGroup"
+                         onAction = "#activateNextButton" style="-fx-font-size: 20; -fx-text-fill: #F0FFF1;">
+            </RadioButton>
 
-        <RadioButton fx:id="radButton2" text="SampleAnswer2" toggleGroup="$answerGroup"
-                     onAction = "#activateNextButton" style="-fx-font-size: 20;">
-        </RadioButton>
+        </HBox>
 
-    </HBox>
+        <Button fx:id="nextButton"
+                text="Next"
+                disable="true"
+                onAction="#onNextButtonClick"
+                style="-fx-font-size: 20;"
+                prefWidth="400"/>
 
-    <Button fx:id="nextButton"
-            text="Next"
-            disable="true"
-            onAction="#onNextButtonClick"
-            style="-fx-font-size: 20;"
-            prefWidth="400"
-    />
-
-
-
-</VBox>
+    </VBox>
+</ScrollPane>

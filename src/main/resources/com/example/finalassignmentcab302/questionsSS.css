@@ -1,29 +1,30 @@
 /* Select all buttons and set the background color to red
 and the text color to white */
 .button {
-    -fx-background-color: #8367C7;
-    -fx-text-fill: white;
+    -fx-background-color: #C2F8CB;
+    -fx-text-fill: black;
 }
 
 /* Set color of button when mouse hovers over it */
 .button:hover {
-    -fx-background-color: #5603AD;
+    -fx-background-color: #B3E9C7;
+    -fx-text-fill: black;
 }
 
-/* Set font of Quote text (really big!) */
-#txtQuote {
-    -fx-font: 45px Tahoma;
-    -fx-stroke: black;
-    -fx-stroke-width: 1;
-}
-
-/* Set size of title text (not too big!) */
-#txtTitle {
+/* Set font of text (white) */
+#txtText {
     -fx-font-size: 20px;
-    -fx-alignment: center;
+    -fx-text-fill: #F0FFF1;
     }
 
-/* Set color of scroll pane (background!) */
+/* Set font for questions (white) */
+#questionField {
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F0FFF1;
+    }
+
+/* Set font for radio buttons (white) */
 .scroll-pane > .viewport {
     -fx-background-color: #2E1B5A;
 }

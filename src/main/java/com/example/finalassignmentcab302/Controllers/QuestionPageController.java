@@ -15,9 +15,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class QuestionPageController {
+
 
     private int questionIncrement = 0;
     private int questionVal = 0;
@@ -27,6 +29,9 @@ public class QuestionPageController {
 
     @FXML
     private Button btnDone;
+
+    @FXML
+    private Label txtText;
 
     @FXML
     private Button nextButton;
