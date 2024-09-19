@@ -25,6 +25,6 @@ and the text color to white */
 
 /* Set color of scroll pane (background!) */
 .scroll-pane > .viewport {
-    -fx-background-color: #C2F8CB;
+    -fx-background-color: #2E1B5A;
 }
 

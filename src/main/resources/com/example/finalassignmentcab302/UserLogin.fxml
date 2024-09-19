@@ -9,50 +9,59 @@
 
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.finalassignmentcab302.Controllers.UserLoginController">
+<?import javafx.scene.text.Text?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.Controllers.UserLoginController"
+            fitToWidth="true" fitToHeight="true">
 
-    <HBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER_RIGHT" spacing="50.0">
-        <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-        </padding>
+    <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
 
-        <!-- Placeholder for future image -->
-        <Region fx:id="imagePlaceholder" prefWidth="200" />
-
-        <VBox alignment="CENTER" spacing="10.0">
-
-
-            <!-- Members Login Box -->
-            <VBox alignment="CENTER" spacing="10.0">
-                <Label text="Members Login"/>
-                <Label text="Username"/>
-                <TextField fx:id="memberUsername"/>
-                <Label text="Password"/>
-                <PasswordField fx:id="memberPassword"/>
-                <Button text="Login" onAction="#handleMemberLogin"/>
-            </VBox>
+        <HBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER_RIGHT" spacing="50.0">
             <padding>
-                <Insets top="5.0" bottom="5.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
             </padding>
-            <Button text="Member Registration" fx:id="questNav" onAction="#handleOpenUserRegistration"/>
 
-        </VBox>
+            <!-- Placeholder for future image -->
+            <VBox alignment="CENTER">
+                <Text text="A click closer to a bigger future. A bigger impact." fx:id="txtQuote" wrappingWidth="450.0"/>
+            </VBox>
 
-
-        <padding>
-            <Insets left="50" right="50"/>
-        </padding>
-    </HBox>
-    <padding>
-        <Insets right="150"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-
-    <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+            <VBox alignment="CENTER" spacing="10.0">
 
 
+                <!-- Members Login Box -->
+                <VBox alignment="CENTER" spacing="10.0">
+                    <Text text="Members Login" fx:id="txtTitle"/>
+                    <Label text="Username"/>
+                    <TextField fx:id="memberUsername"/>
+                    <Label text="Password"/>
+                    <PasswordField fx:id="memberPassword"/>
+                    <Button text="Login" onAction="#handleMemberLogin"/>
+                </VBox>
+                <padding>
+                    <Insets top="5.0" bottom="5.0"/>
+                </padding>
+                <Button text="Member Registration" fx:id="questNav" onAction="#handleOpenUserRegistration"/>
 
-</VBox>
+            </VBox>
 
+
+            <padding>
+                <Insets left="50" right="50"/>
+            </padding>
+
+            <padding>
+                <Insets right="150"/>
+            </padding>
+        </HBox>
+
+        <Label fx:id="welcomeText"/>
+
+        <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+
+
+
+    </VBox>
+
+</ScrollPane>
