@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/RegistrationControllerTests/UserRegistrationControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrgloginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrgloginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +71,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Junit-is-giving-me-a-headache",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
@@ -145,8 +139,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.OrganisationDAOTest" />
+        <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.UserRegistrationControllerTest" />
         <item itemvalue="JUnit.All in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.All in FinalAssignmentCAB302" />
@@ -226,11 +220,11 @@
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1726490267169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testUserStuff.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationDAOTest.ic" NAME="OrganisationDAOTest Coverage Results" MODIFIED="1726816653554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>testOrganisationStuff.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$Ordertest.ic" NAME="Ordertest Coverage Results" MODIFIED="1726817411510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testingtablesfolder.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationDAOTest.ic" NAME="OrganisationDAOTest Coverage Results" MODIFIED="1726819964789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>testOrganisationStuff.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserAnswersDAOTest.ic" NAME="UserAnswersDAOTest Coverage Results" MODIFIED="1726491971410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testUserAnswersstuff.*</FILTER>
