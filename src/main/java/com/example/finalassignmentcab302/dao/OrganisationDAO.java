@@ -24,7 +24,7 @@ public class OrganisationDAO {
                             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                             + "name VARCHAR NOT NULL, "
                             + "description VARCHAR NOT NULL, "
-                            + "imgPath VARCHAR NOT NULL, "
+                            + "imgPath VARCHAR,"
                             + "email VARCHAR NOT NULL, "
                             + "groupSupported VARCHAR NOT NULL, "
                             + "userName VARCHAR NOT NULL, "
