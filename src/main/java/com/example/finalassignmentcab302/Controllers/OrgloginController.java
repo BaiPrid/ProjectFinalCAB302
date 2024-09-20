@@ -1,6 +1,8 @@
 package com.example.finalassignmentcab302.Controllers;
 
+import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
+import com.example.finalassignmentcab302.dao.OrganisationDAO;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,15 +52,22 @@ public class OrgloginController
 
 
     @FXML
-    protected void handleOrgLogin() {
+    protected void handleOrgLogin() throws IOException {
         String username = orgUsername.getText();
         String password = orgPassword.getText();
+        OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        // Add your login logic here
-        if (username.equals("org") && password.equals("password")) {
-            welcomeText.setText("Welcome, Organization!");
+        boolean login = organisationDAO.login(username, password);
+
+        if (login == true) {
+            welcomeText.setText("SUCCESS!");
+            //////////////////////////////////NEW SECTION///////////////////////////////////
+            //UserDAO currentUserDAO = new UserDAO();
+            //CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(username, password);
+            //System.out.println(CurrentUserGLOBAL.currentUser); <---- For testing
         } else {
-            welcomeText.setText("Invalid Organization Credentials");
+            welcomeText.setText("Invalid Member Credentials");
+
         }
     }
 
