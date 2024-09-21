@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/MockOrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testOrganisationStuff/MockOrganisationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/OrganisationDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testOrganisationStuff/OrganisationDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/MockUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testUserStuff/MockUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testUserStuff/UserDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -38,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/BaiPrid/ProjectFinalCAB302.git&quot;,
-    &quot;accountId&quot;: &quot;928f2be2-b57a-4521-8b04-f18eb4f25c31&quot;
+    &quot;accountId&quot;: &quot;66821f0a-ac35-4c99-9e3e-260b7f805b6b&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -59,31 +64,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in FinalAssignmentCAB302.executor": "Run",
-    "JUnit.OrganisationDAOTest.executor": "Run",
-    "JUnit.test in FinalAssignmentCAB302.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41264367"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in FinalAssignmentCAB302.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrganisationDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.test in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41264367&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.finalassignmentcab302" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JUnit.test in FinalAssignmentCAB302">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.finalassignmentcab302.HelloApplication" />
       <module name="FinalAssignmentCAB302" />
@@ -114,6 +120,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FinalAssignmentCAB302" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testUserStuff.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testUserStuff" />
+      <option name="MAIN_CLASS_NAME" value="testUserStuff.UserDAOTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserRegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalAssignmentCAB302" />
       <extension name="coverage">
@@ -139,10 +160,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OrganisationDAOTest" />
         <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.UserRegistrationControllerTest" />
-        <item itemvalue="JUnit.All in FinalAssignmentCAB302" />
+        <item itemvalue="JUnit.UserDAOTest" />
+        <item itemvalue="JUnit.OrganisationDAOTest" />
         <item itemvalue="JUnit.All in FinalAssignmentCAB302" />
       </list>
     </recent_temporary>
@@ -197,7 +218,7 @@
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$JUNITTestTables.ic" NAME="JUNITTestTables Coverage Results" MODIFIED="1726453536242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.finalassignmentcab302.TestingJunit.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1726818191848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1726886419955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserRegistrationControllerTest.ic" NAME="UserRegistrationControllerTest Coverage Results" MODIFIED="1726814811988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>RegistrationControllerTests.*</FILTER>
     </SUITE>
@@ -217,13 +238,13 @@
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserAnswersTest.ic" NAME="UserAnswersTest Coverage Results" MODIFIED="1726817451867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testingtablesfolder.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1726490267169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserDAOTest.ic" NAME="UserDAOTest Coverage Results" MODIFIED="1726837459595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testUserStuff.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$Ordertest.ic" NAME="Ordertest Coverage Results" MODIFIED="1726817411510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testingtablesfolder.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationDAOTest.ic" NAME="OrganisationDAOTest Coverage Results" MODIFIED="1726819964789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationDAOTest.ic" NAME="OrganisationDAOTest Coverage Results" MODIFIED="1726837346998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testOrganisationStuff.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserAnswersDAOTest.ic" NAME="UserAnswersDAOTest Coverage Results" MODIFIED="1726491971410" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

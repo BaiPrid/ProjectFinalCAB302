@@ -59,4 +59,29 @@ public class UserDAOTest {
         User fetchedUser = userDAO.getByLogin(1);
         assertEquals("John", fetchedUser.getFirstName());
     }
+
+    @Test
+    public void testGetUserID() {
+        userDAO.insert(users[0]);  // Insert a user
+        int userId = userDAO.getUserID("johndoe", "password123");
+        assertEquals(1, userId);  // Expect the ID of the first user
+
+        // Test case when username and password do not match
+        int invalidUserId = userDAO.getUserID("wronguser", "wrongpassword");
+        assertEquals(-1, invalidUserId);  // Expect -1 for invalid credentials
+    }
+
+    @Test
+    public void testLoginSuccess() {
+        userDAO.insert(users[0]);  // Insert a user
+        boolean loginSuccess = userDAO.login("johndoe", "password123");
+        assertTrue(loginSuccess);  // Login should succeed with correct credentials
+    }
+
+    @Test
+    public void testLoginFailure() {
+        userDAO.insert(users[0]);  // Insert a user
+        boolean loginFailure = userDAO.login("wronguser", "wrongpassword");
+        assertFalse(loginFailure);  // Login should fail with incorrect credentials
+    }
 }

@@ -54,4 +54,24 @@ public class MockUserDAO extends UserDAO {
         }
         return null;
     }
+
+    @Override
+    public int getUserID(String username, String password) {
+        for (User user : userList) {
+            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+                return user.getId();
+            }
+        }
+        return -1; // Return -1 if no matching user is found
+    }
+
+    @Override
+    public boolean login(String username, String password) {
+        for (User user : userList) {
+            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+                return true; // Login successful
+            }
+        }
+        return false; // Login failed
+    }
 }

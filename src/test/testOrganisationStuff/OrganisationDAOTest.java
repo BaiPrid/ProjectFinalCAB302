@@ -54,4 +54,32 @@ public class OrganisationDAOTest {
         List<Organisation> allOrganisations = organisationDAO.getAll();
         assertEquals(2, allOrganisations.size());
     }
+
+    @Test
+    public void testGetDescription() {
+        organisationDAO.insert(organisations[0]);
+        String description = organisationDAO.getDescription(1);
+        assertEquals("Description 1", description);
+    }
+
+    @Test
+    public void testGetName() {
+        organisationDAO.insert(organisations[0]);
+        String name = organisationDAO.getName(1);
+        assertEquals("Org 1", name);
+    }
+
+    @Test
+    public void testLoginSuccess() {
+        organisationDAO.insert(organisations[0]);
+        boolean loginSuccessful = organisationDAO.login("user1", "pass1");
+        assertTrue(loginSuccessful);
+    }
+
+    @Test
+    public void testLoginFailure() {
+        organisationDAO.insert(organisations[0]);
+        boolean loginSuccessful = organisationDAO.login("wrongUser", "wrongPass");
+        assertFalse(loginSuccessful);
+    }
 }
