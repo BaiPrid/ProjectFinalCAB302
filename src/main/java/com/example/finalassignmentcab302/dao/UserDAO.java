@@ -24,7 +24,7 @@ public class UserDAO {
                             + "lastName VARCHAR NOT NULL, "
                             + "userName VARCHAR UNIQUE NOT NULL, "
                             + "password VARCHAR NOT NULL, "
-                            + "phoneNumber VARCHAR NOT NULL, "
+                            + "phoneNumber INTEGER NOT NULL, "
                             + "economicClass VARCHAR NOT NULL, "
                             + "email VARCHAR NOT NULL"
                             + ")"
@@ -43,7 +43,7 @@ public class UserDAO {
             insertAccount.setString(2, user.getLastName());
             insertAccount.setString(3, user.getUserName());
             insertAccount.setString(4, user.getPassword());
-            insertAccount.setString(5, user.getPhoneNumber());
+            insertAccount.setInt(5, user.getPhoneNumber());
             insertAccount.setString(6, user.getEconomicClass());
             insertAccount.setString(7, user.getEmail());
             insertAccount.execute();
@@ -62,7 +62,7 @@ public class UserDAO {
             updateAccount.setString(2, user.getLastName());
             updateAccount.setString(3, user.getUserName());
             updateAccount.setString(4, user.getPassword());
-            updateAccount.setString(5, user.getPhoneNumber());
+            updateAccount.setInt(5, user.getPhoneNumber());
             updateAccount.setString(6, user.getEconomicClass());
             updateAccount.setString(7, user.getEmail());
             updateAccount.setInt(8, user.getId());
@@ -96,7 +96,7 @@ public class UserDAO {
                                 rs.getString("userName"),
                                 rs.getString("password"),
                                 rs.getString("economicClass"),
-                                rs.getString("phoneNumber"),
+                                rs.getInt("phoneNumber"),
                                 rs.getString("email")
                         )
                 );
@@ -169,7 +169,7 @@ public class UserDAO {
                         rs.getString("userName"),
                         rs.getString("password"),
                         rs.getString("economicClass"),
-                        rs.getString("phoneNumber"),
+                        rs.getInt("phoneNumber"),
                         rs.getString("email")
                 );
             }
@@ -178,6 +178,37 @@ public class UserDAO {
         }
         return null;
     }
+
+    // check that the username is unique
+    public Boolean CheckUsername(String username) {
+        try {
+            PreparedStatement getUserName = connection.prepareStatement("SELECT userName FROM users WHERE userName = ?");
+            getUserName.setString(1, username);
+            ResultSet rs = getUserName.executeQuery();
+
+            // Return true if the username exists
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false; // Return false if the username does not exist
+    }
+
+    // check is user already has acc with email
+    public Boolean checkEmail(String email) {
+        try {
+            PreparedStatement getEmail = connection.prepareStatement("SELECT email FROM users WHERE email = ?");
+            getEmail.setString(1, email);
+            ResultSet rs = getEmail.executeQuery();
+            return rs.next(); // Returns true if an account with the email exists
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false; // Return false if there is no email found
+    }
+
 
     public void close() {
         try {

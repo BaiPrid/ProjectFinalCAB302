@@ -52,6 +52,8 @@ public class UserRegistrationController {
     private TextField PhoneNumber;
 
 
+
+
     @FXML
     private ComboBox<String> EconomicClass;
 
@@ -96,6 +98,8 @@ public class UserRegistrationController {
             return; // Prevent form submission
         }
 
+
+
         // Read text fields
         String firstName = FirstName.getText();
         String lastName = LastName.getText();
@@ -103,12 +107,46 @@ public class UserRegistrationController {
         String phoneNumber = PhoneNumber.getText();
         String userName = UserName.getText();
         String password = PassWord.getText();
+        Integer realphonenumber;
 
         // Read combo boxes
         String economicClass = EconomicClass.getValue();
 
-        User newuser = new User(firstName, lastName, userName, password, email, phoneNumber, economicClass);
+        try {
+            realphonenumber = Integer.parseInt(phoneNumber);
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Phone Number Error");
+            alert.setContentText("Please enter a valid phone number (numeric only).");
+            alert.showAndWait();
+            return;
+        }
+        //check phone number entered is an integer
+
+
+        //ensures that the username is unique as can't have multiple users with same username
         UserDAO userdao = new UserDAO();
+        if (userdao.CheckUsername(userName)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Username Taken");
+            alert.setHeaderText("This username is already taken.");
+            alert.setContentText("Please choose a different username.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (userdao.checkEmail(email)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Email Exists");
+            alert.setHeaderText("This Email is Already Associated with an Account.");
+            alert.setContentText("Please choose a different Email or Try login with existing Email.");
+            alert.showAndWait();
+            return;
+        }
+
+
+        User newuser = new User(firstName, lastName, userName, password, email, realphonenumber, economicClass);
         userdao.insert(newuser);
         //////////////NEW SECTION/////////////
         //This retrieves the user id before sending them to the questions page
@@ -144,6 +182,19 @@ public class UserRegistrationController {
     }
 
      */
+    @FXML
+    private Button btnLogout;
+
+
+    @FXML
+    protected void handleOpenUserRegistration() throws IOException {
+        Stage stage = (Stage) btnLogout.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        stage.setScene(scene);
+    }
 
 
 }

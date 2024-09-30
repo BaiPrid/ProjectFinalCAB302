@@ -58,7 +58,7 @@
 
         <Label fx:id="welcomeText"/>
 
-        <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+        <Button fx:id="btnLogout" text="Home" onAction="#handleOpenHome"/>
 
 
 

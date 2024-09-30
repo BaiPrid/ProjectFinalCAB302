@@ -9,11 +9,11 @@ public class User {
     private String userName;
     private String password;
     private String email;
-    private String phoneNumber;
+    private Integer phoneNumber;
     private String economicClass;
 
 
-    public User(int id, String firstName, String lastName, String userName, String password, String email, String phoneNumber, String economicClass){
+    public User(int id, String firstName, String lastName, String userName, String password, String email, Integer phoneNumber, String economicClass){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,7 +24,7 @@ public class User {
         this.economicClass = economicClass;
     }
 
-    public User(String firstName, String lastName, String userName, String password, String email, String phoneNumber, String economicClass){
+    public User(String firstName, String lastName, String userName, String password, String email, Integer phoneNumber, String economicClass){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -60,7 +60,7 @@ public class User {
     public String getEmail(){
         return email;
     }
-    public String getPhoneNumber(){
+    public Integer getPhoneNumber(){
         return phoneNumber;
     }
 
@@ -84,7 +84,7 @@ public class User {
     public void setEmail(String email){
         this.email = email;
     }
-    public void setPhoneNumber(String phoneNumber){
+    public void setPhoneNumber(Integer phoneNumber){
         this.phoneNumber = phoneNumber;
     }
     public void setEconomicClass(String economicClass){

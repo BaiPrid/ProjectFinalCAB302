@@ -92,6 +92,10 @@
             <Button  text="Register User" minWidth="300" fx:id="SubmitUserRegistration" onAction="#handleUserButtonAction"/>
         </HBox>
 
+        <HBox alignment="CENTER">
+        <Button fx:id="btnLogout" text="Have an Account Login Here" onAction="#handleOpenUserRegistration"/>
+        </HBox>
+
 
     </VBox>
 </ScrollPane>

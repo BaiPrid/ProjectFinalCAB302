@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_16_2024_11_37_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_16_2024_11_37_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_16_2024_12_03_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_16_2024_12_03_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/MockOrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testOrganisationStuff/MockOrganisationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/OrganisationDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testOrganisationStuff/OrganisationDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/MockUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testUserStuff/MockUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testUserStuff/UserDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Tables/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Tables/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserLogin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserRegistrationPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/stylesheet.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,32 +70,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.All in FinalAssignmentCAB302.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrganisationDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.test in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.41264367&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in FinalAssignmentCAB302.executor": "Run",
+    "JUnit.OrganisationDAOTest.executor": "Coverage",
+    "JUnit.UserDAOTest.executor": "Coverage",
+    "JUnit.test in FinalAssignmentCAB302.executor": "Coverage",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Fixing-post-video-errors-enter-types",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41264367"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.finalassignmentcab302" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test in FinalAssignmentCAB302">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.finalassignmentcab302.HelloApplication" />
       <module name="FinalAssignmentCAB302" />
@@ -202,23 +209,12 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/HelloApplication.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$All_in_FinalAssignmentCAB302.ic" NAME="All in FinalAssignmentCAB302 Coverage Results" MODIFIED="1726527503424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$JUNITTestTables.ic" NAME="JUNITTestTables Coverage Results" MODIFIED="1726453536242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.finalassignmentcab302.TestingJunit.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1726886419955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1727001841601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserRegistrationControllerTest.ic" NAME="UserRegistrationControllerTest Coverage Results" MODIFIED="1726814811988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>RegistrationControllerTests.*</FILTER>
     </SUITE>
