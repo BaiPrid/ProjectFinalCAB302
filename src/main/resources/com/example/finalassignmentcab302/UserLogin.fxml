@@ -37,7 +37,7 @@
                     <TextField fx:id="memberUsername"/>
                     <Label text="Password"/>
                     <PasswordField fx:id="memberPassword"/>
-                    <Button text="Login" onAction="#handleMemberLogin"/>
+                    <Button fx:id="loginSend" text="Login" onAction="#handleMemberLogin"/>
                 </VBox>
                 <padding>
                     <Insets top="5.0" bottom="5.0"/>
