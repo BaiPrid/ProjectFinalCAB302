@@ -87,10 +87,10 @@ public class OrganisationDAO {
 
     public List<Organisation> getAll() {
         List<Organisation> allOrganisation = new ArrayList<>();
-        try{
+        try {
             Statement getAll = connection.createStatement();
             ResultSet rs = getAll.executeQuery("SELECT * FROM organisations");
-            while (rs.next()){
+            while (rs.next()) {
                 allOrganisation.add(
                         new Organisation(
                                 rs.getInt("id"),
@@ -104,7 +104,7 @@ public class OrganisationDAO {
                         )
                 );
             }
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             System.err.println(ex);
         }
         return allOrganisation;
@@ -188,6 +188,39 @@ public class OrganisationDAO {
         return false;  // Login failed (user not found or SQL error)
     }
 
+    // check that the username is unique
+    public Boolean CheckOrganisationName(String username) {
+        try {
+            PreparedStatement getUserName = connection.prepareStatement("SELECT userName FROM organisations WHERE userName = ?");
+            getUserName.setString(1, username);
+            ResultSet rs = getUserName.executeQuery();
+
+            // Return true if the username exists
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false; // Return false if the username does not exist
+    }
+
+    public Boolean CheckOrganisationEmail(String email) {
+        try {
+            PreparedStatement getOrganisationEmail = connection.prepareStatement("SELECT email FROM organisations WHERE email = ?");
+            getOrganisationEmail.setString(1, email);
+            ResultSet rs = getOrganisationEmail.executeQuery();
+
+            // Return true if the username exists
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false; // Return false if the username does not exist
+    }
+
 
     public void close() {
         try {
@@ -197,3 +230,5 @@ public class OrganisationDAO {
         }
     }
 }
+
+
