@@ -1,3 +1,5 @@
+package TestDB;
+
 import com.example.finalassignmentcab302.DatabaseConnection;
 import org.junit.jupiter.api.Test;
 
