@@ -222,11 +222,30 @@ public class OrganisationRegistrationController {
         String donationTypesBuild = String.join(", ", donationTypes);
 
 
+        OrganisationDAO organisationDAO = new OrganisationDAO();
+
+        if (organisationDAO.CheckOrganisationName(organisationUsername)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Organisation username Taken");
+            alert.setHeaderText("This organisation username is already taken.");
+            alert.setContentText("Please choose a different organisation username.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (organisationDAO.CheckOrganisationEmail(organisationEmail)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Email Exists");
+            alert.setHeaderText("This email is already associated with an organisation account.");
+            alert.setContentText("Please choose a different email or try logging in with the existing email.");
+            alert.showAndWait();
+            return;
+        }
+
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
         OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
         dao.insert(organisationAnswers);
-        OrganisationDAO organisationDAO = new OrganisationDAO();
         organisationDAO.insert(organisation);
         handleLoginPage();
 
