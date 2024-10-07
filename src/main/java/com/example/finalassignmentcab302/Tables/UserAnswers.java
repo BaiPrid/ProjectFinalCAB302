@@ -42,6 +42,15 @@ public class UserAnswers {
         this.userAns3 = userAns3;
     }
 
+    public UserAnswers(int userId, String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies){
+        this.userId = userId;
+        this.category = category;
+        this.size = size;
+        this.donationOptions = donationOptions;
+        this.taxableCategory = taxableCategory;
+        this.donorSpecifies = donorSpecifies;
+    }
+
     public int getUserId(){
         return userId;
     }

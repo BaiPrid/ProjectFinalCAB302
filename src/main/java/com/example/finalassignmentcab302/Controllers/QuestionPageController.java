@@ -167,13 +167,25 @@ public class QuestionPageController {
 
         //questionIncrement++;
 
-        if (questionIncrement <= 5){
+        if (questionIncrement <= 4){
             displayQuestion(questions.get(questionIncrement));
         }
         else{
-            UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList.get(0)), String.valueOf(answerList.get(1)), String.valueOf(answerList.get(2)));
+
+
+            boolean boolNum = false;
+            if ("You Choose".equals(String.valueOf(answerList2.get(4)))){
+                boolNum = true;
+            }
+
+            //System.out.println("We Made it this far");
+            UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList2.get(0)), String.valueOf(answerList2.get(1)), String.valueOf(answerList2.get(2)), String.valueOf(answerList2.get(3)), true);
+            //UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "please", "just", "work");
+            //System.out.println("We Made it this far2");
             UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-            userAnswersDAO.updateAnswersOnly(userAnswers);
+            //System.out.println("We Made it this far3");
+            userAnswersDAO.updateUserAnswers(userAnswers);
+            //System.out.println("We Made it this far4");
             //PUT THE USER ANSWERS HERE
             //questionField.setText("There are no more questions. In a later build this will route to next page");
             handleCharitiesPage();
