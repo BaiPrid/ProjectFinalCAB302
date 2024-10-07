@@ -50,9 +50,8 @@ public class CharitiesPageController {
     @FXML
     private void initialize() {
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        int userId = 2; // Replace with actual user ID
+        int userId = CurrentUserGLOBAL.currentUser;
         // Gets the answers for the specific user id
         List<String> userAnswers = userAnswersDAO.getUserAnswers(userId);
 
@@ -63,21 +62,23 @@ public class CharitiesPageController {
             // Apply some fucky hashmap manipulation to sort it into descending order based on the values.
             List<Map.Entry<Integer, Integer>> sortedMatches = matchingOrganisations.entrySet().stream().sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())).toList();
 
+            int totalQuestions = 3;
+
             // Number one spot ----------------------------------------------------------------------------------------------
             int firstOrgId = sortedMatches.get(0).getKey();
-            String[] nameDescription1 = generateNameDescription(firstOrgId, sortedMatches.get(0).getValue(), 3);
+            String[] nameDescription1 = generateNameDescription(firstOrgId, sortedMatches.get(0).getValue(), totalQuestions);
             lblCharity1.setText(nameDescription1[0]);
             txtCharity1.setText(nameDescription1[1]);
 
             // Number two spot ----------------------------------------------------------------------------------------------
             int secondOrgId = sortedMatches.get(1).getKey();
-            String[] nameDescription2 = generateNameDescription(secondOrgId, sortedMatches.get(1).getValue(), 3);
+            String[] nameDescription2 = generateNameDescription(secondOrgId, sortedMatches.get(1).getValue(), totalQuestions);
             lblCharity2.setText(nameDescription2[0]);
             txtCharity2.setText(nameDescription2[1]);
 
             // Number three spot --------------------------------------------------------------------------------------------
             int thirdOrgId = sortedMatches.get(2).getKey();
-            String[] nameDescription3 = generateNameDescription(thirdOrgId, sortedMatches.get(2).getValue(), 3);
+            String[] nameDescription3 = generateNameDescription(thirdOrgId, sortedMatches.get(2).getValue(), totalQuestions);
             lblCharity3.setText(nameDescription3[0]);
             txtCharity3.setText(nameDescription3[1]);
 

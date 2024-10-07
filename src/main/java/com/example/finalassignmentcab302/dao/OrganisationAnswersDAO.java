@@ -110,24 +110,21 @@ public class OrganisationAnswersDAO {
     // NOTE: The org answers will need to be expanded upon when full functionality and questionnaire is implemented
     public Map<Integer, String[]> getOrgAnswers() {
         Map<Integer, String[]> allOrganisationAnswers = new HashMap<>();
-        int orgId = 1; // For testing purposes, will change once we introduce the orgId into orgAnswersTable
-        // NOTE: Think about this more, might not need to do that, just iterate over all organisations here and then once we match we can incorporate orgId
 
         try {
             PreparedStatement getOrgAnswersStmt = connection.prepareStatement(
-                    "SELECT category, size, donationOptions FROM organisationAnswersTable"
+                    "SELECT organisationId, category, size, donationOptions FROM organisationAnswersTable"
             );
             ResultSet rs = getOrgAnswersStmt.executeQuery();
 
-            while (rs.next() && orgId <= 6) {       // orgId <= length of organisation table. NOTE: Can maybe remove and just do it over all orgs (assuming every int is used as orgid)
-                //int orgId = rs.getInt("organisationId");
+            while (rs.next()) {       // orgId <= length of organisation table. NOTE: Can maybe remove and just do it over all orgs (assuming every int is used as orgid)
+                int organisationId = rs.getInt("organisationId");
                 String[] orgDetails = new String[3];
                 orgDetails[0] = rs.getString("category");
                 orgDetails[1] = rs.getString("size");
                 orgDetails[2] = rs.getString("donationOptions");
 
-                allOrganisationAnswers.put(orgId, orgDetails);
-                orgId++;
+                allOrganisationAnswers.put(organisationId, orgDetails);
             }
         } catch (SQLException ex) {
             System.err.println(ex);
