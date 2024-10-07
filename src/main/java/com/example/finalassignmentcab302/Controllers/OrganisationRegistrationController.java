@@ -215,16 +215,16 @@ public class OrganisationRegistrationController {
 
         // Read checkboxes
         List<String> donationTypes = new ArrayList<>();
-        if (monetaryDonationCheckBox.isSelected()) donationTypes.add("Monetary Donation");
-        if (volunteerWorkCheckBox.isSelected()) donationTypes.add("Volunteer Work");
-        if (payedEmployeesCheckBox.isSelected()) donationTypes.add("Payed Employees");
-        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired 3rd Party Corporations");
-        String donationTypesBuild = String.join(",", donationTypes);
+        if (monetaryDonationCheckBox.isSelected()) donationTypes.add("monetaryDonation, ");
+        if (volunteerWorkCheckBox.isSelected()) donationTypes.add("volunteerWork, ");
+        if (payedEmployeesCheckBox.isSelected()) donationTypes.add("payedEmployees, ");
+        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("HiredParty, ");
+        String donationTypesBuild = String.join(", ", donationTypes);
 
 
         OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        if (organisationDAO.CheckOrganisationName(organisationUsername)) {
+        if (organisationDAO.CheckOrganisationUserName(organisationUsername)) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Organisation username Taken");
             alert.setHeaderText("This organisation username is already taken.");
@@ -242,14 +242,22 @@ public class OrganisationRegistrationController {
             return;
         }
 
+        if (organisationDAO.CheckOrganisationName(organisationName)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Organisation name Taken");
+            alert.setHeaderText("This organisation name is already taken.");
+            alert.setContentText("Please choose a different organisation name.");
+            alert.showAndWait();
+            return;
+        }
+
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
-        OrganisationAnswers organisationAnswers = new OrganisationAnswers(categorySupportedGroup, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
+        OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
         dao.insert(organisationAnswers);
         organisationDAO.insert(organisation);
         handleLoginPage();
     }
-
 
     @FXML
     private void handleLoginPage() throws IOException {
@@ -260,4 +268,9 @@ public class OrganisationRegistrationController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
+
+
+
+
+
 }
