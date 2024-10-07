@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_11_2024_12_02_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_11_2024_12_02_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RegistrationControllerTests/UserRegistrationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegistrationControllerTests/UserRegistrationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationAnswersstuff/MockOrganisationAnswersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testOrganisationAnswersstuff/MockOrganisationAnswersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationAnswersstuff/OrganisationAnswersDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testOrganisationAnswersstuff/OrganisationAnswersDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/MockOrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testOrganisationStuff/MockOrganisationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testOrganisationStuff/OrganisationDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testOrganisationStuff/OrganisationDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserAnswersstuff/MockUserAnswersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testUserAnswersstuff/MockUserAnswersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserAnswersstuff/UserAnswersDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testUserAnswersstuff/UserAnswersDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/MockUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testUserStuff/MockUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testUserStuff/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testUserStuff/UserDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testingtablesfolder/Ordertest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testingtablesfolder/OrganisationAnswersTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testingtablesfolder/OrganisationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testingtablesfolder/UserAnswersTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testingtablesfolder/UserTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testorderstuff/MockOrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testorderstuff/MockOrderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/testorderstuff/OrderDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testorderstuff/OrderDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="doing-test-stuff" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +75,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "doing-test-stuff",
+    "git-widget-placeholder": "integration",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302",
     "project.structure.last.edited": "Libraries",
@@ -223,7 +206,7 @@
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$JUNITTestTables.ic" NAME="JUNITTestTables Coverage Results" MODIFIED="1726453536242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.example.finalassignmentcab302.TestingJunit.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1727001841601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$test_in_FinalAssignmentCAB302.ic" NAME="test in FinalAssignmentCAB302 Coverage Results" MODIFIED="1728290173160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$UserRegistrationControllerTest.ic" NAME="UserRegistrationControllerTest Coverage Results" MODIFIED="1726814811988" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>RegistrationControllerTests.*</FILTER>
     </SUITE>
@@ -231,6 +214,7 @@
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationServiceTest.ic" NAME="OrganisationServiceTest Coverage Results" MODIFIED="1726489337205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testOrganisationStuff.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$java_in_FinalAssignmentCAB302.ic" NAME="java in FinalAssignmentCAB302 Coverage Results" MODIFIED="1728290268936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationAnswersTest.ic" NAME="OrganisationAnswersTest Coverage Results" MODIFIED="1726484610254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationAnswersServiceTest.ic" NAME="OrganisationAnswersServiceTest Coverage Results" MODIFIED="1726489097602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>OrganisationAnswersStuff.*</FILTER>
