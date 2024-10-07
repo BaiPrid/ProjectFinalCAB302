@@ -18,7 +18,7 @@
         </padding>
         <!--TITLE -->
         <HBox alignment="CENTER">
-            <Label text=""
+            <Label text="Your personalised charities!"
             minHeight="50.0"/>
         </HBox>
 
@@ -26,21 +26,21 @@
         <VBox spacing="20.0">
             <Label fx:id="lblCharity1"/>
             <Text fx:id="txtCharity1"/>
-            <Button fx:id="btnCharity1" text="Take me there!" onAction="#handleDonationPagefor1"/>
+            <Button fx:id="btnCharity1" text="Donate!" onAction="#handleDonationPagefor1"/>
         </VBox>
 
         <!-- CHARITY 2 -->
         <VBox spacing="20.0">
             <Label fx:id="lblCharity2"/>
             <Text fx:id="txtCharity2"/>
-            <Button fx:id="btnCharity2" text="Take me there!" onAction="#handleDonationPagefor2"/>
+            <Button fx:id="btnCharity2" text="Donate!" onAction="#handleDonationPagefor2"/>
         </VBox>
 
         <!-- CHARITY 3 -->
         <VBox spacing="20.0">
             <Label fx:id="lblCharity3"/>
             <Text fx:id="txtCharity3"/>
-            <Button fx:id="btnCharity3" text="Take me there!" onAction="#handleDonationPagefor3"/>
+            <Button fx:id="btnCharity3" text="Donate!" onAction="#handleDonationPagefor3"/>
         </VBox>
 
         <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>

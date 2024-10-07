@@ -12,28 +12,36 @@
             fx:controller="com.example.finalassignmentcab302.Controllers.UserAccountsController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Label fx:id="txtWelcome"/>
+    <VBox alignment="CENTER">
 
-    <HBox spacing="50.0" alignment="CENTER">
         <padding>
-            <Insets left="200"/>
+            <Insets top="20"/>
         </padding>
 
-        <VBox alignment="CENTER">
-            <!-- ORDER HISTORY ON LEFT SIDE -->
-            <Label text="Your order history!"/>
-            <ListView  fx:id="orderListView" prefWidth="450"/>
-        </VBox>
+        <Label fx:id="txtTitle"/>
 
-        <VBox spacing="20.0" alignment="CENTER">
-            <!-- BUTTONS ON RIGHT SIDE -->
-            <Button fx:id="btnQuestions" text="Redo my answers" onAction="#handleOpenHome"/>
-            <Button fx:id="btnDonate" text="Donate now!" onAction="#handleCharitiesPage"/>
-            <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+        <HBox spacing="50.0" alignment="CENTER">
+            <padding>
+                <Insets left="200"/>
+            </padding>
 
-        </VBox>
+            <VBox alignment="CENTER">
+                <!-- ORDER HISTORY ON LEFT SIDE -->
+                <Label text="Your order history!"/>
+                <ListView  fx:id="orderListView" prefWidth="450"/>
+            </VBox>
 
-    </HBox>
+            <VBox spacing="20.0" alignment="CENTER">
+                <!-- BUTTONS ON RIGHT SIDE -->
+                <Button fx:id="btnQuestions" text="Redo my answers" onAction="#handleQuestionsPage"/>
+                <Button fx:id="btnDonate" text="Donate now!" onAction="#handleCharitiesPage"/>
+                <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+
+            </VBox>
+
+        </HBox>
+
+    </VBox>
 
 
 </ScrollPane>
