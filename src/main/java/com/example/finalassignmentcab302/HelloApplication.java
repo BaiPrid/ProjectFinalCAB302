@@ -65,9 +65,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
     }
 
-
-
-
     / Method to switch to the Organisation page
     public void switchToLoginPage(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrgLogin.fxml"));
@@ -120,8 +117,6 @@ public class HelloApplication extends Application {
         userDAO.close();
         organisationDao.close();
     }
-
-
 
 }
 

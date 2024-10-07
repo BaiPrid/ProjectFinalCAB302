@@ -137,6 +137,28 @@ public class OrganisationAnswersDAO {
     }
 
 
+    public List<Object> getByid(int id) {
+        List<Object> organisationAnswersDetails = new ArrayList<>();
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement(
+                    "SELECT * FROM organisationAnswersTable WHERE organisationId = ?"
+            );
+            getOrganisation.setInt(1, id);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                organisationAnswersDetails.add(rs.getInt("organisationId"));
+                organisationAnswersDetails.add(rs.getString("category"));
+                organisationAnswersDetails.add(rs.getString("size"));
+                organisationAnswersDetails.add(rs.getString("donationOptions"));
+                organisationAnswersDetails.add(rs.getString("taxableCategory"));
+                organisationAnswersDetails.add(rs.getBoolean("donorSpecifies"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return organisationAnswersDetails;  // Return the list of organisation details
+    }
+
     public void close() {
         try {
             connection.close();

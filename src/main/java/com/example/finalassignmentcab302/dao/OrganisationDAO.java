@@ -110,6 +110,32 @@ public class OrganisationDAO {
         return allOrganisation;
     }
 
+    // Method to retrieve organisation details by name and return them in a list
+    public List<Object> getByName(String name) {
+        List<Object> organisationDetails = new ArrayList<>();
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement(
+                    "SELECT * FROM organisations WHERE name = ?"
+            );
+            getOrganisation.setString(1, name);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                // Add each field from the result set to the list
+                organisationDetails.add(rs.getInt("id"));
+                organisationDetails.add(rs.getString("name"));
+                organisationDetails.add(rs.getString("description"));
+                organisationDetails.add(rs.getString("imgPath"));
+                organisationDetails.add(rs.getString("email"));
+                organisationDetails.add(rs.getString("groupSupported"));
+                organisationDetails.add(rs.getString("userName"));
+                organisationDetails.add(rs.getString("passWord"));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return organisationDetails;  // Return the list of organisation details
+    }
+
     public Organisation getByLogin(int id) {
         try {
             PreparedStatement getOrganisation = connection.prepareStatement("SELECT * FROM organisations WHERE id = ?");
@@ -166,6 +192,8 @@ public class OrganisationDAO {
         return null; // Return null if no description is found or if an exception occurs
     }
 
+
+
     public boolean login(String username, String password) {
 
 
@@ -189,7 +217,7 @@ public class OrganisationDAO {
     }
 
     // check that the username is unique
-    public Boolean CheckOrganisationName(String username) {
+    public Boolean CheckOrganisationUserName(String username) {
         try {
             PreparedStatement getUserName = connection.prepareStatement("SELECT userName FROM organisations WHERE userName = ?");
             getUserName.setString(1, username);
@@ -222,6 +250,24 @@ public class OrganisationDAO {
     }
 
 
+    public Boolean CheckOrganisationName(String name) {
+        try {
+            PreparedStatement getOrganisationName = connection.prepareStatement("SELECT name FROM organisations WHERE name = ?");
+            getOrganisationName.setString(1, name);
+            ResultSet rs = getOrganisationName.executeQuery();
+
+            // Return true if the username exists
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return false; // Return false if the name does not exist
+    }
+
+
+
     public void close() {
         try {
             connection.close();
@@ -229,6 +275,8 @@ public class OrganisationDAO {
             System.err.println(ex);
         }
     }
+
+
 }
 
 

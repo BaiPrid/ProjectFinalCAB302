@@ -224,7 +224,7 @@ public class OrganisationRegistrationController {
 
         OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        if (organisationDAO.CheckOrganisationName(organisationUsername)) {
+        if (organisationDAO.CheckOrganisationUserName(organisationUsername)) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Organisation username Taken");
             alert.setHeaderText("This organisation username is already taken.");
@@ -242,18 +242,22 @@ public class OrganisationRegistrationController {
             return;
         }
 
+        if (organisationDAO.CheckOrganisationName(organisationName)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Organisation name Taken");
+            alert.setHeaderText("This organisation name is already taken.");
+            alert.setContentText("Please choose a different organisation name.");
+            alert.showAndWait();
+            return;
+        }
+
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
         OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
         dao.insert(organisationAnswers);
         organisationDAO.insert(organisation);
         handleLoginPage();
-
-
     }
-
-
-
 
     @FXML
     private void handleLoginPage() throws IOException {
