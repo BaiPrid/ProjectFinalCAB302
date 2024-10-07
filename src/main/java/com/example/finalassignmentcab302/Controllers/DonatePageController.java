@@ -179,7 +179,7 @@ public class DonatePageController {
 
     private void handleHomeSend() throws IOException {
         Stage stage = (Stage) Donate.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LandingPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserAccounts.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
         scene.getStylesheets().add(stylesheet);

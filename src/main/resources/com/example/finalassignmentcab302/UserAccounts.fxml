@@ -6,22 +6,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <ScrollPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.finalassignmentcab302.UserAccounts"
+            fx:controller="com.example.finalassignmentcab302.Controllers.UserAccountsController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <padding>
-        <Insets bottom="20.0" left="20" right="20"/>
-    </padding>
+    <Label fx:id="txtWelcome"/>
 
-    <!--TASKBAR -->
     <HBox spacing="50.0" alignment="CENTER">
+        <padding>
+            <Insets left="200"/>
+        </padding>
 
-        <Button text="Member Registration" fx:id="registerButton" onAction="#handleOpenUserRegistration"/>
-        <Button text="Questionnaire" fx:id="questNav" onAction="#handleSwitchToQuestionPage"/>
-        <Button text="Organisation Registration" fx:id="navigateButton" onAction="#handleOpenOrganisationRegistration"/>
-        <Button text="Home" fx:id="HomeP" onAction="#handleOpenHomePage"/>
+        <VBox alignment="CENTER">
+            <!-- ORDER HISTORY ON LEFT SIDE -->
+            <Label text="Your order history!"/>
+            <ListView  fx:id="orderListView" prefWidth="450"/>
+        </VBox>
+
+        <VBox spacing="20.0" alignment="CENTER">
+            <!-- BUTTONS ON RIGHT SIDE -->
+            <Button fx:id="btnQuestions" text="Redo my answers" onAction="#handleOpenHome"/>
+            <Button fx:id="btnDonate" text="Donate now!" onAction="#handleCharitiesPage"/>
+            <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+
+        </VBox>
 
     </HBox>
 

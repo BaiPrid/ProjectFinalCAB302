@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/DonatePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/DonatePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/Donate Page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/Donate Page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserAccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserAccountsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserAccounts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserAccounts.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,30 +65,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.All in FinalAssignmentCAB302.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DatabaseTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrganisationDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.java in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.test in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
-    &quot;Maven.FinalAssignmentCAB302 [test].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;final-touch-ups-before-11-actual-&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.41264367&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in FinalAssignmentCAB302.executor": "Run",
+    "JUnit.DatabaseTest.executor": "Run",
+    "JUnit.OrganisationDAOTest.executor": "Coverage",
+    "JUnit.UserDAOTest.executor": "Coverage",
+    "JUnit.java in FinalAssignmentCAB302.executor": "Coverage",
+    "JUnit.test in FinalAssignmentCAB302.executor": "Coverage",
+    "Maven.FinalAssignmentCAB302 [test].executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "workingOnAccounts",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41264367"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.finalassignmentcab302" />
@@ -186,7 +189,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="integration" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>

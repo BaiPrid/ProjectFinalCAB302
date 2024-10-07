@@ -100,6 +100,33 @@ public class OrderDAO {
         return allOrders;
     }
 
+
+    public List<Order> getUserOrders(int userID) {
+        List<Order> allOrders = new ArrayList<>();
+        try{
+            PreparedStatement getOrders = connection.prepareStatement("SELECT * FROM orders WHERE userID = ?");
+            getOrders.setInt(1, userID);
+
+            ResultSet rs = getOrders.executeQuery();
+
+            while (rs.next()){
+                allOrders.add(
+                        new Order(
+                                rs.getInt("orderId"),
+                                rs.getInt("userId"),
+                                rs.getInt("organisationId"),
+                                rs.getString("orderDateTime"),
+                                rs.getFloat("amount"),
+                                rs.getString("billingAddress")
+                        )
+                );
+            }
+        }catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return allOrders;
+    }
+
     public void close() {
         try {
             connection.close();
