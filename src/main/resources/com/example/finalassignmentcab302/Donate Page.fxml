@@ -25,10 +25,24 @@
         <VBox>
 
 
-        </VBox>
-
-        <VBox spacing="30">
-            <Label fx:id="txtCharityDescription"/>
+            <Label text="Description of Charity:"/>
+            <Label fx:id="txtCharityDescription" wrapText="true" maxWidth="400"/>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="Charity Supports:   "/>
+            <Label fx:id="CharityGroupSupported"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="The Taxable Category is:   "/>
+            <Label fx:id="TaxableCategory"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="The size of this charity is:   "/>
+            <Label fx:id="CharitySize"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
 
             <Label text="Select Amount to Donate"/>
             <HBox spacing="30.0">
@@ -57,15 +71,15 @@
                 <Label text="500"/>
             </VBox>
             </HBox>
-
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
             <VBox>
                 <Label text="Enter Billing Adress"/>
                 <TextField promptText="Enter Billing Address Here" fx:id="BillingAdress"/>
             </VBox>
 
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
 
-
-            <Button fx:id="Donate" text="Donate" alignment="CENTER" minWidth="250" onAction="#OnDonatePress"/>
+            <Button fx:id="Donate" text="Donate" alignment="CENTER" minWidth="400" onAction="#OnDonatePress"/>
 
         </VBox>
     </HBox>
