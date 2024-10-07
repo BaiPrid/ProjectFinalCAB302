@@ -113,16 +113,18 @@ public class OrganisationAnswersDAO {
 
         try {
             PreparedStatement getOrgAnswersStmt = connection.prepareStatement(
-                    "SELECT organisationId, category, size, donationOptions FROM organisationAnswersTable"
+                    "SELECT organisationId, category, size, donationOptions, taxableCategory, donorSpecifies FROM organisationAnswersTable"
             );
             ResultSet rs = getOrgAnswersStmt.executeQuery();
 
-            while (rs.next()) {       // orgId <= length of organisation table. NOTE: Can maybe remove and just do it over all orgs (assuming every int is used as orgid)
+            while (rs.next()) {
                 int organisationId = rs.getInt("organisationId");
-                String[] orgDetails = new String[3];
+                String[] orgDetails = new String[5];
                 orgDetails[0] = rs.getString("category");
                 orgDetails[1] = rs.getString("size");
                 orgDetails[2] = rs.getString("donationOptions");
+                orgDetails[3] = rs.getString("taxableCategory");
+                orgDetails[4] = rs.getString("donorSpecifies");
 
                 allOrganisationAnswers.put(organisationId, orgDetails);
             }

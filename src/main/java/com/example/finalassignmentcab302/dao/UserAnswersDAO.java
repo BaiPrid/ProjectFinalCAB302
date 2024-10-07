@@ -172,8 +172,13 @@ public class UserAnswersDAO {
             String[] orgAnswers = entry.getValue();
 
             for (int i = 0; i < orgAnswers.length && i < userAnswers.size(); i++) {
-                if (orgAnswers[i].equals(userAnswers.get(i))) {
-                    matches++;
+                String[] orgOptions = orgAnswers[i].split(",\\s*");
+
+                for (String option : orgOptions) {
+                    if (orgAnswers[i].equals(userAnswers.get(i))) {
+                        matches++;
+                        break;
+                    }
                 }
             }
 
@@ -190,15 +195,17 @@ public class UserAnswersDAO {
 
         try {
             PreparedStatement getUserAnswersStmt = connection.prepareStatement(
-                    "SELECT userAns1, userAns2, userAns3 FROM userAnswersTable WHERE userId = ?"
+                    "SELECT category, size, donationOptions, taxableCategory, donorSpecifies FROM userAnswersTable WHERE userId = ?"
             );
             getUserAnswersStmt.setInt(1, userId);
             ResultSet rs = getUserAnswersStmt.executeQuery();
 
             if (rs.next()) {
-                userAnswersList.add(rs.getString("userAns1"));
-                userAnswersList.add(rs.getString("userAns2"));
-                userAnswersList.add(rs.getString("userAns3"));
+                userAnswersList.add(rs.getString("category"));
+                userAnswersList.add(rs.getString("size"));
+                userAnswersList.add(rs.getString("donationOptions"));
+                userAnswersList.add(rs.getString("taxableCategory"));
+                userAnswersList.add(rs.getString("donorSpecifies"));
             }
         } catch (SQLException ex) {
             System.err.println(ex);

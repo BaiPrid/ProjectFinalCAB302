@@ -62,7 +62,7 @@ public class CharitiesPageController {
             // Apply some fucky hashmap manipulation to sort it into descending order based on the values.
             List<Map.Entry<Integer, Integer>> sortedMatches = matchingOrganisations.entrySet().stream().sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())).toList();
 
-            int totalQuestions = 3;
+            int totalQuestions = 5;
 
             // Number one spot ----------------------------------------------------------------------------------------------
             int firstOrgId = sortedMatches.get(0).getKey();

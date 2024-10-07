@@ -107,7 +107,7 @@
                 <ComboBox minWidth="300" fx:id="SizeOfOrganisation">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Local - 5-50 people "/>
+                            <String fx:value="Local - 5-50 people"/>
                             <String fx:value="Small - 50-500 people"/>
                             <String fx:value="Medium - 500-2000 people"/>
                             <String fx:value="Large - 2000-10000 people"/>
