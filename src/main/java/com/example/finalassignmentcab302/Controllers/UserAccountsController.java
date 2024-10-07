@@ -27,8 +27,8 @@ public class UserAccountsController
     private Button btnDonate;
     @FXML
     private Button btnLogout;
-//    @FXML
-//    private Button btnQuestions;
+    @FXML
+    private Button btnQuestions;
     @FXML
     private Label txtTitle;
     @FXML
@@ -54,15 +54,15 @@ public class UserAccountsController
         stage.setScene(scene);
     }
 
-//    @FXML
-//    private void handleQuestionsPage() throws IOException {
-//        Stage stage = (Stage) btnQuestions.getScene().getWindow(); // Get the current stage
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-//        String stylesheet = HelloApplication.class.getResource("questionsSS.css").toExternalForm();
-//        scene.getStylesheets().add(stylesheet);
-//        stage.setScene(scene);
-//    }
+    @FXML
+    private void handleQuestionsPage() throws IOException {
+        Stage stage = (Stage) btnQuestions.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("questionsSS.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        stage.setScene(scene);
+    }
 
 
 
