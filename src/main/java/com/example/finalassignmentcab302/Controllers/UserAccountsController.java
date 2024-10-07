@@ -2,6 +2,7 @@ package com.example.finalassignmentcab302.Controllers;
 
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Order;
+import com.example.finalassignmentcab302.Tables.User;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
-import com.example.finalassignmentcab302.dao.UserAnswersDAO;
+import com.example.finalassignmentcab302.dao.UserDAO;
 import com.example.finalassignmentcab302.dao.OrderDAO;
 
 import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
@@ -22,18 +23,17 @@ import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
 public class UserAccountsController
 {
-
-    @FXML
-    private Button navigateButton; // Reference to the button in FXML
-
-    @FXML
-    private Button btnQuestions;
     @FXML
     private Button btnDonate;
     @FXML
     private Button btnLogout;
     @FXML
-    private Label txtWelcome;
+    private Button btnQuestions;
+    @FXML
+    private Label txtTitle;
+    @FXML
+    public ListView<Order> orderListView;
+
 
     //---------- BUTTONS TO DIFFERENT PAGES !! -------------
 
@@ -54,29 +54,39 @@ public class UserAccountsController
         stage.setScene(scene);
     }
 
-    // ------------- DATA INTERACTION (yay.) ------------
-    UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-    public OrderDAO userOrdersDAO = new OrderDAO();
+    @FXML
+    private void handleQuestionsPage() throws IOException {
+        Stage stage = (Stage) btnQuestions.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("questionsSS.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        stage.setScene(scene);
+    }
 
-    int userId = currentUser; // Replace with actual user ID
-    // Gets the answers for the specific user id
-    List<String> userAnswers = userAnswersDAO.getUserAnswers(userId);
 
 
-    public List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
-    public ObservableList<Order> observableList = FXCollections.observableList(userOrders);
 
     @FXML
-    public ListView<Order> orderListView;
+    private void initialize()
+    {
+        // ------------- DATA INTERACTION (yay.) ------------
+        UserDAO userNameDAO = new UserDAO();
+        OrderDAO userOrdersDAO = new OrderDAO();
 
-    public UserAccountsController(){
+        int userId = currentUser; // Replace with actual user ID
+        // Gets the answers for the specific user id
+
+        User userName = userNameDAO.getByLogin(userId);
+        String name = userName.getFirstName();
+
+        List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
+
         boolean hasOrders = !userOrders.isEmpty();
         if (hasOrders) {
             orderListView.getItems().addAll(userOrders);
+            txtTitle.setText("Welcome " + name);
         }
-//        else {
-//            Order emptyOrder = new Order(0, userId, 0, "Null", 0F, "Null");
-//        }
     }
 
 
