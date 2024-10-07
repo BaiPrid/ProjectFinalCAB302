@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
@@ -17,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,10 +67,12 @@
     "Application.Unnamed.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in FinalAssignmentCAB302.executor": "Run",
+    "JUnit.DatabaseTest.executor": "Run",
     "JUnit.OrganisationDAOTest.executor": "Coverage",
     "JUnit.UserDAOTest.executor": "Coverage",
     "JUnit.java in FinalAssignmentCAB302.executor": "Coverage",
     "JUnit.test in FinalAssignmentCAB302.executor": "Coverage",
+    "Maven.FinalAssignmentCAB302 [test].executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -87,7 +90,7 @@
       <recent name="com.example.finalassignmentcab302" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in FinalAssignmentCAB302">
+  <component name="RunManager" selected="JUnit.DatabaseTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.finalassignmentcab302.HelloApplication" />
       <module name="FinalAssignmentCAB302" />
@@ -95,16 +98,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrganisationDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalAssignmentCAB302" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testOrganisationStuff.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testOrganisationStuff" />
-      <option name="MAIN_CLASS_NAME" value="testOrganisationStuff.OrganisationDAOTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTest" />
         <item itemvalue="JUnit.java in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.UserRegistrationControllerTest" />
         <item itemvalue="JUnit.UserDAOTest" />
-        <item itemvalue="JUnit.OrganisationDAOTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,6 +207,7 @@
       <FILTER>RegistrationControllerTests.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationTest.ic" NAME="OrganisationTest Coverage Results" MODIFIED="1726484310283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/ProjectFinalCAB302$DatabaseTest.ic" NAME="DatabaseTest Coverage Results" MODIFIED="1728294951146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/ProjectFinalCAB302$OrganisationServiceTest.ic" NAME="OrganisationServiceTest Coverage Results" MODIFIED="1726489337205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>testOrganisationStuff.*</FILTER>
     </SUITE>
