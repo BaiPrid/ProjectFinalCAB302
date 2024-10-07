@@ -1,81 +1,41 @@
 package com.example.finalassignmentcab302.Controllers;
 
 import com.example.finalassignmentcab302.HelloApplication;
+import com.example.finalassignmentcab302.Tables.Order;
 import com.example.finalassignmentcab302.dao.UserDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.util.List;
+import com.example.finalassignmentcab302.dao.UserAnswersDAO;
+import com.example.finalassignmentcab302.dao.OrderDAO;
+
+import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
 
 public class UserAccountsController
 {
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    private Button testbutton;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     @FXML
     private Button navigateButton; // Reference to the button in FXML
 
     @FXML
-    private Button registerButton; // Reference to the button in FXML
-
+    private Button btnQuestions;
     @FXML
-    private Button questNav;
-
-    @FXML
-    private Button HomeP;
-
-
-    @FXML
-    protected void handleOpenOrganisationRegistration() throws IOException {
-        Stage stage = (Stage) questNav.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleOpenHomePage() throws IOException {
-        Stage stage = (Stage) HomeP.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    protected void handleOpenUserRegistration() throws IOException {
-        Stage stage = (Stage) questNav.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-    @FXML
-    protected void handleSwitchToQuestionPage() throws IOException {
-        Stage stage = (Stage) questNav.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-    // USer Back Button allows for the user to return back to what will be the Home Page
-    // Original Code = Amare, modified if needed by Marcus
-
-
+    private Button btnDonate;
     @FXML
     private Button btnLogout;
+    @FXML
+    private Label txtWelcome;
+
+    //---------- BUTTONS TO DIFFERENT PAGES !! -------------
 
     @FXML
     private void handleOpenHome() throws IOException {
@@ -83,6 +43,42 @@ public class UserAccountsController
         HelloApplication app = new HelloApplication();
         app.start(stage); // Switch to the new page
     }
+
+    @FXML
+    private void handleCharitiesPage() throws IOException {
+        Stage stage = (Stage) btnDonate.getScene().getWindow(); // Get the current stage
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
+        scene.getStylesheets().add(stylesheet);
+        stage.setScene(scene);
+    }
+
+    // ------------- DATA INTERACTION (yay.) ------------
+    UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
+    public OrderDAO userOrdersDAO = new OrderDAO();
+
+    int userId = currentUser; // Replace with actual user ID
+    // Gets the answers for the specific user id
+    List<String> userAnswers = userAnswersDAO.getUserAnswers(userId);
+
+
+    public List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
+    public ObservableList<Order> observableList = FXCollections.observableList(userOrders);
+
+    @FXML
+    public ListView<Order> orderListView;
+
+    public UserAccountsController(){
+        boolean hasOrders = !userOrders.isEmpty();
+        if (hasOrders) {
+            orderListView.getItems().addAll(userOrders);
+        }
+//        else {
+//            Order emptyOrder = new Order(0, userId, 0, "Null", 0F, "Null");
+//        }
+    }
+
 
 
 }
