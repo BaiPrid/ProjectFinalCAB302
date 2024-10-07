@@ -23,32 +23,37 @@
             style="-fx-font-size: 20px;"/>
         </HBox>
 
-        <!-- CHARITY 1 -->
-        <HBox>
-            <VBox spacing="20.0">
+    <!-- CHARITY 1 -->
+
+        <VBox spacing="20.0">
+            <HBox spacing="20.0">
                 <Label fx:id="lblCharity1" style="-fx-font-size: 20px;"/>
-                <Text fx:id="txtCharity1"/>
-            </VBox>
                 <Button fx:id="btnCharity1" text="Donate!" onAction="#handleDonationPagefor1"/>
-        </HBox>
+            </HBox>
+
+            <Text fx:id="txtCharity1"/>
+        </VBox>
+
 
         <!-- CHARITY 2 -->
-        <HBox>
-            <VBox spacing="20.0">
+        <VBox spacing="20.0">
+            <HBox spacing="20.0">
                 <Label fx:id="lblCharity2" style="-fx-font-size: 20px;"/>
-                <Text fx:id="txtCharity2"/>
-            </VBox>
-            <Button fx:id="btnCharity2" text="Donate!" onAction="#handleDonationPagefor2"/>
-        </HBox>
+                <Button fx:id="btnCharity2" text="Donate!" onAction="#handleDonationPagefor2"/>
+            </HBox>
+
+            <Text fx:id="txtCharity2"/>
+        </VBox>
 
         <!-- CHARITY 3 -->
-        <HBox>
-            <VBox spacing="20.0">
+        <VBox spacing="20.0">
+            <HBox spacing="20.0">
                 <Label fx:id="lblCharity3" style="-fx-font-size: 20px;"/>
-                <Text fx:id="txtCharity3"/>
-            </VBox>
-            <Button fx:id="btnCharity3" text="Donate!" onAction="#handleDonationPagefor3"/>
-        </HBox>
+                <Button fx:id="btnCharity3" text="Donate!" onAction="#handleDonationPagefor3"/>
+            </HBox>
+
+            <Text fx:id="txtCharity3"/>
+        </VBox>
 
         <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
 
