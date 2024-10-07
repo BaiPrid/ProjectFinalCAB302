@@ -6,10 +6,7 @@ import com.example.finalassignmentcab302.dao.UserAnswersDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,6 +21,7 @@ public class QuestionPageController {
     private int questionIncrement = 0;
     private int questionVal = 0;
     List<Integer> answerList = new ArrayList<>();
+    List<String> answerList2 = new ArrayList<>();
 
     List<Question> questions = StaticQuestionList.getQuestions();
 
@@ -49,6 +47,12 @@ public class QuestionPageController {
     private Label questionField;
 
     @FXML
+    private Label errorField;
+
+    @FXML
+    private ComboBox UserAnswersField;
+
+    @FXML
     private void initialize() {
 
         questions = StaticQuestionList.getQuestions();
@@ -56,11 +60,40 @@ public class QuestionPageController {
         displayQuestion(questions.get(questionIncrement));
     }
 
-    //sets the text for the question and radio buttons
+    //Stores the answers for each question inside an answer list
     private void displayQuestion(Question question) {
         questionField.setText(question.getQuestion());
-        radButton1.setText(question.getAnswer1());
-        radButton2.setText(question.getAnswer2());
+
+        UserAnswersField.getSelectionModel().clearSelection();
+        UserAnswersField.getItems().clear();
+
+        List<String> answers = new ArrayList<>();
+
+        if (question.getAnswer1() != null) {
+            answers.add(question.getAnswer1());
+        }
+        if (question.getAnswer2() != null) {
+            answers.add(question.getAnswer2());
+        }
+        if (question.getAnswer3() != null) {
+            answers.add(question.getAnswer3());
+        }
+        if (question.getAnswer4() != null) {
+            answers.add(question.getAnswer4());
+        }
+        if (question.getAnswer5() != null) {
+            answers.add(question.getAnswer5());
+        }
+        if (question.getAnswer6() != null) {
+            answers.add(question.getAnswer6());
+        }
+        if (question.getAnswer7() != null) {
+            answers.add(question.getAnswer7());
+        }
+
+        UserAnswersField.getItems().addAll(answers);
+        //System.out.println(answers.size());
+
     }
 
     @FXML
@@ -78,6 +111,7 @@ public class QuestionPageController {
     private void onNextButtonClick() throws IOException {
 
         //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
+        /*
         if (radButton1.isSelected()){
             questionVal = 1 + questionIncrement * 2;
 
@@ -87,6 +121,17 @@ public class QuestionPageController {
         }
 
         answerList.add(questionVal);
+        */
+
+        if (UserAnswersField.getSelectionModel().getSelectedItem() != null){
+            answerList2.add((String) UserAnswersField.getSelectionModel().getSelectedItem());
+            questionIncrement++;
+            errorField.setText("");
+        }
+
+        else{
+            errorField.setText("Please Choose an Answer!");
+        }
 
         //System.out.println(CurrentUserGLOBAL.currentUser);
         /*
@@ -120,9 +165,9 @@ public class QuestionPageController {
         */
 
 
-        questionIncrement++;
+        //questionIncrement++;
 
-        if (questionIncrement <= 2){
+        if (questionIncrement <= 5){
             displayQuestion(questions.get(questionIncrement));
         }
         else{
