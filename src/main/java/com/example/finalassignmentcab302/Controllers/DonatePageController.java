@@ -29,16 +29,30 @@ public class DonatePageController {
 
     @FXML
     int id;
-
     @FXML
     int Orgid;
-
+    @FXML
+    String groupSupported;
+    @FXML
+    String taxableCategory;
+    @FXML
+    String size;
 
     @FXML
     private Label lblCharityName;
 
     @FXML
     private Label txtCharityDescription;
+
+    @FXML
+    private Label CharityGroupSupported;
+
+    @FXML
+    private Label TaxableCategory;
+
+
+    @FXML
+    private Label CharitySize;
 
     private ToggleGroup group;
 
@@ -57,6 +71,8 @@ public class DonatePageController {
 
     @FXML
     private TextField BillingAdress;
+
+
 
     @FXML
     private Button Donate;
@@ -94,7 +110,6 @@ public class DonatePageController {
     }
 
 
-
     public void setCharityInfo(String charityName) {
 
         List<Object> organisationDetails = organisationDAO.getByName(charityName);
@@ -104,29 +119,47 @@ public class DonatePageController {
         String description = (String) organisationDetails.get(2);
         String imgPath = (String) organisationDetails.get(3);
         String email = (String) organisationDetails.get(4);
-        String groupSupported = (String) organisationDetails.get(5);
+        groupSupported = (String) organisationDetails.get(5);
 
 
         List<Object> organisationAnswersDetails = organisationAnswersDAO.getByid(id);
 
-        int organisationId = (Integer) organisationDetails.get(0);
-        String category = (String) organisationDetails.get(1);
-        String size = (String) organisationDetails.get(2);
-        String donationOptions = (String) organisationDetails.get(3);
-        String taxableCategory = (String) organisationDetails.get(4);
+        int organisationId = (Integer) organisationAnswersDetails.get(0);
+        String category = (String) organisationAnswersDetails.get(1);
+        size = (String) organisationAnswersDetails.get(2);
+        String donationOptions = (String) organisationAnswersDetails.get(3);
+        taxableCategory = (String) organisationAnswersDetails.get(4);
         lblCharityName.setText(name);
         txtCharityDescription.setText(description);
+        CharityGroupSupported.setText(groupSupported);
+        TaxableCategory.setText(taxableCategory);
+        CharitySize.setText(size);
 
     }
 
     @FXML
-    private void OnDonatePress(){
+    private void OnDonatePress() {
+        if (BillingAdress.getText().isEmpty() ||
+                group.getSelectedToggle() == null) {
+
+            // If any field is empty, show an alert
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Form Incomplete");
+            alert.setHeaderText("Please fill in all required fields.");
+            alert.setContentText("Ensure all fields are filled before submitting.");
+            alert.showAndWait();
+            return; // Prevent form submission
+        }
+
+
         LocalDateTime orderDateTime = LocalDateTime.now();
         String DateTimeasString = orderDateTime.toString();
         int selectedValue = getSelectedRadioButtonValue();
         float selectedValueFloat = (float) selectedValue;
         String billingaddress = BillingAdress.getText();
-        Order order = new Order(id,Orgid, DateTimeasString, selectedValueFloat, billingaddress);
+
+
+        Order order = new Order(id, Orgid, DateTimeasString, selectedValueFloat, billingaddress);
         orderDAO.insert(order);
 
 
@@ -152,6 +185,7 @@ public class DonatePageController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
+
 
 
 
