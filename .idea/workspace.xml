@@ -7,8 +7,7 @@
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserAccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserAccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserAccounts.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/UserAccounts.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/CharitiesPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/CharitiesPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
-        <item itemvalue="JUnit.DatabaseTest" />
-        <item itemvalue="JUnit.java in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.UserRegistrationControllerTest" />
         <item itemvalue="JUnit.UserDAOTest" />
+        <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
+        <item itemvalue="JUnit.java in FinalAssignmentCAB302" />
+        <item itemvalue="JUnit.DatabaseTest" />
       </list>
     </recent_temporary>
   </component>
