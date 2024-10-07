@@ -15,6 +15,9 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <ScrollPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalassignmentcab302.Controllers.QuestionPageController"
@@ -33,6 +36,10 @@
         <Label fx:id="questionField"
                text = "This is temporary question text that will change (hopefully) "
         />
+        <Label fx:id="errorField"
+               text = ""
+               style = "-fx-font-size: 20; -fx-text-fill: red;"
+        />
 
         <HBox VBox.vgrow="ALWAYS" spacing="20.0" alignment="CENTER">
 
@@ -40,19 +47,19 @@
                 <ToggleGroup fx:id="answerGroup" />
             </fx:define>
 
-            <RadioButton fx:id="radButton1" text="SampleAnswer1" toggleGroup="$answerGroup"
-                         onAction = "#activateNextButton" style="-fx-font-size: 20; -fx-text-fill: #F0FFF1;">
-            </RadioButton>
+            <ComboBox minWidth="300" fx:id="UserAnswersField">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
 
-            <RadioButton fx:id="radButton2" text="SampleAnswer2" toggleGroup="$answerGroup"
-                         onAction = "#activateNextButton" style="-fx-font-size: 20; -fx-text-fill: #F0FFF1;">
-            </RadioButton>
+                    </FXCollections>
+                </items>
+            </ComboBox>
 
         </HBox>
 
         <Button fx:id="nextButton"
                 text="Next"
-                disable="true"
+                disable="false"
                 onAction="#onNextButtonClick"
                 style="-fx-font-size: 20;"
                 prefWidth="400"/>

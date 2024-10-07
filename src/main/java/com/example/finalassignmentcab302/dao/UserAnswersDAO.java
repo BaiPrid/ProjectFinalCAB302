@@ -65,7 +65,7 @@ public class UserAnswersDAO {
     public void update(UserAnswers userAnswers) {
         try {
             PreparedStatement updateUserAnswers = connection.prepareStatement(
-                    "UPDATE userAnswersTable SET category = ?, size = ?, donationOptions = ?, taxableCategory = ?, userAns1 = ?, userAns2 = ?, userAns3 = ?" +
+                    "UPDATE userAnswersTable SET category = ?, size = ?, donationOptions = ?, taxableCategory = ?, userAns1 = ?, userAns2 = ?, userAns3 = ?," +
                             " donorSpecifies = ? " + "WHERE userId = ?"
             );
             // note change where id = to username and password for forget password
@@ -103,6 +103,25 @@ public class UserAnswersDAO {
     }
     ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
+
+    public void updateUserAnswers(UserAnswers userAnswers) {
+        try {
+            PreparedStatement updateUserAnswers = connection.prepareStatement(
+                    "UPDATE userAnswersTable SET category = ?, size = ?, donationOptions = ?, taxableCategory = ?," +
+                            " donorSpecifies = ? " + "WHERE userId = ?"
+            );
+            // note change where id = to username and password for forget password
+            updateUserAnswers.setString(1, userAnswers.getCategory());
+            updateUserAnswers.setString(2, userAnswers.getSize());
+            updateUserAnswers.setString(3, userAnswers.getDonationOptions());
+            updateUserAnswers.setString(4, userAnswers.getTaxableCategory());
+            updateUserAnswers.setBoolean(5, userAnswers.getDonorSpecifies());
+            updateUserAnswers.setInt(6, userAnswers.getUserId());
+            updateUserAnswers.execute();
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+    }
 
     public void delete(int userId) {
         try {
