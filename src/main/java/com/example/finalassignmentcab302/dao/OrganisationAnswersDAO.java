@@ -9,15 +9,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Data Access Object class for managing OrganisationAnswer objects in the database.
+ * Provides methods to interact with the database for CRUD operations.
+ */
 // DAO for organisation main table
-
 public class OrganisationAnswersDAO {
     private Connection connection;
 
+    /**
+     * Constructor for the OrganisationAnswersDAO class
+     * Initialises a connection to the database
+     */
     public OrganisationAnswersDAO() {
         connection = DatabaseConnection.getInstance();
     }
 
+    /**
+     * Method creates the organisationAnswersTable  in the database with the columns organisationId, category, size, donationOptions, taxableCategory and donorSpecifies
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -37,6 +47,10 @@ public class OrganisationAnswersDAO {
         }
     }
 
+    /**
+     *Inserts an OrganisationAnswers record into the database
+     * @param organisationAnswers The OrganisationAnswers object being inserted into the database
+     */
     public void insert(OrganisationAnswers organisationAnswers) {
         try {
             PreparedStatement insertOrganisationAnswers = connection.prepareStatement(
@@ -54,6 +68,10 @@ public class OrganisationAnswersDAO {
         }
     }
 
+    /**
+     * Updates an OrganisationAnswers record in the database
+     * @param organisationAnswers The organisationAnswers object being updated in the database
+     */
     public void update(OrganisationAnswers organisationAnswers) {
         try {
             PreparedStatement updateOrganisationAnswers = connection.prepareStatement(
@@ -73,6 +91,10 @@ public class OrganisationAnswersDAO {
         }
     }
 
+    /**
+     * Deletes an organisationAnswers record from the database
+     * @param organisationId of the organisationAnswers record being deleted from the database
+     */
     public void delete(int organisationId) {
         try {
             PreparedStatement deleteOrganisationAnswers = connection.prepareStatement("DELETE FROM organisationAnswersTable WHERE id = ?");
@@ -83,6 +105,9 @@ public class OrganisationAnswersDAO {
         }
     }
 
+    /**
+     * Retrieves all order records from the organisationAnswersTable
+     */
     public List<OrganisationAnswers> getAll() {
         List<OrganisationAnswers> allOrgAnswers = new ArrayList<>();
         try{
@@ -106,6 +131,9 @@ public class OrganisationAnswersDAO {
         return allOrgAnswers;
     }
 
+    /**
+     * Gets the organisation answers and puts them into a hashmap with the orgId as the key and the answer values in a string array
+     */
     // Gets the organisation answers and puts them into a hashmap with the orgId as the key and the answer values in a string array
     // NOTE: The org answers will need to be expanded upon when full functionality and questionnaire is implemented
     public Map<Integer, String[]> getOrgAnswers() {
@@ -135,7 +163,10 @@ public class OrganisationAnswersDAO {
         return allOrganisationAnswers;
     }
 
-
+    /**
+     * Retrieves all organisationAnswers in the database with the specified organisation id
+     * @param id of the organisation the organisationAnswers are for
+     */
     public List<Object> getByid(int id) {
         List<Object> organisationAnswersDetails = new ArrayList<>();
         try {
@@ -158,6 +189,9 @@ public class OrganisationAnswersDAO {
         return organisationAnswersDetails;  // Return the list of organisation details
     }
 
+    /**
+     * Closes the connection to the database
+     */
     public void close() {
         try {
             connection.close();

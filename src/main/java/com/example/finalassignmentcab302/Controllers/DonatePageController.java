@@ -23,6 +23,9 @@ import java.util.Map;
 import static com.example.finalassignmentcab302.Controllers.CharitiesPageController.selectedCharityName;
 import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
+/**
+ * Controller for the Donate Page of the application, which manages the donation process of each organisation in the database.
+ */
 public class DonatePageController {
 
     private String organisationNameforInfo;
@@ -82,13 +85,19 @@ public class DonatePageController {
     OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
     OrderDAO orderDAO = new OrderDAO();
 
+
+    /**
+     * Initializes the controller, sets charity info and radio buttons.
+     */
     @FXML
     private void initialize() {
         setCharityInfo(selectedCharityName);
         setupradiobuttons();
     }
 
-
+    /**
+     * Sets up the radio buttons for donation amounts.
+     */
     @FXML
     public void setupradiobuttons() {
         // Create a ToggleGroup and add the radio buttons to it
@@ -109,7 +118,10 @@ public class DonatePageController {
 
     }
 
-
+    /**
+     * Sets charity information based on the provided charity name.
+     * @param charityName The name of the charity to retrieve information for.
+     */
     public void setCharityInfo(String charityName) {
 
         List<Object> organisationDetails = organisationDAO.getByName(charityName);
@@ -137,6 +149,11 @@ public class DonatePageController {
 
     }
 
+    /**
+     * Handles the action of pressing the Donate button.
+     * If donation not valid create an alert on the interface.
+     * Creates and order if Donation is valid.
+     */
     @FXML
     private void OnDonatePress() {
         if (BillingAdress.getText().isEmpty() ||
@@ -170,13 +187,20 @@ public class DonatePageController {
         }
     }
 
-
+    /**
+     * Retrieves the value of the selected radio button for donation amount.
+     * @return The donation amount associated with the selected radio button.
+     */
     public int getSelectedRadioButtonValue() {
         RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
         // Retrieve the integer value assigned to the selected RadioButton
         return (int) selectedRadioButton.getUserData();
     }
 
+    /**
+     * Handles the transition to the home page after a successful donation.
+     * @throws IOException If an error occurs while loading the home page.
+     */
     private void handleHomeSend() throws IOException {
         Stage stage = (Stage) Donate.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserAccounts.fxml"));
