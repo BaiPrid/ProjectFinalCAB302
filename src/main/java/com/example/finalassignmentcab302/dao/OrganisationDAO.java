@@ -8,14 +8,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 // DAO for organisation main table
-
+/**
+ * Data Access Object class for managing Organisation objects in the database.
+ * Provides methods to interact with the database for CRUD operations.
+ */
 public class OrganisationDAO {
     private Connection connection;
 
+    /**
+     * Constructor for the OrganisationDAO class
+     * Initialises a connection to the database
+     */
     public OrganisationDAO() {
         connection = DatabaseConnection.getInstance();
     }
 
+    /**
+     * Creates the organisations table in the database with columns for id, name, description, imgPath, email, groupSupported, userName, and passWord.
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -36,6 +46,10 @@ public class OrganisationDAO {
         }
     }
 
+    /**
+     * Inserts an Organisation record into the database.
+     * @param organisation The Organisation object being inserted into the database.
+     */
     public void insert(Organisation organisation) {
         try {
             PreparedStatement insertOrganisation = connection.prepareStatement(
@@ -54,6 +68,10 @@ public class OrganisationDAO {
         }
     }
 
+    /**
+     * Updates an Organisation record in the database.
+     * @param organisation The Organisation object being updated in the database.
+     */
     public void update(Organisation organisation) {
         try {
             PreparedStatement updateOrganisation = connection.prepareStatement(
@@ -75,6 +93,10 @@ public class OrganisationDAO {
         }
     }
 
+    /**
+     * Deletes an Organisation record from the database.
+     * @param id The id of the Organisation record being deleted from the database.
+     */
     public void delete(int id) {
         try {
             PreparedStatement deleteOrganisation = connection.prepareStatement("DELETE FROM organisations WHERE id = ?");
@@ -85,6 +107,10 @@ public class OrganisationDAO {
         }
     }
 
+    /**
+     * Retrieves all Organisation records from the database.
+     * @return A list of all Organisation objects in the database.
+     */
     public List<Organisation> getAll() {
         List<Organisation> allOrganisation = new ArrayList<>();
         try {
@@ -110,6 +136,11 @@ public class OrganisationDAO {
         return allOrganisation;
     }
 
+    /**
+     * Retrieves an Organisation record by its name from the database.
+     * @param name The name of the Organisation to retrieve.
+     * @return A list containing the details of the Organisation.
+     */
     // Method to retrieve organisation details by name and return them in a list
     public List<Object> getByName(String name) {
         List<Object> organisationDetails = new ArrayList<>();
@@ -136,6 +167,11 @@ public class OrganisationDAO {
         return organisationDetails;  // Return the list of organisation details
     }
 
+    /**
+     * Retrieves an Organisation record by its id from the database.
+     * @param id The id of the Organisation to retrieve.
+     * @return The Organisation object matching the specified id.
+     */
     public Organisation getByLogin(int id) {
         try {
             PreparedStatement getOrganisation = connection.prepareStatement("SELECT * FROM organisations WHERE id = ?");
@@ -159,7 +195,11 @@ public class OrganisationDAO {
         return null;
     }
 
-
+    /**
+     * Retrieves the description of an Organisation based on its id.
+     * @param id The id of the Organisation.
+     * @return The description of the Organisation.
+     */
     public String getDescription(int id) {
         try {
             PreparedStatement getOrganisation = connection.prepareStatement(
@@ -176,6 +216,12 @@ public class OrganisationDAO {
         return null; // Return null if no description is found or if an exception occurs
     }
 
+
+    /**
+     * Retrieves the name of an Organisation based on its id.
+     * @param id The id of the Organisation.
+     * @return The name of the Organisation.
+     */
     public String getName(int id) {
         try {
             PreparedStatement getOrganisation = connection.prepareStatement(
@@ -193,7 +239,12 @@ public class OrganisationDAO {
     }
 
 
-
+    /**
+     * Validates the login credentials by checking the username and password in the database.
+     * @param username The username to check.
+     * @param password The password to check.
+     * @return true if the login credentials are valid, otherwise false.
+     */
     public boolean login(String username, String password) {
 
 
@@ -216,6 +267,11 @@ public class OrganisationDAO {
         return false;  // Login failed (user not found or SQL error)
     }
 
+    /**
+     * Checks whether a given username is unique in the organisations table.
+     * @param username The username to check.
+     * @return true if the username exists, otherwise false.
+     */
     // check that the username is unique
     public Boolean CheckOrganisationUserName(String username) {
         try {
@@ -233,6 +289,11 @@ public class OrganisationDAO {
         return false; // Return false if the username does not exist
     }
 
+    /**
+     * Checks if the given email is unique in the database.
+     * @param email The email to check.
+     * @return True if the email exists.
+     */
     public Boolean CheckOrganisationEmail(String email) {
         try {
             PreparedStatement getOrganisationEmail = connection.prepareStatement("SELECT email FROM organisations WHERE email = ?");
@@ -249,7 +310,11 @@ public class OrganisationDAO {
         return false; // Return false if the username does not exist
     }
 
-
+    /**
+     * Checks if the given organisation name is unique in the database.
+     * @param name The organisation name to check.
+     * @return True if the name exists.
+     */
     public Boolean CheckOrganisationName(String name) {
         try {
             PreparedStatement getOrganisationName = connection.prepareStatement("SELECT name FROM organisations WHERE name = ?");
@@ -267,7 +332,9 @@ public class OrganisationDAO {
     }
 
 
-
+    /**
+     * Closes the connection to the database.
+     */
     public void close() {
         try {
             connection.close();

@@ -12,14 +12,25 @@ import java.util.List;
 import java.util.Map;
 
 // DAO for organisation main table
-
+/**
+ * Data Access Object class for managing Organisation objects in the database.
+ * Provides methods to interact with the database for CRUD operations.
+ */
 public class UserAnswersDAO {
     private Connection connection;
 
+    /**
+     * Constructor for the OrganisationDAO class.
+     * Initializes a connection to the database.
+     */
     public UserAnswersDAO() {
         connection = DatabaseConnection.getInstance();
     }
 
+    /**
+     * Creates the userAnswersTable in the database with columns for userId, category, size,
+     * donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, and userAns3.
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -42,6 +53,10 @@ public class UserAnswersDAO {
         }
     }
 
+    /**
+     * Inserts a UserAnswers record into the database.
+     * @param userAnswers The UserAnswers object being inserted into the database.
+     */
     public void insert(UserAnswers userAnswers) {
         try {
             PreparedStatement insertUserAnswers = connection.prepareStatement(
@@ -62,6 +77,10 @@ public class UserAnswersDAO {
         }
     }
 
+    /**
+     * Updates a UserAnswers record in the database.
+     * @param userAnswers The UserAnswers object containing updated information.
+     */
     public void update(UserAnswers userAnswers) {
         try {
             PreparedStatement updateUserAnswers = connection.prepareStatement(
@@ -84,6 +103,11 @@ public class UserAnswersDAO {
         }
     }
     ///////////////////////////// NEW SECTION ////////////////////////////////////////
+
+    /**
+     * Updates only the answers (userAns1, userAns2, userAns3) in a UserAnswers record.
+     * @param userAnswers The UserAnswers object containing the updated answers.
+     */
     public void updateAnswersOnly(UserAnswers userAnswers) {
         try {
             PreparedStatement updateUserAnswers = connection.prepareStatement(
@@ -103,7 +127,10 @@ public class UserAnswersDAO {
     }
     ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
-
+    /**
+     * Updates a UserAnswers record excluding the answers fields.
+     * @param userAnswers The UserAnswers object with updated information.
+     */
     public void updateUserAnswers(UserAnswers userAnswers) {
         try {
             PreparedStatement updateUserAnswers = connection.prepareStatement(
@@ -123,6 +150,10 @@ public class UserAnswersDAO {
         }
     }
 
+    /**
+     * Deletes a UserAnswers record from the database based on the user ID.
+     * @param userId The ID of the user whose answers are to be deleted.
+     */
     public void delete(int userId) {
         try {
             PreparedStatement deleteOrganisationAnswers = connection.prepareStatement("DELETE FROM userAnswersTable WHERE id = ?");
@@ -133,7 +164,10 @@ public class UserAnswersDAO {
         }
     }
 
-
+    /**
+     * Retrieves all UserAnswers records from the database.
+     * @return A list of all UserAnswers records.
+     */
     public List<UserAnswers> getAll() {
         List<UserAnswers> alluserAnswers = new ArrayList<>();
         try{
@@ -160,7 +194,11 @@ public class UserAnswersDAO {
         return alluserAnswers;
     }
 
-
+    /**
+     * Retrieves a map of organisations and their match scores based on user answers.
+     * @param userAnswers The list of user answers to compare against organisation answers.
+     * @return A map of organisation IDs and their corresponding match scores.
+     */
     public Map<Integer, Integer> getMatchingOrganisations(List<String> userAnswers) {
         OrganisationAnswersDAO organisationAnswersDAO = new OrganisationAnswersDAO();
         Map<Integer, String[]> organisationAnswers = organisationAnswersDAO.getOrgAnswers();
@@ -188,7 +226,11 @@ public class UserAnswersDAO {
         return matchingOrganisations;
     }
 
-
+    /**
+     * Retrieves the answers of a user based on their ID.
+     * @param userId The ID of the user.
+     * @return A list of user answers.
+     */
     // For current implementation, gets the user answers from the table
     public List<String> getUserAnswers(int userId) {
         List<String> userAnswersList = new ArrayList<>();
@@ -215,6 +257,9 @@ public class UserAnswersDAO {
     }
 
 
+    /**
+     * Closes connection to database
+     */
     public void close() {
         try {
             connection.close();

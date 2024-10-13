@@ -1,4 +1,7 @@
 package com.example.finalassignmentcab302.Tables;
+/**
+ * A simple model class representing a Users answers with a userId, category, size, donationoptions, taxablecategory and donorspecifies.
+ */
 
 public class UserAnswers {
 
@@ -12,6 +15,15 @@ public class UserAnswers {
     private String userAns2;
     private String userAns3;
 
+    /**
+     * Constructs a new UserAnswers with the specified userId, category, size, donationoptions, taxablecategory and donorspecifies.
+     * @param userId of the UserAnswer
+     * @param category of the UserAnswer
+     * @param size of the UserAnswer
+     * @param donationOptions of the UserAnswer
+     * @param taxableCategory of the UserAnswer
+     * @param donorSpecifies of the UserAnswer
+     */
     public UserAnswers(int userId, String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies, String userAns1, String userAns2, String userAns3){
         this.userId = userId;
         this.category = category;
@@ -24,6 +36,14 @@ public class UserAnswers {
         this.userAns3 = userAns3;
     }
 
+    /**
+     * Constructs a new UserAnswers with the specified category, size, donationoptions, taxablecategory and donorspecifies.
+     * @param category of the UserAnswer
+     * @param size of the UserAnswer
+     * @param donationOptions of the UserAnswer
+     * @param taxableCategory of the UserAnswer
+     * @param donorSpecifies of the UserAnswer
+     */
     public UserAnswers(String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies, String userAns1, String userAns2, String userAns3){
         this.category = category;
         this.size = size;
@@ -42,6 +62,15 @@ public class UserAnswers {
         this.userAns3 = userAns3;
     }
 
+    /**
+     * Constructs a new UserAnswers with the specified userId, category, size, donationoptions, taxablecategory and donorspecifies.
+     * @param userId of the UserAnswer
+     * @param category of the UserAnswer
+     * @param size of the UserAnswer
+     * @param donationOptions of the UserAnswer
+     * @param taxableCategory of the UserAnswer
+     * @param donorSpecifies of the UserAnswer
+     */
     public UserAnswers(int userId, String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies){
         this.userId = userId;
         this.category = category;

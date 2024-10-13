@@ -6,14 +6,25 @@ import com.example.finalassignmentcab302.Tables.Order;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Data Access Object class for managing Order objects in the database.
+ * Provides methods to interact with the database for CRUD operations.
+  */
 public class OrderDAO {
     private Connection connection;
 
+
+    /**
+     * Constructor for the OrderDAO class
+     * Initialises a connection to the database
+     */
     public OrderDAO() {
         connection = DatabaseConnection.getInstance();
     }
 
+    /**
+     * Method creates the orders table in the database with the columns orderId, userId, organisationId, orderDateTime, amount and billingAddress
+     */
     public void createTable() {
         try {
             Statement createTable = connection.createStatement();
@@ -34,6 +45,10 @@ public class OrderDAO {
         }
     }
 
+    /**
+     *Inserts an order record into the database
+     * @param order The order object being inserted into the database
+     */
     public void insert(Order order) {
         try {
             PreparedStatement insertOrder = connection.prepareStatement(
@@ -50,6 +65,10 @@ public class OrderDAO {
         }
     }
 
+    /**
+     * Updates an order record in the database
+     * @param order The order object being updated in the database
+     */
     public void update(Order order) {
         try {
             PreparedStatement updateOrder = connection.prepareStatement(
@@ -67,6 +86,10 @@ public class OrderDAO {
         }
     }
 
+    /**
+     * Deletes an order record from the database
+     * @param orderId of the order record being deleted from the database
+     */
     public void delete(int orderId) {
         try {
             PreparedStatement deleteOrder = connection.prepareStatement("DELETE FROM orders WHERE orderId = ?");
@@ -77,6 +100,9 @@ public class OrderDAO {
         }
     }
 
+    /**
+     * Retrieves all order records from the orders table
+     */
     public List<Order> getAll() {
         List<Order> allOrders = new ArrayList<>();
         try{
@@ -100,7 +126,10 @@ public class OrderDAO {
         return allOrders;
     }
 
-
+    /**
+     * Retrieves all orders placed by the same user given that usersId
+     * @param userID of the user the orders were placed by
+     */
     public List<Order> getUserOrders(int userID) {
         List<Order> allOrders = new ArrayList<>();
         try{
@@ -127,6 +156,9 @@ public class OrderDAO {
         return allOrders;
     }
 
+    /**
+     * Closes the connection to the database
+     */
     public void close() {
         try {
             connection.close();

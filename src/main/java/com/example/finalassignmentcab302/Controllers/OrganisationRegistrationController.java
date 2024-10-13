@@ -25,6 +25,12 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class responsible for handling the registration of organisations.
+ * This class manages the user interface for registering a new organisation,
+ * including collecting input data, validating the data, and saving the
+ * organisation information to the database via DAO methods.
+ */
 public class OrganisationRegistrationController {
 
     private Stage primaryStage; // Add a Stage field
@@ -107,10 +113,18 @@ public class OrganisationRegistrationController {
     @FXML
     private Button SubmitRegistration;
 
+    /**
+     * Sets the primary stage.
+     * @param primaryStage the primary stage to set
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Opens a file chooser to select an image file and copies it to
+     * the designated image folder.
+     */
     public void openImageFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -139,11 +153,18 @@ public class OrganisationRegistrationController {
         }
     }
 
+    /**
+     * Initializes the controller and sets up the radio buttons.
+     */
     @FXML
     public void initialize() {
         setupradiobuttons();
-
     }
+
+    /**
+     * Sets up the radio buttons by creating toggle groups and adding
+     * the radio buttons to them.
+     */
     @FXML
     public void setupradiobuttons() {
         // Create a ToggleGroup and add the radio buttons to it
@@ -157,6 +178,13 @@ public class OrganisationRegistrationController {
 
     }
 
+    /**
+     * Handles the organisation registration form submission. Validates the
+     * input fields, checks for unique usernames and emails, and
+     * inserts the organisation and its answers into the database.
+     * If inputs don't pass validations alert is created to inform user of issue.
+     * @throws IOException if there is an error loading the login page
+     */
     @FXML
     private void handleOrganisationButtonAction() throws IOException {
 
@@ -259,6 +287,11 @@ public class OrganisationRegistrationController {
         handleLoginPage();
     }
 
+
+    /**
+     * Navigates to the login page after successful registration.
+     * @throws IOException if there is an error loading the login page
+     */
     @FXML
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitRegistration.getScene().getWindow(); // Get the current stage
@@ -268,9 +301,6 @@ public class OrganisationRegistrationController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
-
-
-
 
 
 }
