@@ -133,8 +133,6 @@ public class UserDAO {
         return allUsers;
     }
 
-    ////////////////////////NEW SECTION////////////////////////////
-    //This gets the user id based on username and password
     /**
      * Retrieves the user ID based on the provided username and password.
      * @param username The username of the user.
@@ -164,7 +162,7 @@ public class UserDAO {
 
         return userID;
     }
-    //////////////////////////////////////////////////////////////////////////////////
+
 
     /**
      * Validates user login by checking the username and password.

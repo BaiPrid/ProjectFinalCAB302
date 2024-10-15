@@ -102,7 +102,6 @@ public class UserAnswersDAO {
             System.err.println(ex);
         }
     }
-    ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
     /**
      * Updates only the answers (userAns1, userAns2, userAns3) in a UserAnswers record.
@@ -125,7 +124,6 @@ public class UserAnswersDAO {
             System.err.println(ex);
         }
     }
-    ///////////////////////////// NEW SECTION ////////////////////////////////////////
 
     /**
      * Updates a UserAnswers record excluding the answers fields.

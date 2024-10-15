@@ -134,8 +134,6 @@ public class OrganisationAnswersDAO {
     /**
      * Gets the organisation answers and puts them into a hashmap with the orgId as the key and the answer values in a string array
      */
-    // Gets the organisation answers and puts them into a hashmap with the orgId as the key and the answer values in a string array
-    // NOTE: The org answers will need to be expanded upon when full functionality and questionnaire is implemented
     public Map<Integer, String[]> getOrgAnswers() {
         Map<Integer, String[]> allOrganisationAnswers = new HashMap<>();
 
