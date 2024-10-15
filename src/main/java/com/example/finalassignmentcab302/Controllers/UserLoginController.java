@@ -62,10 +62,8 @@ public class UserLoginController
         if ( login == true)
         {
             welcomeText.setText("SUCCESS!");
-            //////////////////////////////////NEW SECTION///////////////////////////////////
             UserDAO currentUserDAO = new UserDAO();
             CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(username, password);
-            //System.out.println(CurrentUserGLOBAL.currentUser); <---- For testing
             loginSend();
         }
         else
@@ -99,64 +97,8 @@ public class UserLoginController
         app.start(stage); // Switch to the new page
     }
 
-   /* @FXML
-    private TextField memberUsername;
 
-    @FXML
-    private PasswordField memberPassword;
 
-    @FXML
-    private TextField orgUsername;
-
-    @FXML
-    private PasswordField orgPassword;
-
-    @FXML
-    private Label welcomeText;*/
-
-    /*@FXML
-    protected void handleMemberLogin() {
-        String username = memberUsername.getText();
-        String password = memberPassword.getText();
-
-        // Add your login logic here
-        if (username.equals("member") && password.equals("password")) {
-            welcomeText.setText("Welcome, Member!");
-        } else {
-            welcomeText.setText("Invalid Member Credentials");
-        }
-    }*/
-
-   /* @FXML
-    protected void handleOrgLogin() {
-        String username = orgUsername.getText();
-        String password = orgPassword.getText();
-
-        // Add your login logic here
-        if (username.equals("org") && password.equals("password")) {
-            welcomeText.setText("Welcome, Organization!");
-        } else {
-            welcomeText.setText("Invalid Organization Credentials");
-        }
-    }*/
-
-  /*  @FXML
-    protected void handleButton1() {
-        // Add your logic for Button 1 here
-        welcomeText.setText("Button 1 clicked");
-    }
-
-    @FXML
-    protected void handleButton2() {
-        // Add your logic for Button 2 here
-        welcomeText.setText("Button 2 clicked");
-    }
-
-    @FXML
-    protected void handleButton3() {
-        // Add your logic for Button 3 here
-        welcomeText.setText("Button 3 clicked");
-    }*/
 
 
 
