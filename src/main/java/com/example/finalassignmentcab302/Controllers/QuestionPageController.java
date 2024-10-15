@@ -110,19 +110,6 @@ public class QuestionPageController {
     @FXML
     private void onNextButtonClick() throws IOException {
 
-        //USE THE INCREMENT TO INCREASE THE QUESTIONVAL
-        /*
-        if (radButton1.isSelected()){
-            questionVal = 1 + questionIncrement * 2;
-
-        }
-        else if (radButton2.isSelected()){
-            questionVal = 2 + questionIncrement * 2;
-        }
-
-        answerList.add(questionVal);
-        */
-
         if (UserAnswersField.getSelectionModel().getSelectedItem() != null){
             answerList2.add((String) UserAnswersField.getSelectionModel().getSelectedItem());
             questionIncrement++;
@@ -132,38 +119,6 @@ public class QuestionPageController {
         else{
             errorField.setText("Please Choose an Answer!");
         }
-
-        //System.out.println(CurrentUserGLOBAL.currentUser);
-        /*
-        public void runCustomSQLQuery() {
-            CustomQuery customQuery = new CustomQuery();
-            String sql = "";
-            customQuery.executeQuery(sql);  // Now this will correctly refer to the method in CustomQuery
-        }
-
-         */
-        //Answers will be uploaded to database here too with an sql query
-
-        /* MAKING NEW USER ENTRY
-        User user = new User("organisationName", "organisationName", "organisationName", "organisationName", "organisationName");
-        UserDAO userdao = new UserDAO();
-        userdao.insert(user);
-        */
-
-        /* //MAKING NEW USER ANSWERS ENTRY
-        boolean tempvar = true;
-        //(category, size, donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, userAns3
-        UserAnswers userAnswers = new UserAnswers("test2", "test3","test4", "test5", tempvar, "ans1", "ans2", "ans3");
-        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        userAnswersDAO.insert(userAnswers);
-        */
-
-        /*
-        UserAnswers userAnswers = new UserAnswers(1, "Please", "God", "Work");
-        UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        userAnswersDAO.updateAnswersOnly(userAnswers);
-        */
-
 
         //questionIncrement++;
 
@@ -178,16 +133,10 @@ public class QuestionPageController {
                 boolNum = true;
             }
 
-            //System.out.println("We Made it this far");
+
             UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList2.get(0)), String.valueOf(answerList2.get(1)), String.valueOf(answerList2.get(2)), String.valueOf(answerList2.get(3)), true);
-            //UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "please", "just", "work");
-            //System.out.println("We Made it this far2");
             UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-            //System.out.println("We Made it this far3");
             userAnswersDAO.updateUserAnswers(userAnswers);
-            //System.out.println("We Made it this far4");
-            //PUT THE USER ANSWERS HERE
-            //questionField.setText("There are no more questions. In a later build this will route to next page");
             handleCharitiesPage();
         }
     }

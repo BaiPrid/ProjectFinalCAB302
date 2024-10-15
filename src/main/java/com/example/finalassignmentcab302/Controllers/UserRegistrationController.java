@@ -165,13 +165,8 @@ public class UserRegistrationController {
 
         User newuser = new User(firstName, lastName, userName, password, email, realphonenumber, economicClass);
         userdao.insert(newuser);
-        //////////////NEW SECTION/////////////
-        //This retrieves the user id before sending them to the questions page
-        //handleLoginPage(); <--- Old
-        //User currentUser = new User(userName, password);
         UserDAO currentUserDAO = new UserDAO();
         CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(userName, password);
-        //System.out.println(CurrentUserGLOBAL.currentUser); <--- for testing
 
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
         UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true, "TempAns", "TempAns", "TempAns");
@@ -194,15 +189,6 @@ public class UserRegistrationController {
         stage.setScene(scene);
     }
 
-    /* Was this old code for button?
-    private void handleLoginPage() throws IOException {
-        Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-     */
     @FXML
     private Button btnLogout;
 
