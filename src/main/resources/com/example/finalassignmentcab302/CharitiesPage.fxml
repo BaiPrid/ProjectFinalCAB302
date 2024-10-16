@@ -55,7 +55,7 @@
             <Text fx:id="txtCharity3"/>
         </VBox>
 
-        <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome"/>
+        <Button fx:id="btnAccount" text="Go to accounts" onAction="#handleOpenAccount"/>
 
     </VBox>
 
