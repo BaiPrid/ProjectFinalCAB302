@@ -20,7 +20,10 @@ import com.example.finalassignmentcab302.dao.OrderDAO;
 
 import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
-
+/**
+ * Controller for user's accounts. Displays the user's past orders and allows
+ * user to retake the questionnaire, donate or sign out.
+ */
 public class UserAccountsController
 {
     @FXML
@@ -37,6 +40,10 @@ public class UserAccountsController
 
     //---------- BUTTONS TO DIFFERENT PAGES !! -------------
 
+    /**
+     * Sends user to the home page.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     private void handleOpenHome() throws IOException {
         Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
@@ -44,6 +51,11 @@ public class UserAccountsController
         app.start(stage); // Switch to the new page
     }
 
+    /**
+     * Sends user to the charities page where it will load the top three charities
+     * most suited to the user based on likeness to the user's questionnaire answers.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     private void handleCharitiesPage() throws IOException {
         Stage stage = (Stage) btnDonate.getScene().getWindow(); // Get the current stage
@@ -54,6 +66,10 @@ public class UserAccountsController
         stage.setScene(scene);
     }
 
+    /**
+     * Sends user back to the questionnaire page where they may redo their answers.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     private void handleQuestionsPage() throws IOException {
         Stage stage = (Stage) btnQuestions.getScene().getWindow(); // Get the current stage
@@ -65,12 +81,13 @@ public class UserAccountsController
     }
 
 
-
-
+    /**
+     * Retrieving the user's past order data.
+     */
     @FXML
     private void initialize()
     {
-        // ------------- DATA INTERACTION (yay.) ------------
+        // ------------- DATA INTERACTION -------------
         UserDAO userNameDAO = new UserDAO();
         OrderDAO userOrdersDAO = new OrderDAO();
 
