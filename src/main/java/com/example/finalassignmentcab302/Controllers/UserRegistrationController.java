@@ -104,7 +104,7 @@ public class UserRegistrationController {
                 UserName.getText().isEmpty() ||
                 PhoneNumber.getText().isEmpty() ||
                 EconomicClass.getValue() == null)
-                 {
+        {
 
             // If any field is empty, show an alert
             Alert alert = new Alert(Alert.AlertType.WARNING);
