@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Controller for the landing page. The first page to be displayed to the user.
+ * User will have a choice of signing in as a donating user or an organisation.
+ */
 public class LandingPageController {
 
     @FXML
@@ -23,6 +27,11 @@ public class LandingPageController {
     @FXML
     private Button btnOrgLogin;
 
+    /**
+     * Sends user to the user login page where the user may log in as returning user or
+     * sign up as a new user.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     private void handleUserLoginPage() throws IOException {
         Stage stage = (Stage) btnUserLogin.getScene().getWindow(); // Get the current stage
@@ -34,6 +43,11 @@ public class LandingPageController {
         stage.setScene(scene);
     }
 
+    /**
+     * Sends user to the organisation login page where the user may log in as a returning
+     * organisation or sign up as a new organisation.
+     * @throws IOException
+     */
     @FXML
     private void handleOrgLoginPage() throws IOException {
         Stage stage = (Stage) btnOrgLogin.getScene().getWindow(); // Get the current stage

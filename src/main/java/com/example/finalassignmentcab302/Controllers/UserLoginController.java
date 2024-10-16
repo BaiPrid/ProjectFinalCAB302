@@ -36,9 +36,15 @@ public class UserLoginController
 
     @FXML
     private Button loginSend;
+    @FXML
+    private Button btnLogout;
 
 
-// Registration Button for User Login Page Links to login page
+    /**
+     * Sends user to the registration page where user may register and complete the questionnaire before
+     * being able to log in.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     protected void handleOpenUserRegistration() throws IOException {
         Stage stage = (Stage) questNav.getScene().getWindow();
@@ -50,7 +56,12 @@ public class UserLoginController
     }
 
 
-
+    /**
+     * Verifies if the credentials the user is logging in with are correct or not.
+     * Sends user to the accounts page if correct, otherwise output error line.
+     * @throws IOException if there is a problem regarding the button this function
+     * is linked to.
+     */
     @FXML
     protected void handleMemberLogin() throws IOException {
         String username = memberUsername.getText();
@@ -69,12 +80,14 @@ public class UserLoginController
         else
         {
             welcomeText.setText("Invalid Member Credentials");
-
         }
-
-
     }
 
+    /**
+     * Sends the user to the user's account page. Should only be sent if login verification
+     * is true.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     protected void loginSend() throws IOException {
         Stage stage = (Stage) loginSend.getScene().getWindow();
@@ -85,11 +98,10 @@ public class UserLoginController
         stage.setScene(scene);
     }
 
-
-
-    @FXML
-    private Button btnLogout;
-
+    /**
+     * Sends the user back to the landing page.
+     * @throws IOException if there is a problem loading the page.
+     */
     @FXML
     private void handleOpenHome() throws IOException {
         Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
