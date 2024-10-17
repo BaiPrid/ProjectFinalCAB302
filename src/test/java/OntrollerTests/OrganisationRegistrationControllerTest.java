@@ -1,173 +1,120 @@
 package OntrollerTests;
 
-import com.example.finalassignmentcab302.Controllers.OrganisationRegistrationController;
-import com.example.finalassignmentcab302.Tables.Organisation;
-import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
-import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
-import javafx.scene.control.*;
+import javafx.application.Platform;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.testfx.api.FxToolkit;
+import org.mockito.Mockito;
 
-import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OrganisationRegistrationControllerTest {
 
-    @Mock
+    private MockOrganisationRegistrationController mockController;
     private OrganisationDAO mockOrganisationDAO;
 
-    @Mock
-    private OrganisationAnswersDAO mockOrganisationAnswersDAO;
-
-    @InjectMocks
-    private OrganisationRegistrationController controller;
-
-    // Simulated JavaFX components
-    private TextField organisationNameField;
-    private TextField supportedGroupField;
-    private TextArea organisationDescriptionArea;
-    private TextField organisationUsernameField;
-    private TextField organisationPasswordField;
-    private TextField organisationEmailField;
-    private ComboBox<String> categorySupportedGroupComboBox;
-    private ComboBox<String> categoryOfOrganisationComboBox;
-    private ComboBox<String> sizeOfOrganisationComboBox;
-    private ToggleGroup group;
-    private ToggleGroup group2;
-    private Button submitButton;
+    @BeforeAll
+    public static void initToolkit() throws InterruptedException {
+        // Initialize the JavaFX toolkit to use real JavaFX components in tests
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.startup(latch::countDown);
+        latch.await();
+    }
 
     @BeforeEach
-    public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
-        FxToolkit.registerPrimaryStage();
-        FxToolkit.setupSceneRoot(() -> {
-            organisationNameField = new TextField();
-            supportedGroupField = new TextField();
-            organisationDescriptionArea = new TextArea();
-            organisationUsernameField = new TextField();
-            organisationPasswordField = new TextField();
-            organisationEmailField = new TextField();
-            categorySupportedGroupComboBox = new ComboBox<>();
-            categoryOfOrganisationComboBox = new ComboBox<>();
-            sizeOfOrganisationComboBox = new ComboBox<>();
-            group = new ToggleGroup();
-            group2 = new ToggleGroup();
-            submitButton = new Button();
+    public void setUp() {
+        // Mocking the OrganisationDAO
+        mockOrganisationDAO = Mockito.mock(OrganisationDAO.class);
 
-            return submitButton; // Just a placeholder for FxToolkit
-        });
+        // Use real JavaFX components instead of mocking them
+        TextField organisationName = new TextField();
+        TextField supportedGroup = new TextField();
+        TextArea organisationDescription = new TextArea();
+        TextField organisationUsername = new TextField();
+        TextField organisationPassword = new TextField();
+        TextField organisationEmail = new TextField();
 
-        FxToolkit.showStage();
-
-        // Setting sample data
-        organisationNameField.setText("TestOrg");
-        supportedGroupField.setText("Group1");
-        organisationDescriptionArea.setText("A sample organisation");
-        organisationUsernameField.setText("testorg");
-        organisationPasswordField.setText("password123");
-        organisationEmailField.setText("test@example.com");
-        categorySupportedGroupComboBox.setValue("Category1");
-        categoryOfOrganisationComboBox.setValue("Category2");
-        sizeOfOrganisationComboBox.setValue("Small");
-
-        // Setting up mock toggle groups
-        RadioButton mockRadio1 = new RadioButton("Option1");
-        RadioButton mockRadio2 = new RadioButton("Option2");
-        group.getToggles().add(mockRadio1);
-        group.getToggles().add(mockRadio2);
-        mockRadio1.setSelected(true);
-
-        RadioButton mockRadio3 = new RadioButton("Option3");
-        RadioButton mockRadio4 = new RadioButton("Option4");
-        group2.getToggles().add(mockRadio3);
-        group2.getToggles().add(mockRadio4);
-        mockRadio3.setSelected(true);
-    }
-
-    @Test
-    public void testSuccessfulOrganisationRegistration() throws IOException {
-        // Mock DAO behavior for valid input scenario
-        when(mockOrganisationDAO.CheckOrganisationUserName("testorg")).thenReturn(false);
-        when(mockOrganisationDAO.CheckOrganisationEmail("test@example.com")).thenReturn(false);
-        when(mockOrganisationDAO.CheckOrganisationName("TestOrg")).thenReturn(false);
-
-        // Replicating logic from handleOrganisationButtonAction()
-        if (organisationNameField.getText().isEmpty() ||
-                supportedGroupField.getText().isEmpty() ||
-                organisationDescriptionArea.getText().isEmpty() ||
-                organisationUsernameField.getText().isEmpty() ||
-                organisationPasswordField.getText().isEmpty() ||
-                organisationEmailField.getText().isEmpty() ||
-                categorySupportedGroupComboBox.getValue() == null ||
-                categoryOfOrganisationComboBox.getValue() == null ||
-                sizeOfOrganisationComboBox.getValue() == null ||
-                group.getSelectedToggle() == null ||
-                group2.getSelectedToggle() == null) {
-
-            // Handle form validation failure
-            System.out.println("Form Incomplete. All fields must be filled.");
-            return;
-        }
-
-        Organisation organisation = new Organisation(
-                organisationNameField.getText(),
-                categorySupportedGroupComboBox.getValue(),
-                organisationDescriptionArea.getText(),
-                null,  // image path
-                organisationEmailField.getText(),
-                organisationUsernameField.getText(),
-                organisationPasswordField.getText()
+        // Pass the real components and the mocked DAO to the mock controller
+        mockController = new MockOrganisationRegistrationController(
+                organisationName, supportedGroup, organisationDescription,
+                organisationUsername, organisationPassword, organisationEmail,
+                mockOrganisationDAO
         );
-
-        OrganisationAnswers organisationAnswers = new OrganisationAnswers(
-                categoryOfOrganisationComboBox.getValue(),
-                sizeOfOrganisationComboBox.getValue(),
-                "monetaryDonation",  // Just an example
-                ((RadioButton) group.getSelectedToggle()).getText(),
-                true
-        );
-
-        // Perform database insertions
-        mockOrganisationDAO.insert(organisation);
-        mockOrganisationAnswersDAO.insert(organisationAnswers);
-
-        verify(mockOrganisationDAO, times(1)).insert(any(Organisation.class));
-        verify(mockOrganisationAnswersDAO, times(1)).insert(any(OrganisationAnswers.class));
     }
 
     @Test
-    public void testOrganisationUsernameAlreadyTaken() throws IOException {
-        // Mock the behavior to simulate that the organisation username is already taken
-        when(mockOrganisationDAO.CheckOrganisationUserName("testorg")).thenReturn(true);
+    public void testHandleOrganisationButtonActionWithEmptyFields() {
+        // Simulate empty fields by setting all fields to empty strings
+        mockController.handleOrganisationButtonAction();
 
-        // Replicating the logic from handleOrganisationButtonAction()
-        if (mockOrganisationDAO.CheckOrganisationUserName(organisationUsernameField.getText())) {
-            System.out.println("Organisation username Taken. Please choose a different username.");
-            return;
-        }
-
-        // Verify that no insertion happened
-        verify(mockOrganisationDAO, never()).insert(any());
+        // Verify that the mock alert message is set correctly
+        assertEquals("Mock alert: Fields are empty.", mockController.getMockAlertMessage());
     }
 
     @Test
-    public void testOrganisationEmailAlreadyExists() throws IOException {
-        // Mock the behavior to simulate that the email is already taken
-        when(mockOrganisationDAO.CheckOrganisationEmail("test@example.com")).thenReturn(true);
+    public void testHandleOrganisationButtonActionWithValidFields() {
+        // Set valid values in the fields
+        mockController.organisationName.setText("ValidOrg");
+        mockController.supportedGroup.setText("ValidGroup");
+        mockController.organisationDescription.setText("ValidDescription");
+        mockController.organisationUsername.setText("validUser");
+        mockController.organisationPassword.setText("validPass");
+        mockController.organisationEmail.setText("validEmail@test.com");
 
-        // Replicating the logic from handleOrganisationButtonAction()
-        if (mockOrganisationDAO.CheckOrganisationEmail(organisationEmailField.getText())) {
-            System.out.println("Email Exists. Please use a different email.");
-            return;
-        }
+        // Simulate a button click with valid fields
+        mockController.handleOrganisationButtonAction();
 
-        // Verify that no insertion happened
-        verify(mockOrganisationDAO, never()).insert(any());
+        // Verify that the correct message is set for valid fields
+        assertEquals("Fields are valid.", mockController.getMockAlertMessage());
+    }
+
+    @Test
+    public void testEmailIsUnique() {
+        // Mock behavior to return true, meaning the email exists in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationEmail("existingemail@example.com")).thenReturn(true);
+
+        // Validate that email uniqueness check works (email is NOT unique)
+        assertFalse(mockController.isEmailUnique("existingemail@example.com"));
+
+        // Mock behavior to return false, meaning the email does not exist in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationEmail("newemail@example.com")).thenReturn(false);
+
+        // Validate that email uniqueness check works (email is unique)
+        assertTrue(mockController.isEmailUnique("newemail@example.com"));
+    }
+
+    @Test
+    public void testUsernameIsUnique() {
+        // Mock behavior to return true, meaning the username exists in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationUserName("existingUser")).thenReturn(true);
+
+        // Validate that username uniqueness check works (username is NOT unique)
+        assertFalse(mockController.isUsernameUnique("existingUser"));
+
+        // Mock behavior to return false, meaning the username does not exist in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationUserName("newUser")).thenReturn(false);
+
+        // Validate that username uniqueness check works (username is unique)
+        assertTrue(mockController.isUsernameUnique("newUser"));
+    }
+
+    @Test
+    public void testOrganisationNameIsUnique() {
+        // Mock behavior to return true, meaning the organisation name exists in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationName("ExistingOrg")).thenReturn(true);
+
+        // Validate that organisation name uniqueness check works (name is NOT unique)
+        assertFalse(mockController.isOrganisationNameUnique("ExistingOrg"));
+
+        // Mock behavior to return false, meaning the organisation name does not exist in the database
+        Mockito.when(mockOrganisationDAO.CheckOrganisationName("NewOrg")).thenReturn(false);
+
+        // Validate that organisation name uniqueness check works (name is unique)
+        assertTrue(mockController.isOrganisationNameUnique("NewOrg"));
     }
 }

@@ -94,7 +94,7 @@ public class UserRegistrationController {
      * @throws IOException if there is an error loading the questions page.
      */
     @FXML
-    private void handleUserButtonAction() throws IOException {
+    public void handleUserButtonAction() throws IOException {
 
 
         if (FirstName.getText().isEmpty() ||

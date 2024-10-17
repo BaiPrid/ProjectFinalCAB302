@@ -1,136 +1,124 @@
 package OntrollerTests;
 
-import com.example.finalassignmentcab302.Tables.User;
 import com.example.finalassignmentcab302.dao.UserDAO;
-import com.example.finalassignmentcab302.dao.UserAnswersDAO;
-import javafx.scene.control.Button;
+import javafx.application.Platform;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.testfx.api.FxToolkit;
+import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*;
+import java.util.concurrent.CountDownLatch;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserRegistrationControllerTest {
 
-    @Mock
+    private MockUserRegistrationController mockController;
     private UserDAO mockUserDAO;
 
-    @Mock
-    private UserAnswersDAO mockUserAnswersDAO;
-
-    private TextField firstNameField;
-    private TextField lastNameField;
-    private TextField userNameField;
-    private TextField passwordField;
-    private TextField emailField;
-    private TextField phoneNumberField;
-    private Button submitButton;
+    @BeforeAll
+    public static void initToolkit() throws InterruptedException {
+        // Initialize the JavaFX toolkit to use real JavaFX components in tests
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.startup(latch::countDown);
+        latch.await();
+    }
 
     @BeforeEach
-    public void setUp() throws Exception {
-        MockitoAnnotations.initMocks(this);
+    public void setUp() {
+        // Mocking the UserDAO
+        mockUserDAO = Mockito.mock(UserDAO.class);
 
-        // Initialize the JavaFX environment with FxToolkit
-        FxToolkit.registerPrimaryStage();
-        FxToolkit.setupSceneRoot(() -> {
-            // Initialize the JavaFX components
-            firstNameField = new TextField();
-            lastNameField = new TextField();
-            userNameField = new TextField();
-            passwordField = new TextField();
-            emailField = new TextField();
-            phoneNumberField = new TextField();
-            submitButton = new Button();
-            return submitButton; // Set as the root node just to satisfy FxToolkit
-        });
+        // Use real JavaFX components instead of mocking them
+        TextField firstName = new TextField();
+        TextField lastName = new TextField();
+        TextField userName = new TextField();
+        TextField passWord = new TextField();
+        TextField email = new TextField();
+        TextField phoneNumber = new TextField();
+        ComboBox<String> economicClass = new ComboBox<>();
 
-        FxToolkit.showStage();  // Ensure the stage is shown
-
-        // Simulate user input
-        firstNameField.setText("John");
-        lastNameField.setText("Doe");
-        userNameField.setText("johndoe");
-        passwordField.setText("password123");
-        emailField.setText("john.doe@example.com");
-        phoneNumberField.setText("0423423423");
-    }
-
-    @Test
-    public void testSuccessfulRegistrationLogic() {
-        // Mock the behavior of the UserDAO to simulate successful registration
-        when(mockUserDAO.CheckUsername("johndoe")).thenReturn(false);
-        when(mockUserDAO.checkEmail("john.doe@example.com")).thenReturn(false);
-
-        // Replicate the logic from handleUserButtonAction()
-        if (firstNameField.getText().isEmpty() ||
-                lastNameField.getText().isEmpty() ||
-                emailField.getText().isEmpty() ||
-                passwordField.getText().isEmpty() ||
-                userNameField.getText().isEmpty() ||
-                phoneNumberField.getText().isEmpty()) {
-
-            // Simulate an alert or error message in the real app
-            System.out.println("Form Incomplete. All fields must be filled.");
-            return;
-        }
-
-        // Simulate unique username and email checks
-        if (mockUserDAO.CheckUsername(userNameField.getText())) {
-            System.out.println("Username Taken. Please choose a different username.");
-            return;
-        }
-
-        if (mockUserDAO.checkEmail(emailField.getText())) {
-            System.out.println("Email Exists. Please use a different email.");
-            return;
-        }
-
-        // Insert new user (assuming all validations pass)
-        User newUser = new User(
-                firstNameField.getText(),
-                lastNameField.getText(),
-                userNameField.getText(),
-                passwordField.getText(),
-                emailField.getText(),
-                Integer.parseInt(phoneNumberField.getText()),
-                "Economy"
+        // Pass the real components and the mocked DAO to the mock controller
+        mockController = new MockUserRegistrationController(
+                firstName, lastName, userName, passWord, email, phoneNumber, economicClass, mockUserDAO
         );
-
-        // Insert the new user and user answers in the DAO
-        mockUserDAO.insert(newUser);
-        verify(mockUserDAO, times(1)).insert(any(User.class));
     }
 
     @Test
-    public void testUsernameAlreadyTakenLogic() {
-        // Mock the behavior to simulate username already taken
-        when(mockUserDAO.CheckUsername("johndoe")).thenReturn(true);
+    public void testHandleUserButtonActionWithEmptyFields() {
+        // Simulate empty fields by setting all fields to empty strings
+        mockController.handleUserButtonAction();
 
-        // Replicate the logic from handleUserButtonAction()
-        if (mockUserDAO.CheckUsername(userNameField.getText())) {
-            System.out.println("Username Taken. Please choose a different username.");
-            return;
-        }
-
-        // Verify that the insert method was NOT called
-        verify(mockUserDAO, never()).insert(any());
+        // Verify that the mock alert message is set correctly
+        assertEquals("Mock alert: Fields are empty.", mockController.getMockAlertMessage());
     }
 
     @Test
-    public void testEmailAlreadyExistsLogic() {
-        // Mock the behavior to simulate email already taken
-        when(mockUserDAO.checkEmail("john.doe@example.com")).thenReturn(true);
+    public void testHandleUserButtonActionWithValidFields() {
+        // Set valid values in the fields
+        mockController.firstName.setText("ValidFirstName");
+        mockController.lastName.setText("ValidLastName");
+        mockController.userName.setText("ValidUser");
+        mockController.passWord.setText("ValidPass");
+        mockController.email.setText("validEmail@test.com");
+        mockController.phoneNumber.setText("1234567890");
+        mockController.economicClass.setValue("Middle");
 
-        // Replicate the logic from handleUserButtonAction()
-        if (mockUserDAO.checkEmail(emailField.getText())) {
-            System.out.println("Email Exists. Please use a different email.");
-            return;
-        }
+        // Simulate a button click with valid fields
+        mockController.handleUserButtonAction();
 
-        // Verify that the insert method was NOT called
-        verify(mockUserDAO, never()).insert(any());
+        // Verify that the correct message is set for valid fields
+        assertEquals("Fields are valid.", mockController.getMockAlertMessage());
+    }
+
+    @Test
+    public void testPhoneNumberIsInvalid() {
+        // Set valid values for all fields except for the phone number
+        mockController.firstName.setText("ValidFirstName");
+        mockController.lastName.setText("ValidLastName");
+        mockController.userName.setText("ValidUser");
+        mockController.passWord.setText("ValidPass");
+        mockController.email.setText("validEmail@test.com");
+        mockController.phoneNumber.setText("invalidPhoneNumber"); // Invalid phone number
+        mockController.economicClass.setValue("Middle");
+
+        // Simulate a button click
+        mockController.handleUserButtonAction();
+
+        // Verify that the phone number validation fails
+        assertEquals("Mock alert: Invalid phone number.", mockController.getMockAlertMessage());
+    }
+
+
+    @Test
+    public void testUsernameIsUnique() {
+        // Mock behavior to return true, meaning the username exists in the database
+        Mockito.when(mockUserDAO.CheckUsername("existingUser")).thenReturn(true);
+
+        // Validate that username uniqueness check works (username is NOT unique)
+        assertFalse(mockController.isUsernameUnique("existingUser"));
+
+        // Mock behavior to return false, meaning the username does not exist in the database
+        Mockito.when(mockUserDAO.CheckUsername("newUser")).thenReturn(false);
+
+        // Validate that username uniqueness check works (username is unique)
+        assertTrue(mockController.isUsernameUnique("newUser"));
+    }
+
+    @Test
+    public void testEmailIsUnique() {
+        // Mock behavior to return true, meaning the email exists in the database
+        Mockito.when(mockUserDAO.checkEmail("existingemail@example.com")).thenReturn(true);
+
+        // Validate that email uniqueness check works (email is NOT unique)
+        assertFalse(mockController.isEmailUnique("existingemail@example.com"));
+
+        // Mock behavior to return false, meaning the email does not exist in the database
+        Mockito.when(mockUserDAO.checkEmail("newemail@example.com")).thenReturn(false);
+
+        // Validate that email uniqueness check works (email is unique)
+        assertTrue(mockController.isEmailUnique("newemail@example.com"));
     }
 }
