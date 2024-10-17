@@ -10,9 +10,9 @@
 <ScrollPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalassignmentcab302.Controllers.UserAccountsController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="900.0">
 
-    <VBox alignment="CENTER">
+    <VBox alignment="CENTER" prefWidth="800.0">
 
         <padding>
             <Insets top="20"/>
@@ -20,10 +20,7 @@
 
         <Label fx:id="txtTitle"/>
 
-        <HBox spacing="50.0" alignment="CENTER">
-            <padding>
-                <Insets left="200"/>
-            </padding>
+        <HBox spacing="50.0" alignment="CENTER" prefWidth="700.0">
 
             <VBox alignment="CENTER">
                 <!-- ORDER HISTORY ON LEFT SIDE -->
@@ -36,12 +33,7 @@
                 <Button fx:id="btnQuestions" text="Redo my answers" onAction="#handleQuestionsPage"/>
                 <Button fx:id="btnDonate" text="Donate now!" onAction="#handleCharitiesPage"/>
                 <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome" />
-
             </VBox>
-
         </HBox>
-
     </VBox>
-
-
 </ScrollPane>
