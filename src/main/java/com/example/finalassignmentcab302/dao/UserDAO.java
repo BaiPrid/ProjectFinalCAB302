@@ -277,6 +277,8 @@ public class UserDAO {
     }
 
 
+
+
     /**
      * Closes the connection to the database.
      */

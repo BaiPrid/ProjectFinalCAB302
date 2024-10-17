@@ -3,17 +3,18 @@ package com.example.finalassignmentcab302.Controllers;
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Order;
 import com.example.finalassignmentcab302.Tables.User;
+import com.example.finalassignmentcab302.dao.OrganisationDAO;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import com.example.finalassignmentcab302.dao.UserDAO;
 import com.example.finalassignmentcab302.dao.OrderDAO;
@@ -36,6 +37,14 @@ public class UserAccountsController
     private Label txtTitle;
     @FXML
     public ListView<Order> orderListView;
+    @FXML
+    private TextField orderIDField;
+    @FXML
+    private TextField organisationField;
+    @FXML
+    private TextField orderDateField;
+    @FXML
+    private TextField amountField;
 
 
     //---------- BUTTONS TO DIFFERENT PAGES !! -------------
@@ -80,6 +89,18 @@ public class UserAccountsController
         stage.setScene(scene);
     }
 
+    // ------------- DATA INTERACTION -------------
+    UserDAO userNameDAO = new UserDAO();
+    OrderDAO userOrdersDAO = new OrderDAO();
+    OrganisationDAO orgDAO = new OrganisationDAO();
+
+    int userId = currentUser; // Replace with actual user ID
+    // Gets the answers for the specific user id
+    String userName = userNameDAO.getName(userId);
+
+    List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
+
+
 
     /**
      * Retrieving the user's past order data.
@@ -87,23 +108,74 @@ public class UserAccountsController
     @FXML
     private void initialize()
     {
-        // ------------- DATA INTERACTION -------------
-        UserDAO userNameDAO = new UserDAO();
-        OrderDAO userOrdersDAO = new OrderDAO();
+        List<String> orgNames = new ArrayList<String>();
 
-        int userId = currentUser; // Replace with actual user ID
-        // Gets the answers for the specific user id
+        for (Order order: userOrders)
+        {
+            orgNames.add(orgDAO.getName(userOrdersDAO.getOrgID(order.getOrganisationId())));
+        }
 
-        String userName = userNameDAO.getName(userId);
-
-        List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
-
-        boolean hasOrders = !userOrders.isEmpty();
 
         txtTitle.setText("Welcome " + userName + "!");
+
+        orderListView.setCellFactory(this::renderCell);
+        syncOrders();
+        orderListView.getSelectionModel().selectFirst();
+        Order firstorder = orderListView.getSelectionModel().getSelectedItem();
+        if (firstorder != null) {
+            selectOrder(firstorder);
+        }
+        
+    }
+
+    /**
+     * Synchronizes the orders list view with the orders in the database.
+     */
+    private void syncOrders() {
+        orderListView.getItems().clear();
+        List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
+        boolean hasOrders = !userOrders.isEmpty();
         if (hasOrders) {
             orderListView.getItems().addAll(userOrders);
         }
+    }
+
+    /**
+     * Programmatically selects a order in the list view and
+     * updates the text fields with the order's information.
+     * @param order The order to select.
+     */
+    private void selectOrder(Order order) {
+        orderListView.getSelectionModel().select(order);
+        orderIDField.setText(Integer.toString(order.getOrderId()));
+        organisationField.setText(Integer.toString(order.getOrganisationId()));
+        orderDateField.setText(order.getOrderDateTime());
+        amountField.setText(Float.toString(order.getAmount()));
+    }
+
+    private ListCell<Order> renderCell(ListView<Order> orderListView) {
+        return new ListCell<>() {
+            /**
+             * Handles the event when an order is selected in the list view.
+             * @param mouseEvent The event to handle.
+             */
+            private void onOrderSelected(MouseEvent mouseEvent) {
+                ListCell<Order> clickedCell = (ListCell<Order>) mouseEvent.getSource();
+                // Get the selected order from the list view
+                Order selectedOrder = clickedCell.getItem();
+                if (selectedOrder != null) selectOrder(selectedOrder);
+            }
+
+            protected void updateItem(Order order, boolean empty) {
+                super.updateItem(order, empty);
+                // If the cell is empty, set the text to null, otherwise set it to the contact's full name
+                if (empty || order == null) {
+                    setText(null);
+                    super.setOnMouseClicked(this::onOrderSelected);
+                }
+            }
+
+        };
     }
 
 
