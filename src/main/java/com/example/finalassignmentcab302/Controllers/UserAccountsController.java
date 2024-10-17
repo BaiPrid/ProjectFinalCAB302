@@ -98,23 +98,15 @@ public class UserAccountsController
     // Gets the answers for the specific user id
     String userName = userNameDAO.getName(userId);
 
-    List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
-
-
-
-    /**
-     * Retrieving the user's past order data.
-     */
     @FXML
     private void initialize()
     {
-        List<String> orgNames = new ArrayList<String>();
-
-        for (Order order: userOrders)
-        {
-            orgNames.add(orgDAO.getName(userOrdersDAO.getOrgID(order.getOrganisationId())));
-        }
-
+//        List<String> orgNames = new ArrayList<String>();
+//
+//        for (Order order: userOrders)
+//        {
+//            orgNames.add(orgDAO.getName(userOrdersDAO.getOrgID(order.getOrganisationId())));
+//        }
 
         txtTitle.setText("Welcome " + userName + "!");
 
@@ -124,6 +116,13 @@ public class UserAccountsController
         Order firstorder = orderListView.getSelectionModel().getSelectedItem();
         if (firstorder != null) {
             selectOrder(firstorder);
+        }
+
+        List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
+
+        for (Order order : userOrders)
+        {
+            System.out.println((order));
         }
         
     }
@@ -169,9 +168,11 @@ public class UserAccountsController
             protected void updateItem(Order order, boolean empty) {
                 super.updateItem(order, empty);
                 // If the cell is empty, set the text to null, otherwise set it to the contact's full name
-                if (empty || order == null) {
+                if (empty || order == null || order.getAmount() == null) {
                     setText(null);
                     super.setOnMouseClicked(this::onOrderSelected);
+                } else {
+                    setText(Float.toString(order.getAmount()));
                 }
             }
 
