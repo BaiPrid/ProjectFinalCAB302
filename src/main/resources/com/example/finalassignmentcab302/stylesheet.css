@@ -5,6 +5,11 @@ and the text color to white */
     -fx-text-fill: white;
 }
 
+#btnBack {
+    -fx-background-color: #CD5A74;
+    -fx-text-fill: white;
+}
+
 /* Set color of button when mouse hovers over it */
 .button:hover {
     -fx-background-color: #5603AD;
