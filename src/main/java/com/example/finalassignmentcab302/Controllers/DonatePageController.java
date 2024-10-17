@@ -175,8 +175,10 @@ public class DonatePageController {
         float selectedValueFloat = (float) selectedValue;
         String billingaddress = BillingAdress.getText();
 
+        int userId = currentUser;
 
-        Order order = new Order(id, Orgid, DateTimeasString, selectedValueFloat, billingaddress);
+
+        Order order = new Order(userId, Orgid, DateTimeasString, selectedValueFloat, billingaddress);
         orderDAO.insert(order);
 
 

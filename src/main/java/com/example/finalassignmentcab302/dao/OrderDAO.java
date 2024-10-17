@@ -131,45 +131,31 @@ public class OrderDAO {
      * @param userID of the user the orders were placed by
      */
     public List<Order> getUserOrders(int userID) {
-        List<Order> allOrders = new ArrayList<>();
+        List<Order> allOrders = new ArrayList<Order>();
         try{
-            PreparedStatement getOrders = connection.prepareStatement("SELECT * FROM orders WHERE userID = ?");
+            PreparedStatement getOrders = connection.prepareStatement("SELECT * FROM orders WHERE userId = ?");
             getOrders.setInt(1, userID);
 
             ResultSet rs = getOrders.executeQuery();
 
-            while (rs.next()){
-                allOrders.add(
-                        new Order(
-                                rs.getInt("orderId"),
-                                rs.getInt("userId"),
-                                rs.getInt("organisationId"),
-                                rs.getString("orderDateTime"),
-                                rs.getFloat("amount"),
-                                rs.getString("billingAddress")
-                        )
+            while (rs.next())
+            {
+                allOrders.add
+                (
+                    new Order(
+                            rs.getInt("orderId"),
+                            rs.getInt("userId"),
+                            rs.getInt("organisationId"),
+                            rs.getString("orderDateTime"),
+                            rs.getFloat("amount"),
+                            rs.getString("billingAddress")
+                    )
                 );
             }
         }catch (SQLException ex) {
             System.err.println(ex);
         }
         return allOrders;
-    }
-
-    public Integer getOrgID(int id) {
-        try {
-            PreparedStatement getOrganisation = connection.prepareStatement(
-                    "SELECT organisationId FROM orders WHERE id = ?"
-            );
-            getOrganisation.setInt(1, id);
-            ResultSet rs = getOrganisation.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("organisationId");
-            }
-        } catch (SQLException ex) {
-            System.err.println(ex);
-        }
-        return null; // Return null if no description is found or if an exception occurs
     }
 
     /**
