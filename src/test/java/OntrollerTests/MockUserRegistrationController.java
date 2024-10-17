@@ -2,26 +2,26 @@ package OntrollerTests;
 
 import com.example.finalassignmentcab302.Controllers.UserRegistrationController;
 import com.example.finalassignmentcab302.dao.UserDAO;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ComboBox;
 
 public class MockUserRegistrationController extends UserRegistrationController {
 
-    public TextField firstName;
-    public TextField lastName;
-    public TextField userName;
-    public TextField passWord;
-    public TextField email;
-    public TextField phoneNumber;
-    public ComboBox<String> economicClass;
+    public String firstName;
+    public String lastName;
+    public String userName;
+    public String passWord;
+    public String email;
+    public String phoneNumber;
+    public String economicClass;
 
     private String mockAlertMessage;
     private UserDAO userDAO;
 
     // Constructor to initialize the fields
-    public MockUserRegistrationController(TextField firstName, TextField lastName, TextField userName, TextField passWord,
-                                          TextField email, TextField phoneNumber, ComboBox<String> economicClass,
-                                          UserDAO userDAO) {
+    public MockUserRegistrationController(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+
+    public void setFieldsForTesting(String firstName, String lastName, String userName, String passWord, String email, String phoneNumber, String economicClass) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -29,23 +29,22 @@ public class MockUserRegistrationController extends UserRegistrationController {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.economicClass = economicClass;
-        this.userDAO = userDAO;
     }
 
     @Override
     public void handleUserButtonAction() {
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || userName.getText().isEmpty() ||
-                passWord.getText().isEmpty() || email.getText().isEmpty() || phoneNumber.getText().isEmpty() ||
-                economicClass.getValue() == null) {
+        if (firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() ||
+                passWord.isEmpty() || email.isEmpty() || phoneNumber.isEmpty() ||
+                economicClass == null) {
             // Simulate alert message if any field is empty
             mockAlertMessage = "Mock alert: Fields are empty.";
-        } else if (!isPhoneNumberValid(phoneNumber.getText())) {
+        } else if (!isPhoneNumberValid(phoneNumber)) {
             // Simulate alert message if phone number is invalid
             mockAlertMessage = "Mock alert: Invalid phone number.";
-        } else if (!isUsernameUnique(userName.getText())) {
+        } else if (!isUsernameUnique(userName)) {
             // Simulate alert message if username is not unique
             mockAlertMessage = "Mock alert: Username is taken.";
-        } else if (!isEmailUnique(email.getText())) {
+        } else if (!isEmailUnique(email)) {
             // Simulate alert message if email is not unique
             mockAlertMessage = "Mock alert: Email already exists.";
         } else {
