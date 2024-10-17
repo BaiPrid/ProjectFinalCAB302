@@ -39,6 +39,9 @@ public class OrgloginController
     @FXML
     private Button questNav;
 
+    @FXML
+    private Button btnBack;
+
 
     @FXML
     protected void handleOpenOrganisationRegistration() throws IOException {
@@ -72,11 +75,8 @@ public class OrgloginController
     }
 
     @FXML
-    private Button btnLogout;
-
-    @FXML
     private void handleOpenHome() throws IOException {
-        Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) btnBack.getScene().getWindow(); // Get the current stage
         HelloApplication app = new HelloApplication();
         app.start(stage); // Switch to the new page
     }

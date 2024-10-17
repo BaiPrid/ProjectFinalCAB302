@@ -30,7 +30,7 @@ public class UserAccountsController
     @FXML
     private Button btnDonate;
     @FXML
-    private Button btnLogout;
+    private Button btnBack;
     @FXML
     private Button btnQuestions;
     @FXML
@@ -55,7 +55,7 @@ public class UserAccountsController
      */
     @FXML
     private void handleOpenHome() throws IOException {
-        Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) btnBack.getScene().getWindow(); // Get the current stage
         HelloApplication app = new HelloApplication();
         app.start(stage); // Switch to the new page
     }
@@ -98,31 +98,21 @@ public class UserAccountsController
     // Gets the answers for the specific user id
     String userName = userNameDAO.getName(userId);
 
+    /**
+     * Initialising the FXML fx:id values.
+     */
     @FXML
     private void initialize()
     {
-//        List<String> orgNames = new ArrayList<String>();
-//
-//        for (Order order: userOrders)
-//        {
-//            orgNames.add(orgDAO.getName(userOrdersDAO.getOrgID(order.getOrganisationId())));
-//        }
-
         txtTitle.setText("Welcome " + userName + "!");
 
         orderListView.setCellFactory(this::renderCell);
         syncOrders();
+        // Select the first order and display order information
         orderListView.getSelectionModel().selectFirst();
         Order firstorder = orderListView.getSelectionModel().getSelectedItem();
         if (firstorder != null) {
             selectOrder(firstorder);
-        }
-
-        List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
-
-        for (Order order : userOrders)
-        {
-            System.out.println((order));
         }
         
     }
@@ -140,14 +130,14 @@ public class UserAccountsController
     }
 
     /**
-     * Programmatically selects a order in the list view and
+     * Programmatically selects an order in the list view and
      * updates the text fields with the order's information.
      * @param order The order to select.
      */
     private void selectOrder(Order order) {
         orderListView.getSelectionModel().select(order);
         orderIDField.setText(Integer.toString(order.getOrderId()));
-        organisationField.setText(Integer.toString(order.getOrganisationId()));
+        organisationField.setText(orgDAO.getName(order.getOrganisationId()));
         orderDateField.setText(order.getOrderDateTime());
         amountField.setText(Float.toString(order.getAmount()));
     }
@@ -165,6 +155,11 @@ public class UserAccountsController
                 if (selectedOrder != null) selectOrder(selectedOrder);
             }
 
+            /**
+             * Updates the item in the cell by setting the text to the contact's full name.
+             * @param order The order to update the cell with.
+             * @param empty Whether the cell is empty.
+             */
             protected void updateItem(Order order, boolean empty) {
                 super.updateItem(order, empty);
                 // If the cell is empty, set the text to null, otherwise set it to the contact's full name
