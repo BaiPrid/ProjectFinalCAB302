@@ -94,15 +94,15 @@ public class UserAccountsController
         int userId = currentUser; // Replace with actual user ID
         // Gets the answers for the specific user id
 
-        User userName = userNameDAO.getByLogin(userId);
-        String name = userName.getFirstName();
+        String userName = userNameDAO.getName(userId);
 
         List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
 
         boolean hasOrders = !userOrders.isEmpty();
+
+        txtTitle.setText("Welcome " + userName + "!");
         if (hasOrders) {
             orderListView.getItems().addAll(userOrders);
-            txtTitle.setText("Welcome " + name);
         }
     }
 

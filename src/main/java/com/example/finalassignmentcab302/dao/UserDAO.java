@@ -260,6 +260,23 @@ public class UserDAO {
         return false; // Return false if there is no email found
     }
 
+    public String getName(int id) {
+        try {
+            PreparedStatement getName = connection.prepareStatement(
+                    "SELECT firstName FROM users WHERE id = ?"
+            );
+            getName.setInt(1, id);
+            ResultSet rs = getName.executeQuery();
+            if (rs.next()) {
+                return rs.getString("firstName");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null; // Return null if no description is found or if an exception occurs
+    }
+
+
     /**
      * Closes the connection to the database.
      */
