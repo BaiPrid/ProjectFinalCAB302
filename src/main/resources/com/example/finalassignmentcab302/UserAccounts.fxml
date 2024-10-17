@@ -47,7 +47,7 @@
                 <!-- BUTTONS ON RIGHT SIDE -->
                 <Button fx:id="btnQuestions" text="Redo my answers" onAction="#handleQuestionsPage"/>
                 <Button fx:id="btnDonate" text="Donate now!" onAction="#handleCharitiesPage"/>
-                <Button fx:id="btnLogout" text="Log Out" onAction="#handleOpenHome" />
+                <Button fx:id="btnBack" text="Log Out" onAction="#handleOpenHome" />
             </VBox>
         </HBox>
     </VBox>

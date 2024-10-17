@@ -37,7 +37,7 @@ public class UserLoginController
     @FXML
     private Button loginSend;
     @FXML
-    private Button btnLogout;
+    private Button btnBack;
 
 
     /**
@@ -104,7 +104,7 @@ public class UserLoginController
      */
     @FXML
     private void handleOpenHome() throws IOException {
-        Stage stage = (Stage) btnLogout.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) btnBack.getScene().getWindow(); // Get the current stage
         HelloApplication app = new HelloApplication();
         app.start(stage); // Switch to the new page
     }
