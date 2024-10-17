@@ -156,6 +156,22 @@ public class OrderDAO {
         return allOrders;
     }
 
+    public Integer getOrgID(int id) {
+        try {
+            PreparedStatement getOrganisation = connection.prepareStatement(
+                    "SELECT organisationId FROM orders WHERE id = ?"
+            );
+            getOrganisation.setInt(1, id);
+            ResultSet rs = getOrganisation.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("organisationId");
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
+        return null; // Return null if no description is found or if an exception occurs
+    }
+
     /**
      * Closes the connection to the database
      */
