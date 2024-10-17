@@ -177,6 +177,7 @@ public class DonatePageController {
 
         int userId = currentUser;
 
+
         Order order = new Order(userId, Orgid, DateTimeasString, selectedValueFloat, billingaddress);
         orderDAO.insert(order);
 
