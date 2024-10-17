@@ -23,8 +23,9 @@
             </padding>
 
             <!-- Placeholder for future image -->
-            <VBox alignment="CENTER">
+            <VBox alignment="CENTER_LEFT" spacing="50" prefWidth="400" >
                 <Text text="A click closer to a bigger future. A bigger impact." fx:id="txtQuote" wrappingWidth="450.0"/>
+                <Button fx:id="btnBack" text="Home" onAction="#handleOpenHome"/>
             </VBox>
 
             <VBox alignment="CENTER" spacing="10.0">
@@ -58,7 +59,7 @@
 
         <Label fx:id="welcomeText"/>
 
-        <Button fx:id="btnLogout" text="Home" onAction="#handleOpenHome"/>
+
 
 
 

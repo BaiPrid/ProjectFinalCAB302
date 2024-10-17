@@ -40,13 +40,11 @@
             </VBox>
 
             <!-- Placeholder for future image -->
-            <VBox alignment="CENTER">
+            <VBox alignment="CENTER_RIGHT" spacing="50" prefWidth="400" >
                 <Text text="Your cause for a bigger impact." fx:id="txtQuote" wrappingWidth="400.0"/>
+                <Button fx:id="btnBack" text="Back" onAction="#handleOpenHome"/>
             </VBox>
 
-            <padding>
-                <Insets left="50" right="50"/>
-            </padding>
             <padding>
                 <Insets left="150"/>
             </padding>
@@ -54,9 +52,7 @@
 
         <Label fx:id="welcomeText"/>
 
-        <Button fx:id="btnLogout" text="Home" onAction="#handleOpenHome"/>
-
-
 
     </VBox>
+
 </ScrollPane>
