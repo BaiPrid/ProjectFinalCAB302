@@ -186,7 +186,7 @@ public class OrganisationRegistrationController {
      * @throws IOException if there is an error loading the login page
      */
     @FXML
-    private void handleOrganisationButtonAction() throws IOException {
+    public void handleOrganisationButtonAction() throws IOException {
 
 
         if (OrganisationName.getText().isEmpty() ||
