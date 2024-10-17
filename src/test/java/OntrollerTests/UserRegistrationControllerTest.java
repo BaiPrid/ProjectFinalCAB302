@@ -20,11 +20,9 @@ public class UserRegistrationControllerTest {
 
     @BeforeAll
     public static void initToolkit() throws InterruptedException {
-        // Initialize the JavaFX toolkit to use real JavaFX components in tests
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.startup(latch::countDown);
-        latch.await();
+        JavaFxInitializer.initToolkit(); // Use the singleton utility class to initialize JavaFX toolkit
     }
+
 
     @BeforeEach
     public void setUp() {

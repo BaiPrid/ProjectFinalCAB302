@@ -8,12 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockOrganisationRegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockUserRegistrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/JavaFxInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrganisationRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/UserRegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/OrganisationRegistrationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/OrganisationRegistrationControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/UserRegistrationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/UserRegistrationControllerTest.java" afterDir="false" />
     </list>
@@ -72,33 +68,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in FinalAssignmentCAB302.executor": "Run",
-    "JUnit.DatabaseTest.executor": "Run",
-    "JUnit.DonatePageControllerTest.executor": "Run",
-    "JUnit.OrganisationDAOTest.executor": "Coverage",
-    "JUnit.OrganisationRegistrationControllerTest.executor": "Run",
-    "JUnit.UserDAOTest.executor": "Coverage",
-    "JUnit.UserRegistrationControllerTest (1).executor": "Run",
-    "JUnit.java in FinalAssignmentCAB302.executor": "Coverage",
-    "JUnit.test in FinalAssignmentCAB302.executor": "Coverage",
-    "Maven.FinalAssignmentCAB302 [test].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "integration",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41264367"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in FinalAssignmentCAB302.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DonatePageControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrganisationDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.OrganisationRegistrationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserRegistrationControllerTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.test in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.FinalAssignmentCAB302 [test].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;integration&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41264367&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\OneDrive\Desktop\ProjectFinalCAB302" />
@@ -145,21 +141,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegistrationControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="FinalAssignmentCAB302" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="OntrollerTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="OntrollerTests" />
-      <option name="MAIN_CLASS_NAME" value="OntrollerTests.UserRegistrationControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserRegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="FinalAssignmentCAB302" />
       <extension name="coverage">
@@ -170,6 +151,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="RegistrationControllerTests" />
       <option name="MAIN_CLASS_NAME" value="RegistrationControllerTests.UserRegistrationControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegistrationControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="FinalAssignmentCAB302" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="OntrollerTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="OntrollerTests" />
+      <option name="MAIN_CLASS_NAME" value="OntrollerTests.UserRegistrationControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -231,7 +227,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="adding-final-touch-up-especially-testing-and-javadoc" />
                       </list>
                     </value>
                   </entry>
