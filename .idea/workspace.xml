@@ -9,11 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockOrganisationRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockOrganisationRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockUserRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/MockUserRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/OrganisationRegistrationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/OrganisationRegistrationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OntrollerTests/UserRegistrationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OntrollerTests/UserRegistrationControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +84,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "more-testing-conmtroller-tests",
+    "git-widget-placeholder": "integration",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Downloads/PANDOLLA/ProjectFinalCAB302",
     "project.structure.last.edited": "Libraries",
@@ -105,7 +100,7 @@
       <recent name="com.example.finalassignmentcab302" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserRegistrationControllerTest (1)">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.finalassignmentcab302.HelloApplication" />
       <module name="FinalAssignmentCAB302" />
@@ -199,7 +194,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserRegistrationControllerTest (1)" />
         <item itemvalue="JUnit.OrganisationRegistrationControllerTest" />
         <item itemvalue="JUnit.test in FinalAssignmentCAB302" />
         <item itemvalue="JUnit.DonatePageControllerTest" />
