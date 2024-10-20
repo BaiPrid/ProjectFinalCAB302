@@ -211,7 +211,7 @@ public class UserAnswersDAO {
                 String[] orgOptions = orgAnswers[i].split(",\\s*");
 
                 for (String option : orgOptions) {
-                    if (orgAnswers[i].equals(userAnswers.get(i))) {
+                    if (option.equals(userAnswers.get(i))) {
                         matches++;
                         break;
                     }
