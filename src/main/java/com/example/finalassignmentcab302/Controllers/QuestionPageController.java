@@ -60,7 +60,7 @@ public class QuestionPageController {
     private Label errorField;
 
     @FXML
-    private ComboBox UserAnswersField;
+    public ComboBox UserAnswersField;
 
     /**
      * Grabs the list of questions and displays the current question to the user
@@ -139,7 +139,7 @@ public class QuestionPageController {
      * @throws IOException if there is a problem loading the page
      */
     @FXML
-    private void onNextButtonClick() throws IOException {
+    public void onNextButtonClick() throws IOException {
 
         if (UserAnswersField.getSelectionModel().getSelectedItem() != null){
             answerList2.add((String) UserAnswersField.getSelectionModel().getSelectedItem());

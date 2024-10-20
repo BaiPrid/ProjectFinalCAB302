@@ -55,6 +55,15 @@ public class UserAnswers {
         this.userAns3 = userAns3;
     }
 
+    public UserAnswers(String userAns1, String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies){
+        this.category = category;
+        this.size = size;
+        this.donationOptions = donationOptions;
+        this.taxableCategory = taxableCategory;
+        this.donorSpecifies = donorSpecifies;
+        this.userAns1 = userAns1;
+    }
+
     public UserAnswers(int userID, String userAns1, String userAns2, String userAns3){
         this.userId = userID;
         this.userAns1 = userAns1;
