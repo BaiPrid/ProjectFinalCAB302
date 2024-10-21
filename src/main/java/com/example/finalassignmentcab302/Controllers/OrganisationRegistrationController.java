@@ -246,7 +246,7 @@ public class OrganisationRegistrationController {
         if (monetaryDonationCheckBox.isSelected()) donationTypes.add("Monetary Donation");
         if (volunteerWorkCheckBox.isSelected()) donationTypes.add("Volunteer Work");
         if (payedEmployeesCheckBox.isSelected()) donationTypes.add("Payed Employees");
-        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired Party");
+        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired 3rd Party Corporations");
         String donationTypesBuild = String.join(",", donationTypes);
 
 
