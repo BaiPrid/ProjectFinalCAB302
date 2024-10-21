@@ -33,7 +33,7 @@ public class DonatePageControllerTest {
     @Test
     public void testOnDonatePressWithEmptyFields() {
         // Simulate empty billing address and no donation selected
-        mockController.setFieldsForTesting("", null);
+        mockController.setFieldsForTesting("", null)`;
 
         // Simulate the button action
         mockController.OnDonatePress();
