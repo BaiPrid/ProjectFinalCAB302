@@ -169,7 +169,7 @@ public class UserRegistrationController {
         CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(userName, password);
 
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true, "TempAns", "TempAns", "TempAns");
+        UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true);
         userAnswersDAO.insert(userAnswers);
 
         handleQuestionPage();

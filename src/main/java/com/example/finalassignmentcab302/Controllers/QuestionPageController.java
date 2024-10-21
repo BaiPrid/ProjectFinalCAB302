@@ -169,7 +169,7 @@ public class QuestionPageController {
             }
 
 
-            UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList2.get(0)), String.valueOf(answerList2.get(1)), String.valueOf(answerList2.get(2)), String.valueOf(answerList2.get(3)), true);
+            UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, String.valueOf(answerList2.get(0)), String.valueOf(answerList2.get(1)), String.valueOf(answerList2.get(2)), String.valueOf(answerList2.get(3)), boolNum);
             UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
             userAnswersDAO.updateUserAnswers(userAnswers);
             handleCharitiesPage();
