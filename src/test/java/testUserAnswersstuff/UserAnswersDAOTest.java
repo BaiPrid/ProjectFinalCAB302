@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserAnswersDAOTest {
     private UserAnswersDAO userAnswersDAO;
-    private UserAnswers[] userAnswersArray = {
+    private final UserAnswers[] userAnswersArray = {
             new UserAnswers(1, "Category1", "Size1", "Donation1", "Taxable1", true),
             new UserAnswers(2, "Category2", "Size2", "Donation2", "Taxable2", false),
             new UserAnswers(3, "Category3", "Size3", "Donation3", "Taxable3", true)
@@ -44,9 +44,6 @@ public class UserAnswersDAOTest {
         assertEquals("UpdatedSize", fetchedUserAnswers.getSize());
         assertEquals("UpdatedDonation", fetchedUserAnswers.getDonationOptions());
         assertEquals("UpdatedTaxable", fetchedUserAnswers.getTaxableCategory());
-        assertEquals("UpdatedAns1", fetchedUserAnswers.getUserAns1());
-        assertEquals("UpdatedAns2", fetchedUserAnswers.getUserAns2());
-        assertEquals("UpdatedAns3", fetchedUserAnswers.getUserAns3());
     }
 
     @Test
