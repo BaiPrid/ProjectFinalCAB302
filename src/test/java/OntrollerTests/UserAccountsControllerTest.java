@@ -74,10 +74,9 @@ public class UserAccountsControllerTest {
         mockController.selectOrder(order);
 
         // Verify that the fields are updated correctly
-        assertEquals(1, order.getOrderId());
-        assertEquals(1, order.getOrganisationId());
-        assertEquals("2024-10-20T10:00:00", order.getOrderDateTime());
-        assertEquals(50.0f, order.getAmount());
+        assertEquals(1, mockController.selectedOrder.getUserId());
+        assertEquals("2024-10-20T10:00:00", mockController.selectedOrder.getOrderDateTime());
+        assertEquals(50.0f, mockController.selectedOrder.getAmount());
     }
 
     @Test

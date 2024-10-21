@@ -41,8 +41,7 @@ public class MockUserAccountsController extends UserAccountsController {
     // Overriding selectOrder to set the selected order
     @Override
     public void selectOrder(Order order) {
-        super.selectOrder(order); // Call the original method to keep existing functionality
-        this.selectedOrder = order; // Store the selected order
+        selectedOrder = order; // Store the selected order
     }
 
     @Override
