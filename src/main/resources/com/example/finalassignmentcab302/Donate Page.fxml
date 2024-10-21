@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.image.ImageView?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.Controllers.DonatePageController"
+            fitToWidth="true" fitToHeight="true">
+<VBox spacing="20.0">
+    <padding>
+        <Insets bottom="20.0" left="50" right="50"/>
+    </padding>
+    <!--TITLE -->
+    <HBox alignment="CENTER">
+        <Label fx:id="lblCharityName"
+               minHeight="50.0"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <VBox>
+
+
+            <Label text="Description of Charity:"/>
+            <Label fx:id="txtCharityDescription" wrapText="true" maxWidth="400"/>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="Charity Supports:   "/>
+            <Label fx:id="CharityGroupSupported"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="The Taxable Category is:   "/>
+            <Label fx:id="TaxableCategory"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <HBox>
+            <Label text="The size of this charity is:   "/>
+            <Label fx:id="CharitySize"/>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+            <Label text="Select Amount to Donate"/>
+            <HBox spacing="30.0">
+            <VBox>
+                <RadioButton fx:id="radioButton1"/>
+                <Label text="10"/>
+            </VBox>
+            <VBox>
+                <RadioButton fx:id="radioButton2"/>
+                <Label text="25"/>
+            </VBox>
+            <VBox>
+                <RadioButton fx:id="radioButton3"/>
+                <Label text="50"/>
+            </VBox>
+            <VBox>
+                <RadioButton fx:id="radioButton4"/>
+                <Label text="100"/>
+            </VBox>
+            <VBox>
+                <RadioButton fx:id="radioButton5"/>
+                <Label text="200"/>
+            </VBox>
+            <VBox>
+                <RadioButton fx:id="radioButton6"/>
+                <Label text="500"/>
+            </VBox>
+            </HBox>
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+            <VBox>
+                <Label text="Enter Billing Adress"/>
+                <TextField promptText="Enter Billing Address Here" fx:id="BillingAdress"/>
+            </VBox>
+
+            <Pane minHeight="20"/> <!-- Spacer Pane for custom spacing -->
+
+            <Button fx:id="Donate" text="Donate" alignment="CENTER" minWidth="400" onAction="#OnDonatePress"/>
+
+        </VBox>
+    </HBox>
+
+
+</VBox>
+
+</ScrollPane>

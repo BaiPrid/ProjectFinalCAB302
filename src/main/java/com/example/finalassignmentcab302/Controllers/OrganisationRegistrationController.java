@@ -25,6 +25,12 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class responsible for handling the registration of organisations.
+ * This class manages the user interface for registering a new organisation,
+ * including collecting input data, validating the data, and saving the
+ * organisation information to the database via DAO methods.
+ */
 public class OrganisationRegistrationController {
 
     private Stage primaryStage; // Add a Stage field
@@ -107,10 +113,18 @@ public class OrganisationRegistrationController {
     @FXML
     private Button SubmitRegistration;
 
+    /**
+     * Sets the primary stage.
+     * @param primaryStage the primary stage to set
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Opens a file chooser to select an image file and copies it to
+     * the designated image folder.
+     */
     public void openImageFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
@@ -139,11 +153,18 @@ public class OrganisationRegistrationController {
         }
     }
 
+    /**
+     * Initializes the controller and sets up the radio buttons.
+     */
     @FXML
     public void initialize() {
         setupradiobuttons();
-
     }
+
+    /**
+     * Sets up the radio buttons by creating toggle groups and adding
+     * the radio buttons to them.
+     */
     @FXML
     public void setupradiobuttons() {
         // Create a ToggleGroup and add the radio buttons to it
@@ -157,8 +178,15 @@ public class OrganisationRegistrationController {
 
     }
 
+    /**
+     * Handles the organisation registration form submission. Validates the
+     * input fields, checks for unique usernames and emails, and
+     * inserts the organisation and its answers into the database.
+     * If inputs don't pass validations alert is created to inform user of issue.
+     * @throws IOException if there is an error loading the login page
+     */
     @FXML
-    private void handleOrganisationButtonAction() throws IOException {
+    public void handleOrganisationButtonAction() throws IOException {
 
 
         if (OrganisationName.getText().isEmpty() ||
@@ -218,13 +246,13 @@ public class OrganisationRegistrationController {
         if (monetaryDonationCheckBox.isSelected()) donationTypes.add("Monetary Donation");
         if (volunteerWorkCheckBox.isSelected()) donationTypes.add("Volunteer Work");
         if (payedEmployeesCheckBox.isSelected()) donationTypes.add("Payed Employees");
-        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired 3rd Party Corporations");
+        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired Party");
         String donationTypesBuild = String.join(",", donationTypes);
 
 
         OrganisationDAO organisationDAO = new OrganisationDAO();
 
-        if (organisationDAO.CheckOrganisationName(organisationUsername)) {
+        if (organisationDAO.CheckOrganisationUserName(organisationUsername)) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Organisation username Taken");
             alert.setHeaderText("This organisation username is already taken.");
@@ -242,6 +270,15 @@ public class OrganisationRegistrationController {
             return;
         }
 
+        if (organisationDAO.CheckOrganisationName(organisationName)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Organisation name Taken");
+            alert.setHeaderText("This organisation name is already taken.");
+            alert.setContentText("Please choose a different organisation name.");
+            alert.showAndWait();
+            return;
+        }
+
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
         OrganisationAnswers organisationAnswers = new OrganisationAnswers(categorySupportedGroup, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
@@ -251,6 +288,10 @@ public class OrganisationRegistrationController {
     }
 
 
+    /**
+     * Navigates to the login page after successful registration.
+     * @throws IOException if there is an error loading the login page
+     */
     @FXML
     private void handleLoginPage() throws IOException {
         Stage stage = (Stage) SubmitRegistration.getScene().getWindow(); // Get the current stage
@@ -260,4 +301,6 @@ public class OrganisationRegistrationController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
+
+
 }

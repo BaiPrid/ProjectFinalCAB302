@@ -28,77 +28,6 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    /*
-
-    // Method to switch to the new page
-    public void switchToOrgLogin(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrgLogin.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500);
-        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-
-        stage.setScene(scene);
-    }
-
-
-
-    // Method to switch to the new page
-    public void switchToOrganisationRegistrationPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrganisationRegistrationPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500);
-
-        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-        stage.setScene(scene);
-    }
-
-    // Method to switch to the new page
-    public void switchToLoginPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-
-        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-        stage.setScene(scene);
-    }
-
-
-
-
-    / Method to switch to the Organisation page
-    public void switchToLoginPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("OrgLogin.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-        stage.setScene(scene);
-    }
-
-    // Method to switch to the new page
-    public void switchToUserRegistrationPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserRegistrationPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-
-        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-        stage.setScene(scene);
-    }
-
-    // Method to switch to the new page
-    public void switchToCharitiesPage(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CharitiesPage.fxml"));
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 900, 500); // Adjust the size if necessary
-
-        String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-        stage.setScene(scene);
-    }
-
-    */
 
     public static void main(String[] args) {
         //creates tables for each neccesary class by creating a connection to API and creating instance of each object
@@ -120,8 +49,6 @@ public class HelloApplication extends Application {
         userDAO.close();
         organisationDao.close();
     }
-
-
 
 }
 

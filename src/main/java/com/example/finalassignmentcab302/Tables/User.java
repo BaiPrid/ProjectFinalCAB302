@@ -1,6 +1,8 @@
 package com.example.finalassignmentcab302.Tables;
 
-
+/**
+ * A simple model class representing a User with an id, first name, last name, username, password, email, phonenumber and economomic class.
+ */
 public class User {
 
     private int id;
@@ -13,6 +15,18 @@ public class User {
     private String economicClass;
 
 
+    /**
+     * Constructs a new User with the specified id, first name, last name, username, password, email, phonenumber and economomic class.
+     * @param id of the User
+     * @param firstName of the User
+     * @param lastName of the User
+     * @param userName of the User
+     * @param password of the User
+     * @param email of the User
+     * @param phoneNumber of the User
+     * @param economicClass of the User
+     */
+
     public User(int id, String firstName, String lastName, String userName, String password, String email, Integer phoneNumber, String economicClass){
         this.id = id;
         this.firstName = firstName;
@@ -24,6 +38,17 @@ public class User {
         this.economicClass = economicClass;
     }
 
+    /**
+     * Constructs a new User with the specified first name, last name, username, password, email, phonenumber and economomic class.
+     * @param firstName of the User
+     * @param lastName of the User
+     * @param userName of the User
+     * @param password of the User
+     * @param email of the User
+     * @param phoneNumber of the User
+     * @param economicClass of the User
+     */
+
     public User(String firstName, String lastName, String userName, String password, String email, Integer phoneNumber, String economicClass){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,13 +59,19 @@ public class User {
         this.economicClass = economicClass;
     }
 
-    ////////////////////NEW SECTION////////////////////
-    //User constructor for just username and password
+
+    /**
+     * Constructs a new User with the specified username and password for login only purposes
+     * @param username of the User
+     * @param password of the User
+
+     */
+
     public User(String username, String password){
         this.userName = username;
         this.password = password;
     }
-    ///////////////////////////////////////////////////
+
 
     public int getId(){
         return id;

@@ -1,6 +1,8 @@
 package com.example.finalassignmentcab302.Tables;
 
-
+/**
+ * A simple model class representing an Organisation with an id, name, description, imgpath, email, groupsupported, username and password.
+ */
 public class Organisation {
 
     private int id;
@@ -12,6 +14,17 @@ public class Organisation {
     private String userName;
     private String passWord;
 
+    /**
+     * Constructs a new Organisation with the specified id, name, groupsupported, description, imgpath, email, username and password
+     * @param id of the organisation
+     * @param name of the organisation
+     * @param groupSupported by the organisation
+     * @param description of the organisation
+     * @param imgPath of the organisations image
+     * @param email of the organisation
+     * @param userName of the organisation
+     * @param passWord of the organisation
+     */
     public Organisation(int id, String name, String groupSupported, String description, String imgPath, String email, String userName, String passWord){
         this.id = id;
         this.name = name;
@@ -22,6 +35,17 @@ public class Organisation {
         this.userName = userName;
         this.passWord = passWord;
     }
+
+    /**
+     * Constructs a new Organisation with the specified name, groupsupported, description, imgpath, email, username and password
+     * @param name of the organisation
+     * @param groupSupported by the organisation
+     * @param description of the organisation
+     * @param imgPath of the organisations image
+     * @param email of the organisation
+     * @param userName of the organisation
+     * @param passWord of the organisation
+     */
 
     public Organisation(String name, String groupSupported, String description, String imgPath, String email, String userName, String passWord){
         this.name = name;

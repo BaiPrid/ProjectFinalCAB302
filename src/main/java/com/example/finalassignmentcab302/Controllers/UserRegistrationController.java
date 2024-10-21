@@ -28,6 +28,11 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class for user registration in the application.
+ * This class handles user input for registration, validates the input,
+ * and manages navigation to the questions page after successful registration.
+ */
 public class UserRegistrationController {
 
     private Stage primaryStage;
@@ -64,20 +69,32 @@ public class UserRegistrationController {
     @FXML
     private Button SubmitUserRegistration;
 
-
+    /**
+     * Sets the primary stage for this controller.
+     * @param primaryStage The primary stage to be set.
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
 
+    /**
+     * Initializes the controller.
+     * This method is called as soon as the FXML file has been loaded.
+     */
     @FXML
     public void initialize() {
 
     }
 
-
+    /**
+     * Handles the action of the user registration button.
+     * Validates input fields, checks username and email uniqueness,
+     * and registers the user if all validations pass. If they are not unique creates an alert notifying the user of the issue and returning them to the screen.
+     * @throws IOException if there is an error loading the questions page.
+     */
     @FXML
-    private void handleUserButtonAction() throws IOException {
+    public void handleUserButtonAction() throws IOException {
 
 
         if (FirstName.getText().isEmpty() ||
@@ -87,7 +104,7 @@ public class UserRegistrationController {
                 UserName.getText().isEmpty() ||
                 PhoneNumber.getText().isEmpty() ||
                 EconomicClass.getValue() == null)
-                 {
+        {
 
             // If any field is empty, show an alert
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -148,22 +165,21 @@ public class UserRegistrationController {
 
         User newuser = new User(firstName, lastName, userName, password, email, realphonenumber, economicClass);
         userdao.insert(newuser);
-        //////////////NEW SECTION/////////////
-        //This retrieves the user id before sending them to the questions page
-        //handleLoginPage(); <--- Old
-        //User currentUser = new User(userName, password);
         UserDAO currentUserDAO = new UserDAO();
         CurrentUserGLOBAL.currentUser = currentUserDAO.getUserID(userName, password);
-        //System.out.println(CurrentUserGLOBAL.currentUser); <--- for testing
 
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true, "TempAns", "TempAns", "TempAns");
+        UserAnswers userAnswers = new UserAnswers(CurrentUserGLOBAL.currentUser, "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", "Not Needed Yet", true);
         userAnswersDAO.insert(userAnswers);
 
         handleQuestionPage();
 
     }
 
+    /**
+     * Navigates to the questions page.
+     * @throws IOException if there is an error loading the questions page.
+     */
     private void handleQuestionPage() throws IOException {
         Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("QuestionPage.fxml"));
@@ -173,19 +189,14 @@ public class UserRegistrationController {
         stage.setScene(scene);
     }
 
-    /* Was this old code for button?
-    private void handleLoginPage() throws IOException {
-        Stage stage = (Stage) SubmitUserRegistration.getScene().getWindow(); // Get the current stage
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserLogin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
-        stage.setScene(scene);
-    }
-
-     */
     @FXML
     private Button btnLogout;
 
-
+    /**
+     * Handles the action of the logout button.
+     * Navigates the user back to the login page.
+     * @throws IOException if there is an error loading the login page.
+     */
     @FXML
     protected void handleOpenUserRegistration() throws IOException {
         Stage stage = (Stage) btnLogout.getScene().getWindow();

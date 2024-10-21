@@ -1,6 +1,8 @@
 package com.example.finalassignmentcab302.Tables;
 
-
+/**
+ * A simple model class representing an Organisations answers to the registration quiz with an organisationId, category, size, donationOptions, taxableCategory and donordpecifies.
+ */
 public class OrganisationAnswers {
 
     private int organisationId;
@@ -10,6 +12,15 @@ public class OrganisationAnswers {
     private String taxableCategory;
     private boolean donorSpecifies;
 
+    /**
+     * Constructs a new OrganisationAnswers with the specified organisationId, category, size, donationOptions, taxableCategory and donordpecifies.
+     * @param organisationId of the organisation
+     * @param category of the organisation
+     * @param size of the organisation
+     * @param donationOptions of the organisation
+     * @param taxableCategory of the organisation
+     * @param donorSpecifies option of the organisation
+     */
     public OrganisationAnswers(int organisationId, String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies){
         this.organisationId = organisationId;
         this.category = category;
@@ -20,6 +31,14 @@ public class OrganisationAnswers {
 
     }
 
+    /**
+     * Constructs a new OrganisationAnswers with the specified category, size, donationOptions, taxableCategory and donordpecifies.
+     * @param category of the organisation
+     * @param size of the organisation
+     * @param donationOptions of the organisation
+     * @param taxableCategory of the organisation
+     * @param donorSpecifies option of the organisation
+     */
     public OrganisationAnswers(String category, String size, String donationOptions, String taxableCategory, Boolean donorSpecifies){
         this.category = category;
         this.size = size;

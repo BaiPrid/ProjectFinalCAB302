@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserAnswersDAOTest {
     private UserAnswersDAO userAnswersDAO;
-    private UserAnswers[] userAnswersArray = {
-            new UserAnswers(1, "Category1", "Size1", "Donation1", "Taxable1", true, "Ans1_1", "Ans1_2", "Ans1_3"),
-            new UserAnswers(2, "Category2", "Size2", "Donation2", "Taxable2", false, "Ans2_1", "Ans2_2", "Ans2_3"),
-            new UserAnswers(3, "Category3", "Size3", "Donation3", "Taxable3", true, "Ans3_1", "Ans3_2", "Ans3_3")
+    private final UserAnswers[] userAnswersArray = {
+            new UserAnswers(1, "Category1", "Size1", "Donation1", "Taxable1", true),
+            new UserAnswers(2, "Category2", "Size2", "Donation2", "Taxable2", false),
+            new UserAnswers(3, "Category3", "Size3", "Donation3", "Taxable3", true)
     };
 
     @BeforeEach
@@ -35,7 +35,7 @@ public class UserAnswersDAOTest {
     public void testUpdate() {
         userAnswersDAO.insert(userAnswersArray[0]);
         UserAnswers updatedUserAnswers = new UserAnswers(
-                1, "UpdatedCategory", "UpdatedSize", "UpdatedDonation", "UpdatedTaxable", false, "UpdatedAns1", "UpdatedAns2", "UpdatedAns3"
+                1, "UpdatedCategory", "UpdatedSize", "UpdatedDonation", "UpdatedTaxable", false
         );
         userAnswersDAO.update(updatedUserAnswers);
         List<UserAnswers> allUserAnswers = userAnswersDAO.getAll();
@@ -44,9 +44,6 @@ public class UserAnswersDAOTest {
         assertEquals("UpdatedSize", fetchedUserAnswers.getSize());
         assertEquals("UpdatedDonation", fetchedUserAnswers.getDonationOptions());
         assertEquals("UpdatedTaxable", fetchedUserAnswers.getTaxableCategory());
-        assertEquals("UpdatedAns1", fetchedUserAnswers.getUserAns1());
-        assertEquals("UpdatedAns2", fetchedUserAnswers.getUserAns2());
-        assertEquals("UpdatedAns3", fetchedUserAnswers.getUserAns3());
     }
 
     @Test

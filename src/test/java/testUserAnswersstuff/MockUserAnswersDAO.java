@@ -18,10 +18,7 @@ public class MockUserAnswersDAO extends UserAnswersDAO {
                 userAnswers.getSize(),
                 userAnswers.getDonationOptions(),
                 userAnswers.getTaxableCategory(),
-                userAnswers.getDonorSpecifies(),
-                userAnswers.getUserAns1(),
-                userAnswers.getUserAns2(),
-                userAnswers.getUserAns3()
+                userAnswers.getDonorSpecifies()
         );
         userAnswersList.add(userAnswers);
     }
