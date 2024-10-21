@@ -31,9 +31,6 @@ public class UserAccountsControllerTest {
 
         // Pass the mocked DAOs to the mock controller
         mockController = new MockUserAccountsController(mockUserDAO, mockOrderDAO, mockOrganisationDAO);
-
-//        // Initialize the ListView in the mock controller
-//        mockController.orderListView = new javafx.scene.control.ListView<>();
     }
 
     @Test
