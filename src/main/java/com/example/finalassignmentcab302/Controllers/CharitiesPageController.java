@@ -23,8 +23,14 @@ import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 
 import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
+/**
+ * Controller class for the CharitiesPage view.
+ * This class handles the logic for matching charities to users based on their answers,
+ * displaying charity names and descriptions, and navigating to the donation page.
+ */
 public class CharitiesPageController {
 
+    /** Stores the name of the selected charity. */
     public static String selectedCharityName;
 
     @FXML
@@ -58,10 +64,13 @@ public class CharitiesPageController {
     @FXML
     private Button btnAccount;
 
+    /**
+     * Initializes the controller by fetching user answers and matching them to charities.
+     * Populates the charity information in the UI based on the user's answers.
+     */
     @FXML
     private void initialize() {
         UserAnswersDAO userAnswersDAO = new UserAnswersDAO();
-        OrganisationDAO organisationDAO = new OrganisationDAO();
 
         int userId = currentUser;
         // Gets the answers for the specific user id
@@ -71,7 +80,7 @@ public class CharitiesPageController {
             // Get matching organizations based on user answers, returns as a hashmap of organisation id and the amount of matching answers
             Map<Integer, Integer> matchingOrganisations = userAnswersDAO.getMatchingOrganisations(userAnswers);
 
-            // Apply some fucky hashmap manipulation to sort it into descending order based on the values.
+            // Apply some messy hashmap manipulation to sort it into descending order based on the values.
             List<Map.Entry<Integer, Integer>> sortedMatches = matchingOrganisations.entrySet().stream().sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())).toList();
 
             // Number of questions
@@ -108,8 +117,14 @@ public class CharitiesPageController {
     }
 
 
-    // Generates the name and description based on the organisation id
-    // NOTE: the total questions are hard coded at the moment, needs to be variable
+    /**
+     * Generates the name and description of a charity based on its organisation ID.
+     *
+     * @param orgId The organisation ID.
+     * @param matches The number of matching answers between the user and the organisation.
+     * @param totalQuestions The total number of questions answered by the user.
+     * @return A String array containing the organisation name and description with the percentage match.
+     */
     private String[] generateNameDescription(int orgId, int matches, int totalQuestions) {
         OrganisationDAO organisationDAO = new OrganisationDAO();
 
@@ -125,16 +140,25 @@ public class CharitiesPageController {
         return result;
     }
 
+    /**
+     * Sets the selected charity name to the first charity's name.
+     */
     @FXML
     private void setCharityNamefor1(){
         selectedCharityName = nameDescription1[0];
     }
 
+    /**
+     * Sets the selected charity name to the second charity's name.
+     */
     @FXML
     private void setCharityNamefor2(){
         selectedCharityName = nameDescription2[0];
     }
 
+    /**
+     * Sets the selected charity name to the third charity's name.
+     */
     @FXML
     private void setCharityNamefor3(){
         selectedCharityName = nameDescription3[0];
@@ -145,7 +169,6 @@ public class CharitiesPageController {
      * Sends the user to the account page corresponding to the current user's ID.
      * @throws IOException if there is a problem loading the page.
      */
-
     @FXML
     private void handleOpenAccount() throws IOException {
         Stage stage = (Stage) btnAccount.getScene().getWindow(); // Get the current stage
@@ -156,6 +179,11 @@ public class CharitiesPageController {
         stage.setScene(scene);
     }
 
+    /**
+     * Navigates the user to the donation page for the first charity.
+     *
+     * @throws IOException If there is a problem loading the donation page.
+     */
     @FXML
     private void handleDonationPagefor1() throws IOException {
         setCharityNamefor1();
@@ -167,6 +195,11 @@ public class CharitiesPageController {
         stage.setScene(scene);
     }
 
+    /**
+     * Navigates the user to the donation page for the second charity.
+     *
+     * @throws IOException If there is a problem loading the donation page.
+     */
     @FXML
     private void handleDonationPagefor2() throws IOException {
         setCharityNamefor2();
@@ -178,6 +211,11 @@ public class CharitiesPageController {
         stage.setScene(scene);
     }
 
+    /**
+     * Navigates the user to the donation page for the third charity.
+     *
+     * @throws IOException If there is a problem loading the donation page.
+     */
     @FXML
     private void handleDonationPagefor3() throws IOException {
         setCharityNamefor3();
@@ -188,9 +226,4 @@ public class CharitiesPageController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
-
-
-
 }
-
-
