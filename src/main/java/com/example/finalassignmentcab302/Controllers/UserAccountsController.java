@@ -34,7 +34,7 @@ public class UserAccountsController
     @FXML
     private Button btnQuestions;
     @FXML
-    private Label txtTitle;
+    public Label txtTitle;
     @FXML
     public ListView<Order> orderListView;
     @FXML
@@ -102,7 +102,7 @@ public class UserAccountsController
      * Initialising the FXML fx:id values.
      */
     @FXML
-    private void initialize()
+    public void initialize()
     {
         txtTitle.setText("Welcome " + userName + "!");
 
@@ -120,7 +120,7 @@ public class UserAccountsController
     /**
      * Synchronizes the orders list view with the orders in the database.
      */
-    private void syncOrders() {
+    public void syncOrders() {
         orderListView.getItems().clear();
         List<Order> userOrders = userOrdersDAO.getUserOrders(userId);
         boolean hasOrders = !userOrders.isEmpty();
@@ -134,7 +134,7 @@ public class UserAccountsController
      * updates the text fields with the order's information.
      * @param order The order to select.
      */
-    private void selectOrder(Order order) {
+    public void selectOrder(Order order) {
         orderListView.getSelectionModel().select(order);
         orderIDField.setText(Integer.toString(order.getOrderId()));
         organisationField.setText(orgDAO.getName(order.getOrganisationId()));
