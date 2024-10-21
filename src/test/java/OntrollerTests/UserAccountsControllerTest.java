@@ -82,13 +82,13 @@ public class UserAccountsControllerTest {
 
     @Test
     public void testInitializeSetsTitle() {
-        // Mock the user's name returned by the DAO
-        when(mockUserDAO.getName(anyInt())).thenReturn("John Doe");
+        // Mock the user's name as if it were returned by the DAO
+        mockController.userName = "John Doe";
 
         // Initialize the controller
         mockController.initialize();
 
         // Verify that the title is set correctly
-        assertEquals("Welcome John Doe!", mockController.txtTitle.getText());
+        assertEquals("Welcome John Doe!", mockController.txt);
     }
 }
