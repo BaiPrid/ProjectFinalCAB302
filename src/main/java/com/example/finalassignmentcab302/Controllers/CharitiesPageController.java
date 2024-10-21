@@ -1,10 +1,7 @@
 package com.example.finalassignmentcab302.Controllers;
 
-import com.example.finalassignmentcab302.CurrentUserGLOBAL;
 import com.example.finalassignmentcab302.HelloApplication;
-import com.example.finalassignmentcab302.Tables.Organisation;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,9 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.finalassignmentcab302.dao.UserAnswersDAO;
-import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
-import com.example.finalassignmentcab302.Tables.UserAnswers;
-import com.example.finalassignmentcab302.Tables.OrganisationAnswers;
 
 import static com.example.finalassignmentcab302.CurrentUserGLOBAL.currentUser;
 
@@ -203,7 +197,7 @@ public class CharitiesPageController {
     @FXML
     private void handleDonationPagefor2() throws IOException {
         setCharityNamefor2();
-        Stage stage = (Stage) btnCharity1.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) btnCharity2.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Donate Page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
@@ -219,7 +213,7 @@ public class CharitiesPageController {
     @FXML
     private void handleDonationPagefor3() throws IOException {
         setCharityNamefor3();
-        Stage stage = (Stage) btnCharity1.getScene().getWindow(); // Get the current stage
+        Stage stage = (Stage) btnCharity3.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Donate Page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
         String stylesheet = HelloApplication.class.getResource("stylesheet.css").toExternalForm();
