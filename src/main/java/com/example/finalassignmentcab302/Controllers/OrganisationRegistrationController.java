@@ -243,11 +243,11 @@ public class OrganisationRegistrationController {
 
         // Read checkboxes
         List<String> donationTypes = new ArrayList<>();
-        if (monetaryDonationCheckBox.isSelected()) donationTypes.add("monetaryDonation, ");
-        if (volunteerWorkCheckBox.isSelected()) donationTypes.add("volunteerWork, ");
-        if (payedEmployeesCheckBox.isSelected()) donationTypes.add("payedEmployees, ");
-        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("HiredParty, ");
-        String donationTypesBuild = String.join(", ", donationTypes);
+        if (monetaryDonationCheckBox.isSelected()) donationTypes.add("Monetary Donation");
+        if (volunteerWorkCheckBox.isSelected()) donationTypes.add("Volunteer Work");
+        if (payedEmployeesCheckBox.isSelected()) donationTypes.add("Payed Employees");
+        if (hiredCorporationsCheckBox.isSelected()) donationTypes.add("Hired Party");
+        String donationTypesBuild = String.join(",", donationTypes);
 
 
         OrganisationDAO organisationDAO = new OrganisationDAO();
@@ -280,7 +280,7 @@ public class OrganisationRegistrationController {
         }
 
         Organisation organisation = new Organisation(organisationName, categorySupportedGroup, organisationDescription, imagePath, organisationEmail, organisationUsername, organisationPassword);
-        OrganisationAnswers organisationAnswers = new OrganisationAnswers(categoryOfOrganisation, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
+        OrganisationAnswers organisationAnswers = new OrganisationAnswers(categorySupportedGroup, sizeOfOrganisation, donationTypesBuild, selectedRadioGroup1, selectedRadioGroup2);
         OrganisationAnswersDAO dao = new OrganisationAnswersDAO();
         dao.insert(organisationAnswers);
         organisationDAO.insert(organisation);

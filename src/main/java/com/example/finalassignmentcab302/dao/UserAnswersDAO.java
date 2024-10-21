@@ -29,7 +29,7 @@ public class UserAnswersDAO {
 
     /**
      * Creates the userAnswersTable in the database with columns for userId, category, size,
-     * donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, and userAns3.
+     * donationOptions, taxableCategory, and donorSpecifies.
      */
     public void createTable() {
         try {
@@ -42,9 +42,6 @@ public class UserAnswersDAO {
                             + "donationOptions VARCHAR, "
                             + "taxableCategory VARCHAR, "
                             + "donorSpecifies BOOLEAN, "
-                            + "userAns1 VARCHAR, "
-                            + "userAns2 VARCHAR, "
-                            + "userAns3 VARCHAR, "
                             + "FOREIGN KEY (userId) REFERENCES users(id)"
                             + ")"
             );
@@ -60,17 +57,14 @@ public class UserAnswersDAO {
     public void insert(UserAnswers userAnswers) {
         try {
             PreparedStatement insertUserAnswers = connection.prepareStatement(
-                    "INSERT INTO  userAnswersTable(category, size, donationOptions, taxableCategory, donorSpecifies, userAns1, userAns2, userAns3) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                    "INSERT INTO  userAnswersTable(category, size, donationOptions, taxableCategory, donorSpecifies) " +
+                            "VALUES (?, ?, ?, ?, ?)"
             );
             insertUserAnswers.setString(1, userAnswers.getCategory());
             insertUserAnswers.setString(2, userAnswers.getSize());
             insertUserAnswers.setString(3, userAnswers.getDonationOptions());
             insertUserAnswers.setString(4, userAnswers.getTaxableCategory());
             insertUserAnswers.setBoolean(5, userAnswers.getDonorSpecifies());
-            insertUserAnswers.setString(6, userAnswers.getUserAns1());
-            insertUserAnswers.setString(7, userAnswers.getUserAns2());
-            insertUserAnswers.setString(8, userAnswers.getUserAns3());
             insertUserAnswers.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -84,7 +78,7 @@ public class UserAnswersDAO {
     public void update(UserAnswers userAnswers) {
         try {
             PreparedStatement updateUserAnswers = connection.prepareStatement(
-                    "UPDATE userAnswersTable SET category = ?, size = ?, donationOptions = ?, taxableCategory = ?, userAns1 = ?, userAns2 = ?, userAns3 = ?," +
+                    "UPDATE userAnswersTable SET category = ?, size = ?, donationOptions = ?, taxableCategory = ?," +
                             " donorSpecifies = ? " + "WHERE userId = ?"
             );
             // note change where id = to username and password for forget password
@@ -92,33 +86,8 @@ public class UserAnswersDAO {
             updateUserAnswers.setString(2, userAnswers.getSize());
             updateUserAnswers.setString(3, userAnswers.getDonationOptions());
             updateUserAnswers.setString(4, userAnswers.getTaxableCategory());
-            updateUserAnswers.setString(5, userAnswers.getUserAns1());
-            updateUserAnswers.setString(6, userAnswers.getUserAns2());
-            updateUserAnswers.setString(7, userAnswers.getUserAns3());
-            updateUserAnswers.setBoolean(8, userAnswers.getDonorSpecifies());
-            updateUserAnswers.setInt(9, userAnswers.getUserId());
-            updateUserAnswers.execute();
-        } catch (SQLException ex) {
-            System.err.println(ex);
-        }
-    }
-
-    /**
-     * Updates only the answers (userAns1, userAns2, userAns3) in a UserAnswers record.
-     * @param userAnswers The UserAnswers object containing the updated answers.
-     */
-    public void updateAnswersOnly(UserAnswers userAnswers) {
-        try {
-            PreparedStatement updateUserAnswers = connection.prepareStatement(
-                    "UPDATE userAnswersTable SET  userAns1 = ?, userAns2 = ?, userAns3 = ?" +
-                            "WHERE userId = ?"
-            );
-            // note change where id = to username and password for forget password
-
-            updateUserAnswers.setString(1, userAnswers.getUserAns1());
-            updateUserAnswers.setString(2, userAnswers.getUserAns2());
-            updateUserAnswers.setString(3, userAnswers.getUserAns3());
-            updateUserAnswers.setInt(4, userAnswers.getUserId());
+            updateUserAnswers.setBoolean(5, userAnswers.getDonorSpecifies());
+            updateUserAnswers.setInt(6, userAnswers.getUserId());
             updateUserAnswers.execute();
         } catch (SQLException ex) {
             System.err.println(ex);
@@ -179,10 +148,7 @@ public class UserAnswersDAO {
                                 rs.getString("size"),
                                 rs.getString("donationOptions"),
                                 rs.getString("taxableCategory"),
-                                rs.getBoolean("donorSpecifies"),
-                                rs.getString("userAns1"),
-                                rs.getString("userAns2"),
-                                rs.getString("userAns3")
+                                rs.getBoolean("donorSpecifies")
                         )
                 );
             }
@@ -211,7 +177,7 @@ public class UserAnswersDAO {
                 String[] orgOptions = orgAnswers[i].split(",\\s*");
 
                 for (String option : orgOptions) {
-                    if (orgAnswers[i].equals(userAnswers.get(i))) {
+                    if (option.equals(userAnswers.get(i))) {
                         matches++;
                         break;
                     }

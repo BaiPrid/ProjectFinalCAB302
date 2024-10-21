@@ -33,7 +33,7 @@ public class DonatePageController {
     @FXML
     int id;
     @FXML
-    int Orgid;
+    protected int Orgid;
     @FXML
     String groupSupported;
     @FXML
@@ -57,7 +57,7 @@ public class DonatePageController {
     @FXML
     private Label CharitySize;
 
-    private ToggleGroup group;
+    protected ToggleGroup group;
 
     @FXML
     private RadioButton radioButton1;
@@ -73,7 +73,7 @@ public class DonatePageController {
     private RadioButton radioButton6;
 
     @FXML
-    private TextField BillingAdress;
+    protected TextField BillingAdress;
 
 
 
@@ -90,7 +90,7 @@ public class DonatePageController {
      * Initializes the controller, sets charity info and radio buttons.
      */
     @FXML
-    private void initialize() {
+    public void initialize() {
         setCharityInfo(selectedCharityName);
         setupradiobuttons();
     }
@@ -155,7 +155,7 @@ public class DonatePageController {
      * Creates and order if Donation is valid.
      */
     @FXML
-    private void OnDonatePress() {
+    public void OnDonatePress() {
         if (BillingAdress.getText().isEmpty() ||
                 group.getSelectedToggle() == null) {
 
@@ -202,7 +202,7 @@ public class DonatePageController {
      * Handles the transition to the home page after a successful donation.
      * @throws IOException If an error occurs while loading the home page.
      */
-    private void handleHomeSend() throws IOException {
+    public void handleHomeSend() throws IOException {
         Stage stage = (Stage) Donate.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserAccounts.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
