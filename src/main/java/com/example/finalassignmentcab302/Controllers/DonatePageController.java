@@ -75,6 +75,7 @@ public class DonatePageController {
     protected TextField BillingAdress;
 
 
+
     @FXML
     private Button Donate;
 
@@ -118,7 +119,6 @@ public class DonatePageController {
 
     /**
      * Sets charity information based on the provided charity name.
-     *
      * @param charityName The name of the charity to retrieve information for.
      */
     public void setCharityInfo(String charityName) {
@@ -189,7 +189,6 @@ public class DonatePageController {
 
     /**
      * Retrieves the value of the selected radio button for donation amount.
-     *
      * @return The donation amount associated with the selected radio button.
      */
     private int getSelectedRadioButtonValue() {
@@ -200,7 +199,6 @@ public class DonatePageController {
 
     /**
      * Handles the transition to the home page after a successful donation.
-     *
      * @throws IOException If an error occurs while loading the home page.
      */
     private void handleHomeSend() throws IOException {
@@ -211,5 +209,8 @@ public class DonatePageController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
+
+
+
 
 }
