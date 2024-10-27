@@ -1,5 +1,4 @@
 package OntrollerTests;
-
 import com.example.finalassignmentcab302.dao.OrderDAO;
 import com.example.finalassignmentcab302.dao.OrganisationAnswersDAO;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
@@ -59,14 +58,14 @@ public class DonatePageControllerTest {
 
     @Test
     public void testSetCharityInfo() {
-        // Arrange: Mock the data returned by the DAO
+        // Mock the data returned by the DAO
         when(mockOrganisationDAO.getByName("Test Charity")).thenReturn(List.of(1, "Charity Name", "Description", "imgPath", "email", "Group Supported"));
         when(mockOrganisationAnswersDAO.getByid(1)).thenReturn(List.of(1, "Category", "Size", "DonationOptions", "Taxable Category"));
 
-        // Act: Call the method
+
         mockController.setCharityInfo("Test Charity");
 
-        // Assert: Verify the fields are set correctly
+        // Verify the fields are set correctly
         assertEquals("Charity Name", mockController.getMockLblCharityName());
         assertEquals("Description", mockController.getMockCharityDescription());
         assertEquals("Group Supported", mockController.getMockCharityGroupSupported());

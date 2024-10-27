@@ -1,5 +1,4 @@
 package OntrollerTests;
-
 import com.example.finalassignmentcab302.Controllers.DonatePageController;
 import com.example.finalassignmentcab302.Tables.Order;
 import com.example.finalassignmentcab302.dao.OrderDAO;
@@ -37,6 +36,7 @@ public class MockDonatePageController extends DonatePageController {
         this.selectedDonation = selectedDonation;
     }
 
+    // Method to simulate alerts and successful donations via field checks
     @Override
     public void OnDonatePress() {
         if (billingAddress == null || billingAddress.isEmpty() || selectedDonation == null) {
@@ -49,6 +49,7 @@ public class MockDonatePageController extends DonatePageController {
         }
     }
 
+    //// To mock the creation of charity inro on page attempt to retrieve each piece of data and stoe in a list
     @Override
     public void setCharityInfo(String charityName) {
         List<Object> organisationDetails = mockOrganisationDAO.getByName(charityName);

@@ -21,6 +21,7 @@ public class MockUserRegistrationController extends UserRegistrationController {
         this.userDAO = userDAO;
     }
 
+    // set each field to test via assert equals or empty check
     public void setFieldsForTesting(String firstName, String lastName, String userName, String passWord, String email, String phoneNumber, String economicClass) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,6 +32,7 @@ public class MockUserRegistrationController extends UserRegistrationController {
         this.economicClass = economicClass;
     }
 
+    // Mock what would happen when user presses submit button to esnure field types are correct and not empty
     @Override
     public void handleUserButtonAction() {
         if (firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() ||
@@ -53,7 +55,8 @@ public class MockUserRegistrationController extends UserRegistrationController {
         }
     }
 
-    // Method to validate if the phone number is valid
+
+    // Method to validate if the phone number is valid and is an integer
     public boolean isPhoneNumberValid(String phoneNumber) {
         try {
             Integer.parseInt(phoneNumber);

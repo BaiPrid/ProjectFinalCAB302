@@ -1,5 +1,4 @@
 package OntrollerTests;
-
 import com.example.finalassignmentcab302.Controllers.OrganisationRegistrationController;
 import com.example.finalassignmentcab302.dao.OrganisationDAO;
 
@@ -31,6 +30,7 @@ public class MockOrganisationRegistrationController extends OrganisationRegistra
         this.organisationEmail = organisationEmail;
     }
 
+    // simlulate checking fields to create an alert if they are wrong.
     @Override
     public void handleOrganisationButtonAction() {
         if (organisationName.isEmpty() || supportedGroup.isEmpty() || organisationDescription.isEmpty() ||
