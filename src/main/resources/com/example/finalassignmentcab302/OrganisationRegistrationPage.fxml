@@ -58,7 +58,7 @@
 
                     <VBox>
                 <Label text="Password for Organisation"/>
-                <TextField promptText="Enter Organisation Password" fx:id="OrganisationPassword"/>
+                <PasswordField promptText="Enter Organisation Password" fx:id="OrganisationPassword"/>
                     </VBox>
                 </HBox>
 

@@ -344,6 +344,37 @@ public class OrganisationDAO {
     }
 
 
+    /**
+     * Retrieves the user ID based on the provided username and password.
+     * @param username The username of the user.
+     * @param password The password of the user.
+     * @return The ID of the user
+     */
+    public int getOrgID(String username, String password) {
+
+        int userID = -1;
+        try {
+            PreparedStatement getUserID = connection.prepareStatement("SELECT id FROM organisations WHERE userName = ? AND password = ?");
+            getUserID.setString(1, username);
+            getUserID.setString(2, password);
+
+            ResultSet rs = getUserID.executeQuery();
+
+            if (rs.next()){
+
+                userID = rs.getInt("id");
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();  // Handle SQL exceptions
+        }
+
+        return userID;
+    }
+
+
 }
 
 

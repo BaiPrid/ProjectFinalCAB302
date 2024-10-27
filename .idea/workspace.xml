@@ -8,10 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa926718-acca-43b0-8d81-b6510b5a60a7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrgAccountPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/OrgAccountPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrgloginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/Controllers/OrgloginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/finalassignmentcab302/dao/OrganisationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/OrgLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/OrgLogin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/OrganisationRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/finalassignmentcab302/OrganisationRegistrationPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="integration" />
+        <entry key="$PROJECT_DIR$" value="FinalOrgAccount" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,38 +69,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in FinalAssignmentCAB302.executor": "Run",
-    "JUnit.DatabaseTest.executor": "Run",
-    "JUnit.DonatePageControllerTest.executor": "Run",
-    "JUnit.OrganisationDAOTest.executor": "Coverage",
-    "JUnit.OrganisationRegistrationControllerTest.executor": "Run",
-    "JUnit.QuestionPageControllerTest.executor": "Run",
-    "JUnit.UserAccountsControllerTest.executor": "Run",
-    "JUnit.UserAnswersDAOTest.executor": "Run",
-    "JUnit.UserDAOTest.executor": "Coverage",
-    "JUnit.UserRegistrationControllerTest (1).executor": "Run",
-    "JUnit.java in FinalAssignmentCAB302.executor": "Coverage",
-    "JUnit.test in FinalAssignmentCAB302.executor": "Coverage",
-    "Maven.FinalAssignmentCAB302 [org.apache.maven.plugins:maven-javadoc-plugin:3.4.0:javadoc].executor": "Run",
-    "Maven.FinalAssignmentCAB302 [package].executor": "Run",
-    "Maven.FinalAssignmentCAB302 [test].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "integration",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Rere/Desktop/Year 4/CAB302 Java/address-book",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41264367"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in FinalAssignmentCAB302.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DonatePageControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrganisationDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.OrganisationRegistrationControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QuestionPageControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserAccountsControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserAnswersDAOTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDAOTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserRegistrationControllerTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.test in FinalAssignmentCAB302.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven.FinalAssignmentCAB302 [org.apache.maven.plugins:maven-javadoc-plugin:3.4.0:javadoc].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FinalAssignmentCAB302 [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.FinalAssignmentCAB302 [test].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;integration&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rere/Desktop/Year 4/CAB302 Java/address-book&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41264367&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\OneDrive\Desktop\ProjectFinalCAB302" />

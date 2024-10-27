@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.collections.FXCollections?>
+
+
+<?import java.lang.String?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.String?>
+
+
+
+
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalassignmentcab302.Controllers.OrgAccountPageController"
+            prefHeight="400.0" prefWidth="600.0">
+    <HBox spacing="50" alignment="CENTER">
+        <!-- LEFT SIDE: Registration Form -->
+        <VBox spacing="20.0" maxWidth="430.00">
+            <padding>
+                <Insets left="20" right="20" top="20"/>
+            </padding>
+            <Label text="Register Your Organisation"/>
+
+            <Label text="Select Category of Group Supported"/>
+            <ComboBox minWidth="300" fx:id="CategorySupportedGroup">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Animals"/>
+                        <String fx:value="Orphans"/>
+                        <String fx:value="Environmental"/>
+                        <String fx:value="Cancer Patients"/>
+                        <String fx:value="Local Schools"/>
+                        <String fx:value="Poor Countries"/>
+                        <String fx:value="Homeless"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label text="Select Category of Organisation"/>
+            <ComboBox minWidth="300" fx:id="CategoryOfOrganisation">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Not-For-Profit"/>
+                        <String fx:value="For-Profit"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label text="Select Size of Organisation"/>
+            <ComboBox minWidth="300" fx:id="SizeOfOrganisation">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Local - 5-50 people"/>
+                        <String fx:value="Small - 50-500 people"/>
+                        <String fx:value="Medium - 500-2000 people"/>
+                        <String fx:value="Large - 2000-10000 people"/>
+                        <String fx:value="National - 10000-50000 people"/>
+                        <String fx:value="Global - Over 50000 people"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label text="Select Charitable Processes of Organisation"/>
+            <HBox spacing="20.0">
+                <CheckBox text="Monetary Donation" fx:id="monetaryDonationCheckBox"/>
+                <CheckBox text="Volunteer Work" fx:id="volunteerWorkCheckBox"/>
+            </HBox>
+
+            <HBox spacing="30.0">
+                <CheckBox text="Payed Employees" fx:id="payedEmployeesCheckBox"/>
+                <CheckBox text="Hired 3rd Party Corporations" fx:id="hiredCorporationsCheckBox"/>
+            </HBox>
+
+            <Label text="Select Taxable Category of Organisation"/>
+            <HBox spacing="50.0">
+                <RadioButton text="Tax Deductible" fx:id="radioButton1"/>
+                <RadioButton text="Not Tax Deductible" fx:id="radioButton2"/>
+            </HBox>
+
+            <Label text="Select Donor Control of Donation"/>
+            <HBox spacing="15.0">
+                <RadioButton text="Donor Specifies Usage" fx:id="radioButton3"/>
+                <RadioButton text="Donor Doesn't specify Usage" fx:id="radioButton4"/>
+            </HBox>
+
+            <Label text="Select Default Donation Amounts in dollars"/>
+            <HBox spacing="30.0">
+                <VBox>
+                    <CheckBox fx:id="five"/>
+                    <Label text="5"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="ten"/>
+                    <Label text="10"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="fifteen"/>
+                    <Label text="15"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="twenty"/>
+                    <Label text="20"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="fifty"/>
+                    <Label text="50"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="hundred"/>
+                    <Label text="100"/>
+                </VBox>
+                <VBox>
+                    <CheckBox fx:id="twohundred"/>
+                    <Label text="200"/>
+                </VBox>
+            </HBox>
+        <VBox>
+        <Button text="UPDATE QUESTIONS"/>
+        </VBox>
+
+
+        </VBox>
+
+
+
+        <!-- RIGHT SIDE: Order History -->
+
+        <VBox alignment="CENTER" prefWidth="500">
+            <Label text="Your order history!"/>
+            <ListView fx:id="orderListView" prefWidth="200" prefHeight="300"/>
+
+            <GridPane hgap="20.0" vgap="5.0" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="70"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Order ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label text="Organisation:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label text="Amount:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="orderIDField" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
+                <TextField fx:id="organisationField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <TextField fx:id="orderDateField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <TextField fx:id="amountField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+
+            <VBox spacing="20.0" alignment="CENTER_RIGHT">
+                <Button fx:id="btnBack" text="Log Out" onAction="#handleOpenHome"/>
+            </VBox>
+        </VBox>
+    </HBox>
+
+
+
+
+
+</ScrollPane>

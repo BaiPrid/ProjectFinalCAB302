@@ -29,7 +29,7 @@
                 <TextField fx:id="orgUsername"/>
                 <Label text="Password"/>
                 <PasswordField fx:id="orgPassword"/>
-                <Button text="Login" onAction="#handleOrgLogin"/>
+                <Button text="Login" onAction="#handleOrgLogin" fx:id="NavToOrgAccount"/>
                 <padding>
                     <Insets top="5.0" bottom="5.0"/>
                 </padding>
