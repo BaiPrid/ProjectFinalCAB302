@@ -1,5 +1,4 @@
 package com.example.finalassignmentcab302.Controllers;
-
 import com.example.finalassignmentcab302.HelloApplication;
 import com.example.finalassignmentcab302.Tables.Order;
 import com.example.finalassignmentcab302.dao.OrderDAO;
@@ -76,7 +75,6 @@ public class DonatePageController {
     protected TextField BillingAdress;
 
 
-
     @FXML
     private Button Donate;
 
@@ -90,7 +88,7 @@ public class DonatePageController {
      * Initializes the controller, sets charity info and radio buttons.
      */
     @FXML
-    public void initialize() {
+    private void initialize() {
         setCharityInfo(selectedCharityName);
         setupradiobuttons();
     }
@@ -99,7 +97,7 @@ public class DonatePageController {
      * Sets up the radio buttons for donation amounts.
      */
     @FXML
-    public void setupradiobuttons() {
+    private void setupradiobuttons() {
         // Create a ToggleGroup and add the radio buttons to it
         group = new ToggleGroup();
         radioButton1.setToggleGroup(group);
@@ -120,6 +118,7 @@ public class DonatePageController {
 
     /**
      * Sets charity information based on the provided charity name.
+     *
      * @param charityName The name of the charity to retrieve information for.
      */
     public void setCharityInfo(String charityName) {
@@ -190,9 +189,10 @@ public class DonatePageController {
 
     /**
      * Retrieves the value of the selected radio button for donation amount.
+     *
      * @return The donation amount associated with the selected radio button.
      */
-    public int getSelectedRadioButtonValue() {
+    private int getSelectedRadioButtonValue() {
         RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
         // Retrieve the integer value assigned to the selected RadioButton
         return (int) selectedRadioButton.getUserData();
@@ -200,9 +200,10 @@ public class DonatePageController {
 
     /**
      * Handles the transition to the home page after a successful donation.
+     *
      * @throws IOException If an error occurs while loading the home page.
      */
-    public void handleHomeSend() throws IOException {
+    private void handleHomeSend() throws IOException {
         Stage stage = (Stage) Donate.getScene().getWindow(); // Get the current stage
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("UserAccounts.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
@@ -210,8 +211,5 @@ public class DonatePageController {
         scene.getStylesheets().add(stylesheet);
         stage.setScene(scene);
     }
-
-
-
 
 }
